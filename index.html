@@ -24,24 +24,33 @@
     <div class="six wide column">
       <div class="ui top left attached blue label">Communes</div>
       <h2 class="ui aligned">/communes</h2>
-      <p>Recherche de communes.</p>
+      <p>Recherche de communes</p>
     </div>
     <div class="height wide column">
       <div class="ui aligned segment">
-        <p>Utiliser directement le <b>code Insee</b> de la commune pour récupérer tous les informations la concernant:</p>
+        <p>Utilisez directement le <b>code INSEE</b> de la commune pour récupérer les informations la concernant :</p>
         <div class="ui secondary segment">https://geo.api.gouv.fr/communes/75056</div>
-        <div class="ui warning message"><i class="warning icon"></i> Une <b>Erreur 404</b> sera renvoyé si le code Insee n'existe pas. </div>
-        <p>Utiliser le paramètre <b>nom</b> pour faire une recherche par nom:</p>
+        <div class="ui warning message"><i class="warning icon"></i> Une <b>Erreur 404</b> sera renvoyée si le code INSEE n'existe pas. </div>
+
+        <p>Le paramètre <b>nom</b> permet de faire une recherche par nom :</p>
         <div class="ui secondary segment">https://geo.api.gouv.fr/communes?nom=paris</div>
-        <p>Utiliser le paramètre <b>code</b> pour faire une recherche par code Insee:</p>
-        <div class="ui secondary segment">https://geo.api.gouv.fr/communes?code=75056</div>
-        <p>Utiliser le paramètre <b>codePostal</b> pour faire une recherche par code postal:</p>
+        <p>Les résultats sont triés par pertinence typographique et incluent la propriété <b>_score</b>.<br> Il est aussi possible du pondérer les résultats en fonction de la population communale : </p>
+        <div class="ui secondary segment">https://geo.api.gouv.fr/communes?nom=nant&boost=population</div>
+
+        <p>Le paramètre <b>codePostal</b> permet de faire une recherche par code postal :</p>
         <div class="ui secondary segment">https://geo.api.gouv.fr/communes?codePostal=75001</div>
-        <p>Utiliser les paramètres <b>lon</b> et <b>lat</b> pour faire une recherche par coordonnées géographique:</p>
+
+        <p>La recherche peut aussi être restreinte par département ou par région, à l'aide des paramètres <b>codeDepartement</b> et <b>codeRegion</b>.</p>
+
+        <p><b>Tous les critères de recherche peuvent être cumulés.</b></p>
+
+        <p>Les paramètres <b>lon</b> et <b>lat</b> permettent de faire une recherche par coordonnées géographique (reverse geocoding) :</p>
         <div class="ui secondary segment">https://geo.api.gouv.fr/communes?lon=1.359143768&lat=48.7483229</div>
-        <p>Il est possible de demander un format de sortie <b>geojson</b>:</p>
+
+        <p>Les résultats peuvent être retournés au format GeoJSON à l'aide du paramètre <b>format=geojson</b> :</p>
         <div class="ui secondary segment">https://geo.api.gouv.fr/communes?nom=rouen&format=geojson</div>
-        <p>Utiliser le paramètre <b>geometry</b> permet de choisir l'option <b>contour</b> afin de recevoir les contours de la commune:</p>
+
+        <p>Par défaut l'API retourne le centre de la commune mais il est possible de spécifier la géométrie souhaitée, par exemple avec <b>geometry=contour</b> :</p>
         <div class="ui secondary segment">https://geo.api.gouv.fr/communes?nom=rungis&geometry=contour&format=geojson</div>
       </div>
       <div class="ui aligned segment">
@@ -62,18 +71,25 @@
             48.74832295056131
          ]
       },
-      "surface":2424,
+      "population": 31373
+      "codeDepartement": "28",
+      "codeRegion": "24",
+      "surface": 1000,
       "_score":1
    }
 ]</code></pre>
       </div>
       <div class="ui info message">
-        <p><b>nom</b>: Nom de la commune.</p>
-        <p><b>code</b>: Code INSEE de la commune.</p>
-        <p><b>codesPostaux</b>: Liste des codes postaux de la communes.</p>
-        <p><b>centre</b>: Coordonnée géographique du point central de la commune.</p>
-        <p><b>surface</b>: Surface de la commune en mètre.</p>
-        <p><b>_score</b>: Valeur de 0 à 1 indiquant la pertinence du résultat.</p>
+        <p><b>nom</b>: Nom de la commune</p>
+        <p><b>code</b>: Code INSEE de la commune</p>
+        <p><b>codeDepartement</b>: Code INSEE du département de rattachement</p>
+        <p><b>codeRegion</b>: Code INSEE de la région de rattachement</p>
+        <p><b>codesPostaux</b>: Liste des codes postaux de la communes</p>
+        <p><b>centre</b>: Coordonnée géographique du point central de la commune</p>
+        <p><b>contour</b>: Contour administratif de la commune</p>
+        <p><b>population</b>: Nombre d'habitants (approximatif)</p>
+        <p><b>surface</b>: Surface administrative de la commune (en hectares)</p>
+        <p><b>_score</b>: Indicateur de pertinence du résultat</p>
       </div>
       <h4>Exemple de réponse geojson</h4>
       <div class="ui secondary segment">
@@ -86,7 +102,7 @@
       "nom":"Dreux",
       "code":"28134",
       "codesPostaux":["28100"],
-      "surface":2424,
+      "population": 31373
       "_score":1
     },
     "geometry":{
@@ -95,9 +111,6 @@
     }
   }]
 }</code></pre>
-    </div>
-    <div class="ui info message">
-      <p>Le retour est un geojson FeatureCollection respectant la spec <a href="https://github.com/geocoders/geocodejson-spec">GeoCodeJSON</a>.</p>
     </div>
     </div>
     </div>
@@ -111,15 +124,15 @@
     <div class="six wide column">
       <div class="ui basic top left attached label">Département</div>
       <h2 class="ui aligned">/departements</h2>
-      <p>Recherche d'un département.</p>
+      <p>Recherche de départements</p>
     </div>
     <div class="height wide column">
       <div class="ui aligned segment">
-        <p>Utiliser le paramètre <b>nom</b> pour faire une recherche par nom:</p>
+        <p>Utilisez le paramètre <b>nom</b> pour faire une recherche par nom :</p>
         <div class="ui secondary segment">https://geo.api.gouv.fr/departements?nom=paris</div>
-        <p>Utiliser le paramètre <b>code</b> pour faire une recherche par code Insee:</p>
+        <p>Utilisez le paramètre <b>code</b> pour faire une recherche par code INSEE :</p>
         <div class="ui secondary segment">https://geo.api.gouv.fr/departements?code=75056</div>
-        <p>Utiliser le paramètre <b>codeRegion</b> pour faire une recherche par code régionnal:</p>
+        <p>Utilisez le paramètre <b>codeRegion</b> pour filtrer la recherche sur une région donnée :</p>
         <div class="ui secondary segment">https://geo.api.gouv.fr/departements?codeRegion=27</div>
       </div>
       <div class="ui aligned segment">
@@ -145,7 +158,7 @@
           <p><b>nom</b>: Nom du département.</p>
           <p><b>code</b>: Code INSEE du département.</p>
           <p><b>codeRegion</b>: Code INSEE de la régions à la quelle appartient le département.</p>
-          <p><b>_score</b>: Valeur de 0 à 1 indiquant la pertinence du résultat.</p>
+          <p><b>_score</b>: Valeur indiquant la pertinence du résultat.</p>
         </div>
       </div>
     </div>
@@ -158,13 +171,13 @@
     <div class="six wide column">
       <div class="ui top left attached red label">Régions</div>
       <h2 class="ui aligned">/regions</h2>
-      <p>Recherche une région.</p>
+      <p>Recherche de régions</p>
     </div>
     <div class="height wide column">
       <div class="ui aligned segment">
-        <p>Utiliser le paramètre <b>nom</b> pour faire une recherche par nom:</p>
+        <p>Utilisez le paramètre <b>nom</b> pour faire une recherche par nom :</p>
         <div class="ui secondary segment">https://geo.api.gouv.fr/regions?nom=paris</div>
-        <p>Utiliser le paramètre <b>code</b> pour faire une recherche par code Insee:</p>
+        <p>Utilisez le paramètre <b>code</b> pour faire une recherche par code INSEE :</p>
         <div class="ui secondary segment">https://geo.api.gouv.fr/regions?code=11</div>
       </div>
       <div class="ui aligned segment">
@@ -183,14 +196,14 @@
         <div class="ui info message">
           <p><b>nom</b>: Nom de la région.</p>
           <p><b>code</b>: Code INSEE de la région.</p>
-          <p><b>_score</b>: Valeur de 0 à 1 indiquant la pertinence du résultat.</p>
+          <p><b>_score</b>: Valeur indiquant la pertinence du résultat.</p>
         </div>
       </div>
     </div>
     <div class="one wide column"></div>
   </div>
 
-  <h1 class="ui horizontal divider"> Essayer moi </h1>
+  <h1 class="ui horizontal divider"> Essayez moi </h1>
 <div class="ui aligned segment">
 <div class="ui two column middle aligned very relaxed stackable grid">
   <div class="column">
