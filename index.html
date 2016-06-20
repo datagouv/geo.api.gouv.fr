@@ -247,23 +247,25 @@ function locateUser(position) {
   document.getElementsByClassName('loader')[0].classList.add('active');
   document.getElementsByClassName('button')[0].style.display = "none";
 
-  fetch('https://geo.api.gouv.fr/communes?fields=code,nom,codesPostaux,surface,population&format=geojson&' + r)
+  fetch('https://geo.api.gouv.fr/communes?fields=code,nom,codesPostaux,surface,population,centre,contour&' + r)
   .then(function(response) {
     if (response.ok) {
       return (response.json());
     }
   })
   .then(function(json) {
-    var commune = json.features[0];
-    console.log(commune);
-    L.geoJson(commune).addTo(this.map);
+    var commune = json[0];
+    L.geoJson()
+      .addData(commune.centre)
+      .addData(commune.contour)
+      .addTo(this.map);
     this.map.setView([position.coords.latitude, position.coords.longitude], zoom=12);
-    document.getElementById("nom").innerHTML = commune.properties.nom;
-    document.getElementById("code").innerHTML += commune.properties.code;
-    document.getElementById("codesPostaux").innerHTML += commune.properties.codesPostaux;
-    document.getElementById("population").innerHTML += commune.properties.population;
-    document.getElementById("surface").innerHTML += commune.properties.surface;
-    document.getElementById("gps").innerHTML += '</br>longitude: ' + commune.geometry.coordinates[0] + '</br>latitude: ' + commune.geometry.coordinates[1];
+    document.getElementById("nom").innerHTML = commune.nom;
+    document.getElementById("code").innerHTML += commune.code;
+    document.getElementById("codesPostaux").innerHTML += commune.codesPostaux.join(', ');
+    document.getElementById("population").innerHTML += commune.population;
+    document.getElementById("surface").innerHTML += commune.surface;
+    document.getElementById("gps").innerHTML += '</br>longitude: ' + commune.centre.coordinates[0] + '</br>latitude: ' + commune.centre.coordinates[1];
   })
   .then(function() {
     document.getElementsByClassName('loader')[0].classList.remove('active');
