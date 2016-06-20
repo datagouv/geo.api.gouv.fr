@@ -33,8 +33,8 @@
         <div class="ui warning message"><i class="warning icon"></i> Une <b>Erreur 404</b> sera renvoyé si le code Insee n'existe pas. </div>
         <p>Utiliser le paramètre <b>nom</b> pour faire une recherche par nom:</p>
         <div class="ui secondary segment">https://geo.api.gouv.fr/communes?nom=paris</div>
-        <p>Utiliser le paramètre <b>codeInsee</b> pour faire une recherche par code Insee:</p>
-        <div class="ui secondary segment">https://geo.api.gouv.fr/communes?codeInsee=75056</div>
+        <p>Utiliser le paramètre <b>code</b> pour faire une recherche par code Insee:</p>
+        <div class="ui secondary segment">https://geo.api.gouv.fr/communes?code=75056</div>
         <p>Utiliser le paramètre <b>codePostal</b> pour faire une recherche par code postal:</p>
         <div class="ui secondary segment">https://geo.api.gouv.fr/communes?codePostal=75001</div>
         <p>Utiliser les paramètres <b>lon</b> et <b>lat</b> pour faire une recherche par coordonnées géographique:</p>
@@ -51,7 +51,7 @@
           <pre><code class="json">[
   {
       "nom":"Dreux",
-      "codeInsee":"28134",
+      "code":"28134",
       "codesPostaux":[
          "28100"
       ],
@@ -69,7 +69,7 @@
       </div>
       <div class="ui info message">
         <p><b>nom</b>: Nom de la commune.</p>
-        <p><b>codeInsee</b>: Code INSEE de la commune.</p>
+        <p><b>code</b>: Code INSEE de la commune.</p>
         <p><b>codesPostaux</b>: Liste des codes postaux de la communes.</p>
         <p><b>centre</b>: Coordonnée géographique du point central de la commune.</p>
         <p><b>surface</b>: Surface de la commune en mètre.</p>
@@ -84,7 +84,7 @@
     "type":"Feature",
     "properties":{
       "nom":"Dreux",
-      "codeInsee":"28134",
+      "code":"28134",
       "codesPostaux":["28100"],
       "surface":2424,
       "_score":1
@@ -200,10 +200,11 @@
   <div class="center aligned column">
     <div id="commune" style="display:none;">
       <h1 id="nom">Nom</h1>
-      <p id="codeInsee"><b>Code Insee: </b></p>
-      <p id="codesPostaux"><b>Codes postaux: </b></p>
-      <p id="surface"><b>Surface: </b></p>
-      <p id="gps"><b>Coordonnées: </b></p>
+      <p id="code"><b>Code INSEE : </b></p>
+      <p id="codesPostaux"><b>Codes postaux : </b></p>
+      <p id="population"><b>Population municipale : </b></p>
+      <p id="surface"><b>Surface en hectare : </b></p>
+      <p id="gps"><b>Coordonnées : </b></p>
     </div>
     <div class="ui centered large inline loader"></div>
     <div class="ui big green labeled icon button" onclick="getLocation()"><i class="location arrow icon"></i> Trouver ma commune </div>
@@ -246,7 +247,7 @@ function locateUser(position) {
   document.getElementsByClassName('loader')[0].classList.add('active');
   document.getElementsByClassName('button')[0].style.display = "none";
 
-  fetch('https://geo.api.gouv.fr/communes?format=geojson&' + r)
+  fetch('https://geo.api.gouv.fr/communes?fields=code,nom,codesPostaux,surface,population&format=geojson&' + r)
   .then(function(response) {
     if (response.ok) {
       return (response.json());
@@ -258,8 +259,9 @@ function locateUser(position) {
     L.geoJson(commune).addTo(this.map);
     this.map.setView([position.coords.latitude, position.coords.longitude], zoom=12);
     document.getElementById("nom").innerHTML = commune.properties.nom;
-    document.getElementById("codeInsee").innerHTML += commune.properties.codeInsee;
+    document.getElementById("code").innerHTML += commune.properties.code;
     document.getElementById("codesPostaux").innerHTML += commune.properties.codesPostaux;
+    document.getElementById("population").innerHTML += commune.properties.population;
     document.getElementById("surface").innerHTML += commune.properties.surface;
     document.getElementById("gps").innerHTML += '</br>longitude: ' + commune.geometry.coordinates[0] + '</br>latitude: ' + commune.geometry.coordinates[1];
   })
