@@ -5,6 +5,10 @@
     background: #fff;
     @extend %vertical-rhythm;
 
+    pre {
+      max-height: 310px;
+    }
+
     .highlighter-rouge & {
       background: #eef;
     }
