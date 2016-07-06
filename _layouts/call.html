@@ -1,0 +1,55 @@
+<!-- <div class="ui container divider"></div> -->
+
+<div id="{{ page.priority }}" class="ui {{ page.color | default: 'blue' }} grid aligned segment">
+    <div class="one wide column"></div>
+
+    {% if page.tag == 'left' %}
+    <div class="six wide column">
+        <h1 class="ui header">
+          <i class="{{ page.icon }} icon"></i>{{ page.title }}
+        </h1>
+        <p>{{ page.description }}</p>
+        {% if page.tips %}
+        <div class="ui info message">
+            <div class="header"><i class="idea icon"></i> Bon à savoir</div>
+            <p>{{ page.tips }}</p>
+        </div>
+        {% endif %}
+    </div>
+    <div class="height wide column">
+        <div class="ui fluid action input">
+            <input type="text" value="curl {{ page.link }}" readonly>
+            <button class="ui right labeled icon button"><i class="copy icon"></i>Copier</button>
+        </div>
+        <div class="ui segment">
+            {{ content }}
+        </div>
+    </div>
+
+    {% else %} <!-- Same but reverse --->
+
+    <div class="height wide column">
+        <div class="ui fluid action input">
+            <input type="text" value="curl {{ page.link }}" readonly>
+            <button class="ui right labeled icon button"><i class="copy icon"></i>Copier</button>
+        </div>
+        <div class="ui segment">
+            {{ content }}
+        </div>
+    </div>
+    <div class="six wide column">
+        <h1 class="ui header">
+          <i class="{{ page.icon }} icon"></i>{{ page.title }}
+        </h1>
+        <p>{{ page.description }}</p>
+        {% if page.tips %}
+        <div class="ui info message">
+            <div class="header"><i class="idea icon"></i> Bon à savoir</div>
+            <p>{{ page.tips }}</p>
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <div class="one wide column"></div>
+</div>
