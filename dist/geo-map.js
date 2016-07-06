@@ -1,5 +1,7 @@
 function getLocation() {
   if (navigator.geolocation) {
+    document.getElementsByClassName('green button')[0].style.display = "none";
+    document.getElementsByClassName('loader')[0].classList.add('active');
     return navigator.geolocation.getCurrentPosition(locateUser);
   }
 }
@@ -17,8 +19,6 @@ function initMap() {
 
 function locateUser(position) {
   var r = 'lat=' + position.coords.latitude + '&lon=' + position.coords.longitude;
-  document.getElementsByClassName('loader')[0].classList.add('active');
-  document.getElementsByClassName('button')[0].style.display = "none";
 
   fetch('https://geo.api.gouv.fr/communes?fields=code,nom,codesPostaux,surface,population,centre,contour&' + r)
   .then(function(response) {
