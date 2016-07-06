@@ -18,8 +18,8 @@
     </div>
     <div class="height wide column">
         <div class="ui fluid action input">
-            <input type="text" value="curl {{ page.link }}" readonly>
-            <button class="ui right labeled icon button"><i class="copy icon"></i>Copier</button>
+            <input id="curl{{ page.priority }}" type="text" value="curl {{ page.link }}" readonly>
+            <button class="ui right labeled icon button btn-cpy" data-clipboard-target="#curl{{ page.priority }}"><i class="copy icon"></i>Copier</button>
         </div>
         <div class="ui segment">
             {{ content }}
@@ -30,8 +30,8 @@
 
     <div class="height wide column">
         <div class="ui fluid action input">
-            <input type="text" value="curl {{ page.link }}" readonly>
-            <button class="ui right labeled icon button"><i class="copy icon"></i>Copier</button>
+            <input id="curl{{ page.priority }}" type="text" value="curl {{ page.link }}" readonly>
+            <button class="ui right labeled icon button btn-cpy" data-clipboard-target="#curl{{ page.priority }}"><i class="copy icon"></i>Copier</button>
         </div>
         <div class="ui segment">
             {{ content }}
