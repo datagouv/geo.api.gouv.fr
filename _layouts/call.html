@@ -1,5 +1,3 @@
-<!-- <div class="ui container divider"></div> -->
-
 <div id="{{ page.priority }}" class="ui {{ page.color | default: 'blue' }} grid aligned segment call">
     <div class="one wide column"></div>
 
@@ -19,19 +17,19 @@
     <div class="height wide column">
         <div class="ui fluid action input">
             <input id="curl{{ page.priority }}" type="text" value="curl {{ page.link }}" readonly>
-            <button class="ui right labeled icon button btn-cpy" data-clipboard-target="#curl{{ page.priority }}"><i class="copy icon"></i>Copier</button>
+            <button class="ui right labeled icon copy button" data-clipboard-target="#curl{{ page.priority }}"><i class="copy icon"></i>Copier</button>
         </div>
         <div class="ui segment">
             {{ content }}
         </div>
     </div>
 
-    {% else %} <!-- Same but reverse --->
+    {% else %} {% comment %} Same but reverse {% endcomment %}
 
     <div class="height wide column">
         <div class="ui fluid action input">
             <input id="curl{{ page.priority }}" type="text" value="curl {{ page.link }}" readonly>
-            <button class="ui right labeled icon button btn-cpy" data-clipboard-target="#curl{{ page.priority }}"><i class="copy icon"></i>Copier</button>
+            <button class="ui right labeled icon copy button" data-clipboard-target="#curl{{ page.priority }}"><i class="copy icon"></i>Copier</button>
         </div>
         <div class="ui segment">
             {{ content }}
