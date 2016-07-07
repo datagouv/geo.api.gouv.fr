@@ -2,7 +2,18 @@
 layout: call
 priority: 4
 title:  Recherche personnalisée
-description: Le variable <b>fields</b> vous permet de filter les informations.
+description: > #
+ Le variable <b>fields</b> vous permet de filter les informations.
+
+ <h3 class="ui header">Champs possibles:</h3>
+ <ul class="ui list">
+   <li>code</li>
+   <li>nom</li>
+   <li>codesPostaux</li>
+   <li>surface</li>
+   <li>population</li>
+   <li>centre</li>
+ </ul>
 icon: user
 link: https://geo.api.gouv.fr/communes?fields=code,nom,codesPostaux,surface,population,centre,contour&nom=versailles
 tag: right
