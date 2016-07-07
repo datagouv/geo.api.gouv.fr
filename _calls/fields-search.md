@@ -3,7 +3,7 @@ layout: call
 priority: 4
 title:  Recherche personnalisée
 description: > #
- Le variable <b>fields</b> vous permet de filter les informations.
+ La variable <b>fields</b> vous permet de filter les informations.
 
  <h3 class="ui header">Champs possibles:</h3>
  <ul class="ui list">
