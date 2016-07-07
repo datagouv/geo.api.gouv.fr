@@ -29,7 +29,13 @@ function locateUser(position) {
   .then(function(json) {
     var commune = json[0];
     L.geoJson()
-      .addData(commune.centre)
+      .addData({
+        type: 'Feature',
+        properties: {},
+        geometry: {
+          type: 'Point',
+          coordinates: [position.coords.longitude, position.coords.latitude]
+        }})
       .addData(commune.contour)
       .addTo(this.map);
     this.map.setView([position.coords.latitude, position.coords.longitude], zoom=12);
