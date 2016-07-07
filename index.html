@@ -7,17 +7,17 @@ layout: base
         <i class="basic big marker icon"></i><a href="{{ site.baseurl }}/"> {{ site.title }}</a>
     </h1>
 
-    <h2 class="ui justified">
+    <h2 class="ui header">
         Interrogez les référentiels géographique plus facilement.
     </h2>
-    <a href="#">
-        <button class="ui huge right labeled teal icon button">Documentation <i class="right book icon"></i> </button>
-    </a>
+    <form action="{{ site.documentation }}">
+      <button type="submit" value="Documentation" class="ui huge right labeled teal icon button">Documentation <i class="right book icon"></i> </button>
+  </form>
 </div>
 
 {% include get-started.html %}
 
 {% assign sorted = (site.calls | sort: 'priority') %}
 {% for call in sorted %}
-  {{ call.output }}
+  {{ call }}
 {% endfor %}
