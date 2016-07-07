@@ -8,6 +8,7 @@
 # Site settings
 title: GeoAPI Documentation
 email: contact@beta.gouv.fr
+documentation: http://192.168.1.19:4567/
 description: > #
  La GéoAPI est une boîte-à-outils
  facile à prendre en main pour rendre vos applications
