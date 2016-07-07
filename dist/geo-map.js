@@ -1,5 +1,6 @@
 function getLocation() {
   if (navigator.geolocation) {
+    document.getElementsByClassName('warning message')[0].style.display = "none";
     document.getElementsByClassName('green button')[0].style.display = "none";
     document.getElementsByClassName('loader')[0].classList.add('active');
     return navigator.geolocation.getCurrentPosition(locateUser);
