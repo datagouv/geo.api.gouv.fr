@@ -6,7 +6,3 @@ zoom-in: 12
 osm-url: https://tilecache.openstreetmap.fr/osmfr/{z}/{x}/{y}.png
 osm-attribution: Map data &copy; 2012 OpenStreetMap contributors
 height: 548px
-main-brand-colour: "#398A8D"
-main-marker: assets/images/marker.png
-secondary-marker: assets/images/marker-2.png
-title: Cozy Cottage
