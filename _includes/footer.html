@@ -6,22 +6,20 @@
                 <div class="column">
                     <h2 class="footer-heading">{{ site.title }}</h2>
 
-                    <div class="footer-col footer-col-1">
-                        <ul class="contact-list">
-                            <li>{{ site.title }}</li>
-                            <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-                        </ul>
+                    <div class="ui bulleted list">
+                        <div class="item">{{ site.title }}</div>
+                        <div class="item"><a href="mailto:{{ site.email }}">{{ site.email }}</a></div>
                     </div>
                 </div>
                 <div class="column">
-                    <div class="footer-col footer-col-2">
-                        <ul class="social-media-list">
+                    <div class="ui list">
+                        <div class="item">
                             {% if site.github_username %}
-                            <li>
-                                {% include icon-github.html username=site.github_username %}
-                            </li>
+                            <div class="content">
+                              {% include github-link.html username=site.github_username %}
+                            </div>
                             {% endif %}
-                        </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="column">
