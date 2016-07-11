@@ -15,13 +15,13 @@
                 </div>
                 <div class="column">
                     <div class="ui list">
+                      {% if site.github_repository %}
                         <div class="item">
-                            {% if site.github_username %}
                             <div class="content">
-                              {% include github-link.html username=site.github_username %}
+                              {% include github-link.html %}
                             </div>
-                            {% endif %}
                         </div>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="column">
