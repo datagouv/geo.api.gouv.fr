@@ -1,17 +1,17 @@
 {% assign sorted = (site.calls | sort: 'priority') %}
 <div class="ui segment">
-  <h1 class="ui huge center aligned header">Bien débuter</h1>
-  <div class="ui divider"></div>
-  <div class="ui four column doubling stackable aligned grid container">
-  {% for call in sorted %}
-    <div class="column">
-      <a href="#{{ call.priority }}">
-      <h3 class="ui circular icon header">
+    <h1 class="ui huge center aligned header">Bien débuter</h1>
+    <div class="ui divider"></div>
+    <div class="ui four column doubling stackable aligned grid container">
+        {% for call in sorted %}
+        <div class="column">
+            <a href="#{{ call.priority }}">
+                <h3 class="ui circular icon header">
         <i class="{{ call.icon }} icon"></i>
         <div class="content">{{ call.title }}</div>
       </h3>
-    </a>
+            </a>
+        </div>
+        {% endfor %}
     </div>
-  {% endfor %}
-  </div>
 </div>
