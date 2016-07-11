@@ -7,7 +7,9 @@
                     <h2 class="footer-heading">{{ site.title }}</h2>
 
                     <div class="ui bulleted list">
-                        <div class="item">{{ site.title }}</div>
+                        {% for contact in site.data.contacts %}
+                          <div class="item"><a href="{{ contact.link }}">{{ contact.name }}</a></div>
+                        {% endfor %}
                         <div class="item"><a href="mailto:{{ site.email }}">{{ site.email }}</a></div>
                     </div>
                 </div>
