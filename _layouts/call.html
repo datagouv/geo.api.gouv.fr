@@ -1,7 +1,7 @@
 <div id="{{ page.priority }}" class="ui {{ page.color | default: 'blue' }} grid aligned segment call">
     <div class="one wide column"></div>
 
-    {% if page.tag == 'left' %}
+    {% if page.side == 'left' %}
     <div class="six wide column">
         <h1 class="ui header">
           <i class="{{ page.icon }} icon"></i>{{ page.title }}

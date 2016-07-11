@@ -5,7 +5,7 @@ title:  Recherche géographique
 description: Les variables <b>lon</b> et <b>lat</b> permettent d'effectuer une recherche géographique.
 icon: compass
 link: https://geo.api.gouv.fr/communes?lon=2.1301&lat=48.8014
-tag: left
+side: left
 ---
 {% highlight json %}
 {

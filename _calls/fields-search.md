@@ -16,7 +16,7 @@ description: > #
  </ul>
 icon: user
 link: https://geo.api.gouv.fr/communes?fields=code,nom,codesPostaux,surface,population,centre,contour&nom=versailles
-tag: right
+side: right
 ---
 {% highlight json %}
 [

@@ -6,7 +6,7 @@ description: La variable <b>nom</b> vous permet d'effectuer une recherche de com
 icon: tag
 link: https://geo.api.gouv.fr/communes?nom=versailles
 tips: Il est possible d'utiliser la recherche par nom pour faire de l'autocomplétion.
-tag: right
+side: right
 ---
 {% highlight json %}
 [
