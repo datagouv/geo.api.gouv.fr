@@ -2,53 +2,14 @@
     <div class="one wide column"></div>
 
     {% if page.side == 'left' %}
-    <div class="six wide column">
-        <h1 class="ui header">
-          <i class="{{ page.icon }} icon"></i>{{ page.title }}
-        </h1>
-        <p>{{ page.description }}</p>
-        {{ page.try }}
-        {% if page.tips %}
-        <div class="ui info message">
-            <div class="header"><i class="idea icon"></i> Bon à savoir</div>
-            <p>{{ page.tips }}</p>
-        </div>
-        {% endif %}
-    </div>
-    <div class="height wide column">
-        <div class="ui fluid action input">
-            <input id="curl{{ page.priority }}" type="text" value="curl '{{ page.link }}' " readonly>
-            <button class="ui right labeled icon copy button" data-clipboard-target="#curl{{ page.priority }}"><i class="copy icon"></i>Copier</button>
-        </div>
-        <div class="ui segment">
-            {{ content }}
-        </div>
-    </div>
+      {% include call-description.html %}
+      {% include call-example.html %}
 
     {% else %} {% comment %} Same but reverse {% endcomment %}
 
-    <div class="height wide column">
-        <div class="ui fluid action input">
-            <input id="curl{{ page.priority }}" type="text" value="curl '{{ page.link }}' " readonly>
-            <button class="ui right labeled icon copy button" data-clipboard-target="#curl{{ page.priority }}"><i class="copy icon"></i>Copier</button>
-        </div>
-        <div class="ui segment">
-            {{ content }}
-        </div>
-    </div>
-    <div class="six wide column">
-        <h1 class="ui header">
-          <i class="{{ page.icon }} icon"></i>{{ page.title }}
-        </h1>
-        <p>{{ page.description }}</p>
-        {% if page.tips %}
-        <div class="ui info message">
-            <div class="header"><i class="idea icon"></i> Bon à savoir</div>
-            <p>{{ page.tips }}</p>
-        </div>
-        {% endif %}
-    </div>
-    {% endif %}
+      {% include call-example.html %}
+      {% include call-description.html %}
 
+    {% endif %}
     <div class="one wide column"></div>
 </div>
