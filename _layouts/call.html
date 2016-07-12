@@ -11,5 +11,12 @@
       {% include call-description.html %}
 
     {% endif %}
-    <div class="one wide column"></div>
+
+    {% if page.icon == 'compass' %}
+      <div class="sixteen wide column">
+        {% include try-geo.html %}
+      </div>
+    {% endif %}
 </div>
+
+<div class="one wide column"></div>
