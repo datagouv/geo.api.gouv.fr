@@ -7,12 +7,6 @@ description: Il est possible de rechercher une commune avec son <b>code postal</
 icon: mail
 link: https://geo.api.gouv.fr/communes/78646
 side: left
-try: > #
- <h2 class="ui header">Essayez</h2>
- <div class="ui icon input">
-   <input type="text" placeholder="ex: 27320">
-   <i class="search icon"></i>
- </div>
 ---
 {% highlight json %}
 {
