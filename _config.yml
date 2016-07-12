@@ -1,7 +1,7 @@
 # Site settings
 title: GeoAPI Documentation
 email: contact@beta.gouv.fr
-documentation: http://192.168.1.19:4567/
+documentation: https://api.gouv.fr/api/geoapi.html
 description: > #
  Rechercher des communes par nom, code postal ou coordonnées géographiques.
  Connaître les groupements auxquels appartient une commune, et leurs compétences.
