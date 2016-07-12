@@ -7,7 +7,7 @@ description: > #
  Connaître les groupements auxquels appartient une commune, et leurs compétences.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://sgmap.github.io/geoapi-doc/" # the base hostname & protocol for your site
-github_repository: "https://github.com/sgmap/geoapi-doc"
+github_repository: "https://github.com/sgmap/geoapi-doc/"
 
 # Build settings
 markdown: kramdown
