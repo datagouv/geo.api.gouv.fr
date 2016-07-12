@@ -1,5 +1,4 @@
 ---
-layout: call
 priority: 4
 title:  Recherche personnalisée
 description: > #

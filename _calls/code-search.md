@@ -1,5 +1,4 @@
 ---
-layout: call
 priority: 1
 color:  red
 title:  Recherche par code postal

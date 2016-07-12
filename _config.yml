@@ -15,3 +15,11 @@ markdown: kramdown
 collections:
   calls:
     output: true
+
+defaults:
+  -
+    scope:
+      path: ""	# means "all files"
+      type: calls	# targets a collection
+    values:
+      layout: call

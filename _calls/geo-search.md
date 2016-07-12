@@ -1,5 +1,4 @@
 ---
-layout: call
 priority: 3
 title:  Recherche géographique
 description: Les variables <b>lon</b> et <b>lat</b> permettent d'effectuer une recherche géographique.
