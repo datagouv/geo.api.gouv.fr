@@ -1,5 +1,5 @@
-- name: Incubateur de services numériques
-  link: https://beta.gouv.fr/
+- name: contact@beta.gouv.fr
+  email: contact@beta.gouv.fr
 
-- name: API.Gouv
-  link: https://api.gouv.fr/
+- name: geo@api.gouv.fr
+  email: geo@api.gouv.fr
