@@ -11,14 +11,14 @@
                         <div class="item"><a href="{{ partner.link }}">{{ partner.name }}</a></div>
                         {% endfor %}
                     </div>
+                </div>
+                <div class="column">
                     <h4 class="ui inverted header">Contacts</h4>
                     <div class="ui bulleted list">
                         {% for contact in site.data.contacts %}
                         <div class="item"><a href="mailto:{{ contact.email }}">{{ contact.name }}</a></div>
                         {% endfor %}
                     </div>
-                </div>
-                <div class="column">
                     <h4 class="ui inverted header">Participer</h4>
                     <div class="ui list">
                         {% if site.github_repository %}
@@ -31,9 +31,7 @@
                     </div>
                 </div>
                 <div class="column">
-                  <h2>
-                      <i class="basic big map signs icon"></i> {{ site.title }}
-                  </h2>
+                    <h2><i class="basic big map signs icon"></i> {{ site.title }}</h2>
                     <p>{{ site.description }}</p>
                 </div>
             </div>

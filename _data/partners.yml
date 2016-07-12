@@ -3,3 +3,15 @@
 
 - name: API.Gouv
   link: https://api.gouv.fr/
+
+- name: Etalab
+  link: https://www.etalab.gouv.fr/
+
+- name: La Poste
+  link: http://www.laposte.fr/
+
+- name: INSEE
+  link: http://www.insee.fr/
+
+- name: OpenStreetMap
+  link: http://openstreetmap.fr/
