@@ -1,5 +1,6 @@
 ---
 priority: 4
+color:  green
 title:  Recherche personnalisée
 description: > #
  La variable <b>fields</b> vous permet de filtrer les informations.

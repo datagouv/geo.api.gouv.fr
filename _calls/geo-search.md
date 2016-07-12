@@ -1,5 +1,6 @@
 ---
 priority: 3
+color:  blue
 title:  Recherche géographique
 description: Les variables <b>lon</b> et <b>lat</b> permettent d'effectuer une recherche géographique.
 icon: compass
