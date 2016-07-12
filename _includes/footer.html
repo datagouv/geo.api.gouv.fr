@@ -4,27 +4,36 @@
         <div class="ui container">
             <div class="ui divided very relaxed inverted three columns grid">
                 <div class="column">
-                    <h2 class="footer-heading">{{ site.title }}</h2>
+                    <h4 class="ui inverted header">Partenaires</h4>
 
                     <div class="ui bulleted list">
-                        {% for contact in site.data.contacts %}
-                          <div class="item"><a href="{{ contact.link }}">{{ contact.name }}</a></div>
+                        {% for partner in site.data.partners %}
+                        <div class="item"><a href="{{ partner.link }}">{{ partner.name }}</a></div>
                         {% endfor %}
-                        <div class="item"><a href="mailto:{{ site.email }}">{{ site.email }}</a></div>
+                    </div>
+                    <h4 class="ui inverted header">Contacts</h4>
+                    <div class="ui bulleted list">
+                        {% for contact in site.data.contacts %}
+                        <div class="item"><a href="mailto:{{ contact.email }}">{{ contact.name }}</a></div>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="column">
+                    <h4 class="ui inverted header">Participer</h4>
                     <div class="ui list">
-                      {% if site.github_repository %}
+                        {% if site.github_repository %}
                         <div class="item">
                             <div class="content">
-                              {% include github-link.html %}
+                                {% include github-link.html %}
                             </div>
                         </div>
                         {% endif %}
                     </div>
                 </div>
                 <div class="column">
+                  <h2>
+                      <i class="basic big map signs icon"></i> {{ site.title }}
+                  </h2>
                     <p>{{ site.description }}</p>
                 </div>
             </div>
