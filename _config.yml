@@ -5,8 +5,8 @@ documentation: https://api.gouv.fr/api/geoapi.html
 description: > #
  Rechercher des communes par nom, code postal ou coordonnées géographiques.
  Connaître les groupements auxquels appartient une commune, et leurs compétences.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://sgmap.github.io/geoapi-doc/" # the base hostname & protocol for your site
+baseurl: ""
+url: "https://sgmap.github.io/geoapi-doc/"
 github_repository: "https://github.com/sgmap/geoapi-doc/"
 
 # Build settings
