@@ -1,20 +1,33 @@
 <script type="text/javascript">
+
     document.querySelector('.locate.button').addEventListener('click', getLocation)
+    document.getElementsByClassName('error message')[0].style.display = "none";
+
+    var map = null;
+    initMap();
 
     function getLocation() {
-        if (navigator.geolocation) {
-            document.getElementsByClassName('warning message')[0].style.display = "none";
-            document.getElementsByClassName('green button')[0].style.display = "none";
-            document.getElementsByClassName('loader')[0].classList.add('active');
-            return navigator.geolocation.getCurrentPosition(locateUser);
-        }
+      displayLoading();
+      navigator.geolocation.getCurrentPosition(locateUser, displayError);
+    }
+
+    function displayError(error) {
+      document.getElementsByClassName('error message')[0].style.display = "block";
+      document.getElementsByClassName('loader')[0].classList.remove('active');
+      console.error(error.message);
+    }
+
+    function displayLoading() {
+      document.getElementsByClassName('warning message')[0].style.display = "none";
+      document.getElementsByClassName('green button')[0].style.display = "none";
+      document.getElementsByClassName('loader')[0].classList.add('active');
     }
 
     function initMap() {
         var options = {
             center: new L.LatLng({{ site.data.map.latitude }}, {{ site.data.map.longitude }}),
             zoom: {{ site.data.map.zoom }}
-        };
+          };
 
         var osmUrl = '{{ site.data.map.osm-url }}',
             osmAttribution = '{{ site.data.map.osm-attribution }}',
@@ -62,12 +75,7 @@
                 document.getElementById('commune').style.display = "block";
             })
             .catch(function(error) {
-                document.getElementsByClassName('loader')[0].classList.remove('active');
-                document.getElementsByClassName('button')[0].style.display = "block";
-                console.log('There has been a problem with your fetch operation: ' + error.message);
+              displayError(error);
             });
     }
-
-    var map = null;
-    initMap();
 </script>
