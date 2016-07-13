@@ -16,7 +16,7 @@
                     <h4 class="ui inverted header">Contacts</h4>
                     <div class="ui bulleted list">
                         {% for contact in site.data.contacts %}
-                        <div class="item"><a href="mailto:{{ contact.email }}">{{ contact.name }}</a></div>
+                        <div class="item"><a href="mailto:{{ contact.email }}?subject=Documentation GéoAPI">{{ contact.name }}</a></div>
                         {% endfor %}
                     </div>
                     <h4 class="ui inverted header">Participer</h4>
