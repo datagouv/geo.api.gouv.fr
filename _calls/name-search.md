@@ -2,7 +2,7 @@
 priority: 2
 color:  teal
 title:  Recherche par nom
-description: La variable <b>nom</b> vous permet d'effectuer une recherche de communes par nom.
+sub-title: La variable <b>nom</b> vous permet d'effectuer une recherche de communes par nom.
 icon: tag
 link: https://geo.api.gouv.fr/communes?nom=versailles
 tips: Il est possible d'utiliser la recherche par nom pour faire de l'autocomplétion.
