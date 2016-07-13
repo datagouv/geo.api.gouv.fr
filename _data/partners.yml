@@ -1,7 +1,7 @@
-- name: Incubateur de services numériques
+- name: Incubateur de services numériques du SGMAP
   link: https://beta.gouv.fr/
 
-- name: API.Gouv
+- name: api.gouv.fr
   link: https://api.gouv.fr/
 
 - name: Etalab
