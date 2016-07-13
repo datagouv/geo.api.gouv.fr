@@ -12,9 +12,12 @@
 
     {% endif %}
 
-    {% if page.icon == 'compass' %}
+    {% if page.try %}
       <div class="sixteen wide column">
-        {% include try-geo.html %}
+        <h1 class="ui horizontal divider"> Essayez-moi </h1>
+        <div class="ui aligned segment">
+          {% include {{ page.try }} %}
+        </div>
       </div>
     {% endif %}
 </div>
