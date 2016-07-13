@@ -62,7 +62,10 @@
                     })
                     .addData(commune.contour)
                     .addTo(this.map);
-                this.map.setView([position.coords.latitude, position.coords.longitude], zoom = {{ site.data.map.zoom-in }});
+                this.map.setView(
+                  [position.coords.latitude, position.coords.longitude],
+                  zoom = {{ site.data.map.zoom-in }}
+                );
                 document.getElementById("nom").innerHTML = commune.nom;
                 document.getElementById("code").innerHTML += commune.code;
                 document.getElementById("codesPostaux").innerHTML += commune.codesPostaux.join(', ');
