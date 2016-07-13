@@ -1,11 +1,12 @@
 ---
 priority: 4
 color:  green
-title:  Recherche personnalisée
+title:  Recherche avancée
 sub-title: La variable <b>fields</b> vous permet de filtrer les informations.
 description: description-fields.html
-icon: user
+icon: options
 link: https://geo.api.gouv.fr/communes?fields=code,nom,codesPostaux,surface,population,centre,contour&nom=versailles
+tips: Le champ <b>format</b> permet de préciser un format de sortie des données (json/geojson).
 side: right
 ---
 {% highlight json %}
