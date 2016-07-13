@@ -1,10 +1,11 @@
 <script type="text/javascript">
 
-    document.querySelector('.locate.button').addEventListener('click', getLocation)
-    document.getElementsByClassName('error message')[0].style.display = "none";
-
     var map = null;
     initMap();
+    document.querySelector('.locate.button').addEventListener('click', getLocation)
+    document.getElementsByClassName('error message')[0].style.display = "none";
+    document.getElementsByClassName('warning message')[0].style.display = "none";
+    document.getElementById('commune').style.display = "none";
 
     function getLocation() {
       displayLoading();
@@ -18,9 +19,15 @@
     }
 
     function displayLoading() {
-      document.getElementsByClassName('warning message')[0].style.display = "none";
+      document.getElementsByClassName('warning message')[0].style.display = "block";
       document.getElementsByClassName('green button')[0].style.display = "none";
       document.getElementsByClassName('loader')[0].classList.add('active');
+    }
+
+    function displayResults() {
+      document.getElementsByClassName('loader')[0].classList.remove('active');
+      document.getElementsByClassName('warning message')[0].style.display = "none";
+      document.getElementById('commune').style.display = "block";
     }
 
     function initMap() {
@@ -74,8 +81,7 @@
                 document.getElementById("gps").innerHTML += '</br>longitude: ' + commune.centre.coordinates[0] + '</br>latitude: ' + commune.centre.coordinates[1];
             })
             .then(function() {
-                document.getElementsByClassName('loader')[0].classList.remove('active');
-                document.getElementById('commune').style.display = "block";
+                displayResults();
             })
             .catch(function(error) {
               displayError(error);
