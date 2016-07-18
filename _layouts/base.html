@@ -11,14 +11,17 @@
     </div>
 
 {% include footer.html %}
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/1.0.0/fetch.js"></script>
 {% include geo-map.html %}
 <script src="{{ site.baseurl }}dist/clipboard.min.js"></script>
+<script src="{{ site.baseurl }}dist/autocomplete.js"></script>
 <script type="text/javascript">
-  new Clipboard('.copy.button');
+    new Clipboard('.copy.button');
 </script>
 
 </body>
+
 </html>

@@ -7,6 +7,7 @@ icon: tag
 link: https://geo.api.gouv.fr/communes?nom=versailles
 tips: Il est possible d'utiliser la recherche par nom pour faire de l'autocomplétion.
 side: right
+try: try-name.html
 ---
 {% highlight json %}
 [
