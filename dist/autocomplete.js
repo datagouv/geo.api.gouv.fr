@@ -25,7 +25,7 @@ $('.ui.search')
                     // add result to category
                     response.results[commune].results.push({
                         title: item.nom,
-                        description: item.code,
+                        description: item.codesPostaux,
                         text: item.population
                     });
                 });
