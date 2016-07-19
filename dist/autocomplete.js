@@ -1,15 +1,36 @@
+var boost = '';
+
+$('.checkbox')
+    .checkbox()
+    .first().checkbox({
+        onChecked: function() {
+            boost = 'population';
+        },
+        onUnchecked: function() {
+            boost = '';
+        }
+    });
+
 $('.ui.search')
     .search({
         type: 'category',
         minCharacters: 3,
         apiSettings: {
+            beforeSend: function(settings) {
+                settings.urlData = {
+                    query: $('.ui.search .prompt').val(),
+                    boost: boost
+                };
+
+                return settings;
+            },
+            url: 'https://geo.api.gouv.fr/communes?nom={query}&boost={boost}',
             onResponse: function(geoAPIResponse) {
                 var response = {
                     results: {}
                 };
                 // translate GéoAPI response to work with search
                 $.each(geoAPIResponse, function(index, item) {
-                    console.log(item);
                     var commune = item.nom,
                         maxResults = 8;
                     if (index >= maxResults) {
@@ -30,7 +51,6 @@ $('.ui.search')
                     });
                 });
                 return response;
-            },
-            url: 'https://geo.api.gouv.fr/communes?nom={query}&boost='
+            }
         }
     });
