@@ -1,0 +1,26 @@
+<div class="ui two column middle aligned very relaxed stackable grid">
+    <div class="column">
+        <div class="six wide column" id="map"></div>
+    </div>
+    <div class="ui vertical divider"><i class="code icon"></i> </div>
+    <div class="center aligned column">
+        <div class="ui warning message">
+            <div class="header">Pas d'inquiétude<i class="warning icon"></i> </div>
+            <p>Le temps de chargement n'est pas représentatif des performances de l'API <i class="smile icon"></i></p>
+        </div>
+        <div class="ui error message">
+            <div class="header"><i class="warning circle icon"></i>Une erreur est survenue</div>
+            <p>Assurez-vous que la localisation soit autorisée sur votre navigateur.</p>
+        </div>
+        <div id="commune">
+            <h1 class="ui header tall raised segment" id="nom">Nom</h1>
+            <p id="code"><b>Code INSEE : </b></p>
+            <p id="codesPostaux"><b>Codes postaux : </b></p>
+            <p id="population"><b>Population municipale : </b></p>
+            <p id="surface"><b>Surface en hectare : </b></p>
+            <p id="gps"><b>Coordonnées : </b></p>
+        </div>
+        <div class="ui centered large inline loader"></div>
+        <button class="ui big right green labeled icon locate button"><i class="right location arrow icon"></i> Trouver ma commune</button>
+    </div>
+</div>

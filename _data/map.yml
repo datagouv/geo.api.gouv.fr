@@ -1,0 +1,8 @@
+latitude: 46.921982
+longitude: 2.978952
+zoom: 5
+max-zoom: 18
+zoom-in: 12
+osm-url: https://tilecache.openstreetmap.fr/osmfr/{z}/{x}/{y}.png
+osm-attribution: Map data &copy; 2012 OpenStreetMap contributors
+height: 548px

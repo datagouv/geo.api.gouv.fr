@@ -1,0 +1,64 @@
+/**
+ * Reset some basic elements
+ */
+pre, figure {
+    margin: 0;
+    padding: 0;
+}
+
+
+/**
+ * Lists
+ */
+ul, ol {
+    margin-left: $spacing-unit;
+}
+
+
+/**
+ * Code formatting
+ */
+pre,
+code {
+    font-size: 15px;
+    border: 1px solid $grey-color-light;
+    border-radius: 3px;
+    background-color: #eef;
+}
+
+code {
+    padding: 1px 5px;
+}
+
+pre {
+    padding: 8px 12px;
+    overflow-x: auto;
+
+    > code {
+        border: 0;
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+
+/**
+ * Segment
+ */
+.container > .segment.call {
+  margin-top: 30px;
+  padding-top: 20px;
+}
+
+
+/**
+ * Map
+ */
+#map {
+  height: 34em;
+}
+
+#commune > h1 {
+  border-color: red;
+  border-width: thick;
+}

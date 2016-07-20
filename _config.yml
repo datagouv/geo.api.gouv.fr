@@ -1,0 +1,25 @@
+# Site settings
+title: Documentation GeoAPI
+email: geo@api.gouv.fr
+documentation: https://api.gouv.fr/api/geoapi.html
+description: > #
+ Rechercher des communes par nom, code postal ou coordonnées géographiques.
+ Connaître les groupements auxquels appartient une commune, et leurs compétences.
+baseurl: ""
+url: "https://sgmap.github.io/geoapi-doc/"
+github_repository: "https://github.com/sgmap/geoapi-doc/"
+
+# Build settings
+markdown: kramdown
+
+collections:
+  calls:
+    output: true
+
+defaults:
+  -
+    scope:
+      path: ""	# means "all files"
+      type: calls	# targets a collection
+    values:
+      layout: call
