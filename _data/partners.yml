@@ -1,17 +1,17 @@
 - name: Incubateur de services numériques du SGMAP
-  link: https://beta.gouv.fr/
+  link: https://beta.gouv.fr
 
 - name: api.gouv.fr
-  link: https://api.gouv.fr/
+  link: https://api.gouv.fr
 
 - name: Etalab
-  link: https://www.etalab.gouv.fr/
+  link: https://www.etalab.gouv.fr
 
 - name: La Poste
-  link: http://www.laposte.fr/
+  link: http://www.laposte.fr
 
 - name: INSEE
-  link: http://www.insee.fr/
+  link: http://www.insee.fr
 
 - name: OpenStreetMap
-  link: http://openstreetmap.fr/
+  link: http://openstreetmap.fr

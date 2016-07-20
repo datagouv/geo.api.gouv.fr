@@ -1,6 +1,6 @@
 # Site settings
-title: GeoAPI Documentation
-email: contact@beta.gouv.fr
+title: Documentation GeoAPI
+email: geo@api.gouv.fr
 documentation: https://api.gouv.fr/api/geoapi.html
 description: > #
  Rechercher des communes par nom, code postal ou coordonnées géographiques.

@@ -1,21 +1,21 @@
-var boost = '';
+(function () {
+    var boost = '';
 
-$('.checkbox')
-    .checkbox()
-    .first().checkbox({
-        onChecked: function() {
-            boost = 'population';
-        },
-        onUnchecked: function() {
-            boost = '';
-        }
-    });
+    $('.checkbox')
+        .checkbox()
+        .first().checkbox({
+            onChecked: function() {
+                boost = 'population';
+            },
+            onUnchecked: function() {
+                boost = '';
+            }
+        });
 
-$('.ui.search')
-    .search({
-        type: 'category',
-        minCharacters: 3,
-        apiSettings: {
+    $('.search input')
+        .api({
+            action: 'search',
+            stateContext: '.ui.input',
             beforeSend: function(settings) {
                 settings.urlData = {
                     query: $('.ui.search .prompt').val(),
@@ -26,31 +26,20 @@ $('.ui.search')
             },
             url: 'https://geo.api.gouv.fr/communes?nom={query}&boost={boost}',
             onResponse: function(geoAPIResponse) {
-                var response = {
-                    results: {}
-                };
+                $('div .response').empty();
                 // translate GéoAPI response to work with search
                 $.each(geoAPIResponse, function(index, item) {
-                    var commune = item.nom,
-                        maxResults = 8;
+                    var commune = item.nom + '\t' + item.code;
+                    var maxResults = 8;
                     if (index >= maxResults) {
                         return false;
                     }
-                    // create new commune category
-                    if (response.results[commune] === undefined) {
-                        response.results[commune] = {
-                            name: commune,
-                            results: []
-                        };
-                    }
-                    // add result to category
-                    response.results[commune].results.push({
-                        title: item.nom,
-                        description: item.codesPostaux,
-                        text: item.population
-                    });
+                    $("div .response").append('<div class="item">')
+                    $("div .response").append('<div class="header">'.concat(item.nom + '</div>'))
+                    $("div .response").append('<div>'.concat(item.code + '</div>'))
+                    $("div .response").append('</div>')
                 });
-                return response;
             }
-        }
-    });
+        });
+
+})();

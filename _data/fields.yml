@@ -1,4 +1,6 @@
 - code
+- codeDepartement
+- codeRegion
 - nom
 - codesPostaux
 - surface
@@ -7,4 +9,3 @@
 - contour
 - departement
 - region
-- format
