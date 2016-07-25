@@ -12,4 +12,10 @@
         <p>{{ page.tips }}</p>
     </div>
     {% endif %}
+    {% if page.warning %}
+    <div class="ui warning message">
+        <div class="header"><i class="warning icon"></i> Attention</div>
+        <p>{{ page.warning }}</p>
+    </div>
+    {% endif %}
 </div>

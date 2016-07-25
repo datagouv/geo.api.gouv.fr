@@ -2,11 +2,14 @@
 priority: 4
 color:  green
 title:  Recherche avancée
-sub-title: La variable <b>fields</b> vous permet de filtrer les informations.
+sub-title: Le paramètre <b>fields</b> vous permet de filtrer les informations.
 description: description-fields.html
 icon: options
 link: https://geo.api.gouv.fr/communes?fields=code,nom,codesPostaux,surface,population,centre,contour&nom=versailles
-tips: Le champ <b>format</b> permet de préciser un format de sortie des données (json/geojson).
+tips: Le paramètre <b>format</b> permet de préciser un format de sortie des données (json/geojson).
+warning: Le format GeoJSON implique de choisir une géométrie principale.
+ Par défaut il s'agit du <b>centre</b>.
+ Cela peut être changé en ajoutant le paramètre <b>geometry=contour</b>.
 side: right
 ---
 {% highlight json %}
