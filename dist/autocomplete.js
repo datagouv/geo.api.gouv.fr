@@ -14,6 +14,7 @@
 
     $('.search input')
         .api({
+            throttle: 400,
             action: 'search',
             stateContext: '.ui.input',
             beforeSend: function(settings) {
