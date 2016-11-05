@@ -38,13 +38,12 @@
 
         var osmUrl = '{{ site.data.map.osm-url }}',
             osmAttribution = '{{ site.data.map.osm-attribution }}',
-            osm = new L.TileLayer(osmUrl, {
+            osmLayer = new L.TileLayer(osmUrl, {
                 maxZoom: {{ site.data.map.max-zoom }},
                 attribution: osmAttribution
             });
 
-        var mapLayer = new L.TileLayer(osmUrl);
-        this.map = new L.Map('map', options).addLayer(mapLayer);
+        this.map = new L.Map('map', options).addLayer(osmLayer);
     }
 
     function locateUser(position) {
