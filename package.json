@@ -1,0 +1,72 @@
+{
+  "name": "geoapi-doc",
+  "version": "1.0.0",
+  "description": "Documentation de la GéoAPI",
+  "main": "index.js",
+  "repository": "git@github.com:sgmap/geoapi-doc.git",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start -p $PORT",
+    "lint": "xo"
+  },
+  "dependencies": {
+    "babel-plugin-inline-import": "^2.0.6",
+    "copy-to-clipboard": "^3.0.8",
+    "debounce": "^1.1.0",
+    "leaflet": "^1.2.0",
+    "next": "^4.2.1",
+    "piwik-react-router": "^0.12.1",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-autocomplete": "^1.7.2",
+    "react-dom": "^16.2.0",
+    "react-icons": "^2.2.7",
+    "react-leaflet": "^1.7.8",
+    "underscore.string": "^3.3.4"
+  },
+  "devDependencies": {
+    "eslint-config-xo-react": "^0.13.0",
+    "eslint-plugin-react": "^7.4.0",
+    "webpack-bundle-analyzer": "^2.9.1",
+    "xo": "^0.18.2"
+  },
+  "xo": {
+    "extends": "xo-react",
+    "semicolon": false,
+    "space": 2,
+    "globals": [
+      "fetch"
+    ],
+    "rules": {
+      "jsx-quotes": [
+        "error",
+        "prefer-single"
+      ],
+      "react/jsx-closing-bracket-location": [
+        "error",
+        "after-props"
+      ],
+      "react/jsx-closing-tag-location": "off",
+      "react/jsx-first-prop-new-line": "off",
+      "react/jsx-max-props-per-line": [
+        "warn",
+        {
+          "maximum": 4,
+          "when": "multiline"
+        }
+      ],
+      "react/jsx-tag-spacing": [
+        "error",
+        {
+          "closingSlash": "never",
+          "beforeSelfClosing": "always",
+          "afterOpening": "never"
+        }
+      ],
+      "react/forbid-component-props": "off",
+      "react/react-in-jsx-scope": "off"
+    }
+  }
+}
