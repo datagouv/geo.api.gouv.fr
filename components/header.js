@@ -8,7 +8,7 @@ export default () => (
 
       <Link href='/'>
         <a className='nav__link'>
-          <img className='nav__logo' src='/static/images/logos/geo.svg' alt='Accueil de geo.api.gouv.fr' />
+          <img className='nav__logo' src='/static/images/logos/geo-api.svg' alt='Accueil de geo.api.gouv.fr' />
         </a>
       </Link>
 
