@@ -515,7 +515,7 @@ const json = `[
 ]`
 
 const AdvancedSearch = () => (
-  <Section background={'white'}>
+  <Section background='white'>
     <Tuto
       title='Recherche avancée'
       description='Le paramètre fields vous permet de filtrer les informations.'
@@ -524,7 +524,8 @@ const AdvancedSearch = () => (
       code={json}
       tips='Le paramètre format permet de préciser un format de sortie des données (json/geojson).'
       warning='Le format GeoJSON implique de choisir une géométrie principale. Par défaut il s’agit du centre. Cela peut être changé en ajoutant le paramètre geometry=contour.'
-      side='right' >
+      side='right'
+    >
 
       <div>
         <div><b>Champs possibles</b> :</div>

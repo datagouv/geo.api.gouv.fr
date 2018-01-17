@@ -19,7 +19,7 @@ const json = `[
 ]`
 
 const ByName = () => (
-  <Section background={'white'}>
+  <Section background='white'>
     <Tuto
       title='Recherche par nom'
       description='La variable nom vous permet d’effectuer une recherche de communes par nom.'

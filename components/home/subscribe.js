@@ -10,7 +10,8 @@ export default () => (
       <Button type='submit' name='subscribe' style={{
         width: '100%',
         textTransform: 'uppercase'
-      }}>
+      }}
+      >
         Inscription
       </Button>
     </form>

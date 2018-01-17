@@ -18,7 +18,7 @@ const json = `[
 ]`
 
 const ByCode = () => (
-  <Section background={'grey'}>
+  <Section background='grey'>
     <Tuto
       title='Recherche par code postal'
       description='Il est possible de rechercher une commune avec son code postal.'
