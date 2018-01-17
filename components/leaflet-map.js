@@ -1,5 +1,4 @@
 /* eslint react/no-danger: off */
-import React from 'react'
 import PropTypes from 'prop-types'
 import L from 'leaflet'
 import {Map, TileLayer, Marker, GeoJSON} from 'react-leaflet'

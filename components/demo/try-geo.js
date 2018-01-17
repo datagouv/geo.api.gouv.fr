@@ -2,9 +2,9 @@ import React from 'react'
 import debounce from 'debounce'
 import dynamic from 'next/dynamic'
 
-import TryContainer from './try-container'
 import Loader from '../loader'
 import Notification from '../notification'
+import TryContainer from './try-container'
 import Commune from './commune'
 
 const LeafletMap = dynamic(import('../leaflet-map'), {
@@ -69,6 +69,8 @@ class TryGeo extends React.Component {
   }
 
   render() {
+    // TODO: use `error` state and remove the eslint comment
+    // eslint-disable-next-line no-unused-vars
     const {position, results, loading, error} = this.state
     const commune = results.length > 0 ? results[0] : null
 
@@ -77,10 +79,10 @@ class TryGeo extends React.Component {
         <div className='container'>
           {commune ?
             <LeafletMap
-                data={commune.contour}
-                position={[position.coords.latitude, position.coords.longitude]}
-                center={commune.centre.coordinates.reverse()}
-                zoom={12.5} /> :
+              data={commune.contour}
+              position={[position.coords.latitude, position.coords.longitude]}
+              center={commune.centre.coordinates.reverse()}
+              zoom={12.5} /> :
             <LeafletMap />
           }
 
@@ -88,7 +90,7 @@ class TryGeo extends React.Component {
             {loading ?
               <div className='loading'>
                 <Notification message='Le temps de chargement n’est pas représentatif des performances de l’API ' type='info' />
-                <Loader size={'big'} text='Chargement…' />
+                <Loader size='big' text='Chargement…' />
               </div> :
               <Commune commune={commune} onClick={this.handleLocation} />
             }

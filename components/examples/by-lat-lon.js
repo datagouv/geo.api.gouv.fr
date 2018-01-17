@@ -16,7 +16,7 @@ const json = `{
 }`
 
 const ByLatLon = () => (
-  <Section background={'grey'}>
+  <Section background='grey'>
     <Tuto
       title='Recherche géographique'
       description='Les variables lon et lat permettent d’effectuer une recherche géographique.'

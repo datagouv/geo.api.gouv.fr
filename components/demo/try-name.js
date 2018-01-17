@@ -23,9 +23,12 @@ class TryName extends React.Component {
   }
 
   updateValue(value) {
-    const {boost} = this.state
-    const url = `https://geo.api.gouv.fr/communes?nom=${value}&fields=departement${boost ? '&boost=population' : ''}`
-    this.setState({value, results: [], loading: true}, this.search(url))
+    this.setState({value, results: [], loading: true}, () => {
+      const {boost} = this.state
+
+      const url = `https://geo.api.gouv.fr/communes?nom=${value}&fields=departement${boost ? '&boost=population' : ''}`
+      this.search(url)
+    })
   }
 
   search(url) {
@@ -57,7 +60,9 @@ class TryName extends React.Component {
   }
 
   toggleBoost() {
-    this.setState({boost: !this.state.boost})
+    this.setState(state => ({
+      boost: !state.boost
+    }))
   }
 
   render() {
@@ -69,7 +74,7 @@ class TryName extends React.Component {
           value={value}
           results={results}
           loading={loading}
-          placeholder={'Rechercher une commune…'}
+          placeholder='Rechercher une commune…'
           search={this.updateValue} />
         <SwitchInput handleChange={this.toggleBoost} label='Boost de population' isChecked={boost} />
       </TryContainer>
