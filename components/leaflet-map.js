@@ -6,9 +6,9 @@ import {Map, TileLayer, Marker, GeoJSON} from 'react-leaflet'
 
 import mapStyle from 'leaflet/dist/leaflet.css'
 
-const LeafletMap = ({center, position, zoom, data}) => {
-  const iconUrl = '../../static/images/map/marker-icon.png'
+L.Icon.Default.imagePath = '/static/images/leaflet/'
 
+const LeafletMap = ({center, position, zoom, data}) => {
   return (
     <div>
       <Map center={center} zoom={zoom} scrollWheelZoom={false}>
@@ -16,7 +16,7 @@ const LeafletMap = ({center, position, zoom, data}) => {
           url='https://tilecache.openstreetmap.fr/osmfr/{z}/{x}/{y}.png'
           attribution='Map data &copy; 2012 OpenStreetMap contributors' />
 
-        {position && <Marker position={position} icon={L.icon({iconUrl})} />}
+        {position && <Marker position={position} />}
 
         {data && <GeoJSON
           color='blue'
