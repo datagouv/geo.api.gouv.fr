@@ -11,14 +11,14 @@ const Footer = () => (
           <li><Link href='https://twitter.com/geodatagouv'><a><img src='/static/images/medias/twitter.svg' alt='Twitter' /></a></Link></li>
           <li><Link href='https://github.com/etalab/geoapi-doc'><a><img src='/static/images/medias/github.svg' alt='Github' /></a></Link></li>
           <li><Link href='https://blog.geo.data.gouv.fr'><a><img src='/static/images/medias/medium.svg' alt='Medium' /></a></Link></li>
-          <li><a href='mailto:geo@data.gouv.fr'><img src='/static/images/medias/envelop.svg' alt='Contact' /></a></li>
+          <li><a href='mailto:contact@geo.api.gouv.fr'><img src='/static/images/medias/envelop.svg' alt='Contact' /></a></li>
         </ul>
       </div>
       <ul className='footer__links'>
         <li><h2>geo.api.gouv.fr</h2></li>
         <li><Link href='/mentions-legales'><a>Mentions légales</a></Link></li>
         <li><Link href='/faq'><a>FAQ</a></Link></li>
-        <li><a href='mailto:geo@data.gouv.fr'>Contact</a></li>
+        <li><a href='mailto:contact@geo.api.gouv.fr'>Contact</a></li>
       </ul>
     </div>
     <style jsx>{`
