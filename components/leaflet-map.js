@@ -6,41 +6,39 @@ import {Map, TileLayer, Marker, GeoJSON} from 'react-leaflet'
 
 import mapStyle from 'leaflet/dist/leaflet.css'
 
-const LeafletMap = ({center, position, zoom, data}) => {
-  const iconUrl = '../../static/images/map/marker-icon.png'
+L.Icon.Default.imagePath = '/static/images/leaflet/'
 
-  return (
-    <div>
-      <Map center={center} zoom={zoom} scrollWheelZoom={false}>
-        <TileLayer
-          url='https://tilecache.openstreetmap.fr/osmfr/{z}/{x}/{y}.png'
-          attribution='Map data &copy; 2012 OpenStreetMap contributors' />
+const LeafletMap = ({center, position, zoom, data}) => (
+  <div>
+    <Map center={center} zoom={zoom} scrollWheelZoom={false}>
+      <TileLayer
+        url='https://tilecache.openstreetmap.fr/osmfr/{z}/{x}/{y}.png'
+        attribution='Map data &copy; 2012 OpenStreetMap contributors' />
 
-        {position && <Marker position={position} icon={L.icon({iconUrl})} />}
+      {position && <Marker position={position} />}
 
-        {data && <GeoJSON
-          color='blue'
-          fillOpacity={0.1}
-          weight={2}
-          data={data} />}
-      </Map>
+      {data && <GeoJSON
+        color='blue'
+        fillOpacity={0.1}
+        weight={2}
+        data={data} />}
+    </Map>
 
-      <style dangerouslySetInnerHTML={{__html: mapStyle}} />
+    <style dangerouslySetInnerHTML={{__html: mapStyle}} />
 
-      <style jsx>{`
-        div {
-          width: 100%;
-          max-width: 500px;
-          height: 400px;
-        }
+    <style jsx>{`
+      div {
+        width: 100%;
+        max-width: 500px;
+        height: 400px;
+      }
 
-        div :global(.leaflet-container) {
-          height: 100%;
-        }
-      `}</style>
-    </div>
-  )
-}
+      div :global(.leaflet-container) {
+        height: 100%;
+      }
+    `}</style>
+  </div>
+)
 
 LeafletMap.propTypes = {
   data: PropTypes.object,
