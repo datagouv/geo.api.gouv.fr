@@ -2,6 +2,7 @@ import Page from '../layouts/main'
 
 import Hero from '../components/hero'
 import Summary from '../components/home/summary'
+import Subscribe from '../components/home/subscribe'
 import Examples from '../components/examples'
 
 const title = 'Documentation geo.api.gouv.fr'
@@ -12,5 +13,6 @@ export default () => (
     <Hero title={title} tagline={tagline} />
     <Summary />
     <Examples />
+    <Subscribe />
   </Page>
 )
