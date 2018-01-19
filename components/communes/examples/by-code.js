@@ -1,7 +1,7 @@
 import FaEnvelope from 'react-icons/lib/fa/envelope'
 
-import Section from '../section'
-import Tuto from './tuto'
+import Section from '../../section'
+import Tuto from '../tuto'
 
 const json = `[
    {

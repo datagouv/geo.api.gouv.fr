@@ -1,7 +1,7 @@
 import FaSliders from 'react-icons/lib/fa/sliders'
 
-import Section from '../section'
-import Tuto from './tuto'
+import Section from '../../section'
+import Tuto from '../tuto'
 
 const json = `[
    {

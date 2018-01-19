@@ -1,8 +1,8 @@
 import FaCompass from 'react-icons/lib/fa/compass'
 
-import Section from '../section'
-import TryGeo from '../demo/try-geo'
-import Tuto from './tuto'
+import Section from '../../section'
+import TryGeo from '../../demo/try-geo'
+import Tuto from '../tuto'
 
 const json = `{
    "nom":"Versailles",
