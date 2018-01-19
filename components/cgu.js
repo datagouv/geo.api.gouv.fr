@@ -8,18 +8,16 @@ const Cgu = () => (
         <p>Tout utilisateur de la plateforme reconnaît expressément souscrire sans réserve aux présentes conditions générales d’utilisation (CGU). L’utilisation de la plateforme suppose le respect total des lois, règlements et tous les autres textes juridiques en vigueur. Il conviendra de respecter l’ensemble de ces dispositions et règles en toutes circonstances. A défaut, l’utilisateur est conscient qu’il risque des sanctions civiles, pénales et/ou disciplinaires.</p>
 
         <h4>Disponibilité du site</h4>
-        <p>
-          Quare hoc quidem praeceptum, cuiuscumque est, ad tollendam amicitiam valet; illud potius praecipiendum fuit, ut eam diligentiam adhiberemus in amicitiis comparandis, ut ne quando amare inciperemus eum, quem aliquando odisse possemus. Quin etiam si minus felices in diligendo fuissemus, ferendum id Scipio potius quam inimicitiarum tempus cogitandum putabat.
+        <p>L’éditeur s’engage à mettre en œuvre tout ce qui est possible techniquement pour sécuriser l’accès et l’utilisation du site geo.api.gouv.fr. Elle est accessible 24 heures sur 24, 7 jours sur 7, sauf en cas de force majeure ou de survenance d’un événement hors du contrôle de l’éditeur et sous réserve d’éventuelles pannes et interventions de maintenance nécessaires au bon fonctionnement de la plateforme.<br />
+        L’éditeur ne garantit pas que la plateforme fonctionne de manière ininterrompue, sécurisée ou qu’elle soit exempte d’erreurs. Les interventions de maintenance pourront être effectuées sans que les utilisateurs de geo.api.gouv.fr n’aient été préalablement avertis.<br />
+        L’éditeur ne peut être tenu pour responsable d’une éventuelle rupture de ce service ou d’un problème technique empêchant un utilisateur d’accéder au site geo.api.gouv.fr.<br />
+        L’éditeur se réserve la possibilité de refuser l’accès aux services offerts par geo.api.gouv.fr en cas d’usage abusif ou de violation de dispositions législatives ou réglementaires en vigueur.
         </p>
 
         <h4>Accès aux données personnelles</h4>
-        <p>
-          Quid? qui se etiam nunc subsidiis patrimonii aut amicorum liberalitate sustentant, hos perire patiemur? An, si qui frui publico non potuit per hostem, hic tegitur ipsa lege censoria; quem is frui non sinit, qui est, etiamsi non appellatur, hostis, huic ferri auxilium non oportet? Retinete igitur in provincia diutius eum, qui de sociis cum hostibus, de civibus cum sociis faciat pactiones, qui hoc etiam se pluris esse quam collegam putet, quod ille vos tristia voltuque deceperit, ipse numquam se minus quam erat, nequam esse simularit. Piso autem alio quodam modo gloriatur se brevi tempore perfecisse, ne Gabinius unus omnium nequissimus existimaretur.
-        </p>
-
-        <h4>Stockage des données soumises à l’API</h4>
-        <p>Quibus occurrere bene pertinax miles explicatis ordinibus parans hastisque feriens scuta qui habitus iram pugnantium concitat et dolorem proximos iam gestu terrebat sed eum in certamen alacriter consurgentem revocavere ductores rati intempestivum anceps subire certamen cum haut longe muri distarent, quorum tutela securitas poterat in solido locari cunctorum.</p>
-        <p>Fuerit toto in consulatu sine provincia, cui fuerit, antequam designatus est, decreta provincia. Sortietur an non? Nam et non sortiri absurdum est, et, quod sortitus sis, non habere. Proficiscetur paludatus? Quo? Quo pervenire ante certam diem non licebit. ianuario, Februario, provinciam non habebit; Kalendis ei denique Martiis nascetur repente provincia.</p>
+        <p>En application de la loi n°78-17 du 6 janvier 1978 relative à l’informatique, aux fichiers et aux libertés, les utilisateurs de la plateforme data.gouv.fr disposent notamment d’un droit d’accès et de rectification auprès de l’éditeur de la plateforme.<br />
+        Ce droit s’exerce auprès de la Mission Etalab, Direction interministérielle du numérique et du système d’information et de communication de l’État (DINSIC), 20 avenue de Ségur, 75007 Paris.<br />
+        La plateforme data.gouv.fr a été déclarée à la Commission Nationale de l’Informatique et des Libertés sous le numéro : eRa0876341t. </p>
 
       </div>
       <div>
