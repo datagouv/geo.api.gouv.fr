@@ -17,7 +17,6 @@ const Footer = () => (
       <ul className='footer__links'>
         <li><h2>geo.api.gouv.fr</h2></li>
         <li><Link href='/cgu'><a>Mentions légales</a></Link></li>
-        <li><Link href='/faq'><a>FAQ</a></Link></li>
         <li><a href='mailto:contact@geo.api.gouv.fr'>Contact</a></li>
       </ul>
     </div>
