@@ -2,17 +2,12 @@ version: 2
 
 defaults:
   workspace_root: &workspace_root
-    ~/docsgeoapigouv
+    ~/geoapigouv
 
   nodejs_container: &nodejs_container
     working_directory: *workspace_root
     docker:
       - image: circleci/node:8-stretch
-
-  golang_container: &golang_container
-    working_directory: *workspace_root
-    docker:
-      - image: circleci/golang:1-stretch
 
   filters: &default_filters
     tags:
@@ -26,8 +21,8 @@ defaults:
     restore_cache:
       name: Restore node_modules cache
       keys:
-        - v1-docsgeoapigouv-node-{{ checksum "yarn.lock" }}
-        - v1-docsgeoapigouv-node-
+        - v1-geoapigouv-node-{{ checksum "yarn.lock" }}
+        - v1-geoapigouv-node-
 
 jobs:
   checkout:
@@ -49,8 +44,8 @@ jobs:
       - restore_cache:
           name: Restore yarn cache
           keys:
-            - v1-docsgeoapigouv-yarn-{{ checksum "yarn.lock" }}
-            - v1-docsgeoapigouv-yarn-
+            - v1-geoapigouv-yarn-{{ checksum "yarn.lock" }}
+            - v1-geoapigouv-yarn-
 
       - run:
           name: Install dependencies
@@ -58,13 +53,13 @@ jobs:
 
       - save_cache:
           name: Save yarn cache
-          key: v1-docsgeoapigouv-yarn-{{ checksum "yarn.lock" }}
+          key: v1-geoapigouv-yarn-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn/
 
       - save_cache:
           name: Save node_modules cache
-          key: v1-docsgeoapigouv-node-{{ checksum "yarn.lock" }}
+          key: v1-geoapigouv-node-{{ checksum "yarn.lock" }}
           paths:
             - node_modules/
 
@@ -105,10 +100,15 @@ jobs:
           name: Build output bundles
           command: yarn build
 
+      - run:
+          name: Export bundles as static HTML
+          command: yarn export
+
       - persist_to_workspace:
           root: *workspace_root
           paths:
             - .next/
+            - out/
 
       - run:
           name: Extract built bundles for stats
@@ -123,6 +123,32 @@ jobs:
       -  store_artifacts:
           name: Store built bundles for stats
           path: dist-stats
+
+  deploy:
+    <<: *nodejs_container
+    steps:
+      - *attach_workspace
+      - *restore_node_modules
+
+      - add_ssh_keys:
+          fingerprints:
+            - 94:75:4d:48:e1:a3:27:af:d7:c2:c6:9d:58:95:61:ab
+
+      - run:
+          name: Setup SSH to GitHub
+          command: ssh-keyscan github.com > ~/.ssh/known_hosts
+
+      - run:
+          name: Set SSH user email
+          command: git config --global user.email "infra@beta.gouv.fr"
+
+      - run:
+          name: Set SSH user name
+          command: git config --global user.name "CircleCI"
+
+      - deploy:
+          name: Deploy to gh-pages branch on GitHub
+          command: yarn deploy
 
 workflows:
   version: 2
@@ -147,3 +173,10 @@ workflows:
             - install
           filters: *default_filters
 
+      - deploy:
+          requires:
+            - lint
+            - build
+          filters:
+            branches:
+              only: next
