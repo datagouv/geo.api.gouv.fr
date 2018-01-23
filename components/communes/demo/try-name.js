@@ -1,8 +1,8 @@
 import React from 'react'
 import debounce from 'debounce'
 
-import SearchInput from '../search-input'
-import SwitchInput from '../switch-input'
+import SearchInput from '../../search-input'
+import SwitchInput from '../../switch-input'
 import TryContainer from './try-container'
 
 class TryName extends React.Component {

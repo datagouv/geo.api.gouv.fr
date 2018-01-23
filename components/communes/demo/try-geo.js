@@ -2,8 +2,8 @@ import React from 'react'
 import debounce from 'debounce'
 import dynamic from 'next/dynamic'
 
-import Loader from '../loader'
-import Notification from '../notification'
+import Loader from '../../loader'
+import Notification from '../../notification'
 import TryContainer from './try-container'
 import Commune from './commune'
 

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import theme from '../../styles/theme'
+import theme from '../../../styles/theme'
 
 const TryContainer = ({children}) => (
   <div className='container'>
