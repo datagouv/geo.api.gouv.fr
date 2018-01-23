@@ -10,7 +10,7 @@ import ByName from './examples/by-name'
 import ByLatLon from './examples/by-lat-lon'
 import AdvancedSearch from './examples/advanced-search'
 
-const features = [
+const examples = [
   {title: 'Recherche par code postal', icon: <FaEnvelope />},
   {title: 'Recherche par nom', icon: <FaTag />},
   {title: 'Recherche géographique', icon: <FaCompass />},
@@ -19,7 +19,7 @@ const features = [
 
 const Communes = () => (
   <div>
-    <Summary features={features} />
+    <Summary examples={examples} />
     <ByCode />
     <ByName />
     <ByLatLon />

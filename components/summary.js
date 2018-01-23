@@ -4,10 +4,10 @@ import theme from '../styles/theme'
 
 import Section from './section'
 
-const Summary = ({features}) => (
+const Summary = ({examples}) => (
   <Section title='Découvrez l’API' background='white'>
     <div className='main'>
-      {features.map(feature => (
+      {examples.map(feature => (
         <div key={feature.title}>
           <div className='icon'>{feature.icon}</div>
           <p>{feature.title}</p>
@@ -39,7 +39,7 @@ const Summary = ({features}) => (
 
       @media (min-width: 768px) {
         .main {
-          grid-template-columns: repeat(${features.length}, 1fr);
+          grid-template-columns: repeat(${examples.length}, 1fr);
         }
 
         .main p {
@@ -55,7 +55,7 @@ const Summary = ({features}) => (
 )
 
 Summary.propTypes = {
-  features: PropTypes.array.isRequired
+  examples: PropTypes.array.isRequired
 }
 
 export default Summary
