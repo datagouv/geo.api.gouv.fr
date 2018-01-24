@@ -2,8 +2,8 @@ import PropTypes from 'prop-types'
 
 import theme from '../styles/theme'
 
-const Loader = ({size, text}) => (
-  <div className='container'>
+const Loader = ({size, text, ...props}) => (
+  <div {...props} className='container'>
     {text && <div className='text'>{text}</div>}
     <div className={`loader ${size}`} />
     <style jsx>{`
@@ -11,10 +11,11 @@ const Loader = ({size, text}) => (
         display: flex;
         flex-direction: column;
         margin: 1em;
+        height: 100%;
       }
 
       .loader {
-        margin-left: 10px;
+        margin: auto;
         animation: spin 2s linear infinite;
         border-radius: 50%;
       }
