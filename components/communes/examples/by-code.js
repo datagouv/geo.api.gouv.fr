@@ -1,6 +1,7 @@
 import React from 'react'
 import FaEnvelope from 'react-icons/lib/fa/envelope'
 
+import api from '../../../lib/api'
 import theme from '../../../styles/theme'
 
 import Section from '../../section'
@@ -12,7 +13,7 @@ class ByCode extends React.Component {
     super(props)
     this.state = {
       input: '78000',
-      results: null,
+      results: [],
       loading: false,
       error: null
     }
@@ -30,29 +31,23 @@ class ByCode extends React.Component {
 
   async handleSearch() {
     const {input} = this.state
-    const url = 'https://geo.api.gouv.fr/communes?codePostal=' + input
-    const options = {
-      headers: {
-        Accept: 'application/json'
-      },
-      mode: 'cors',
-      method: 'GET'
-    }
+    const query = 'communes?codePostal=' + input
 
     if (input) {
       try {
-        this.setState({loading: true})
-        const response = await fetch(url, options)
-        const contentType = response.headers.get('content-type')
-        if (response.ok && contentType && contentType.indexOf('application/json') !== -1) {
-          const results = await response.json()
-          this.setState({results})
-        }
+        const results = await api(query)
+        this.setState({results})
       } catch (err) {
-        this.handleError(err)
+        this.setState({
+          error: err,
+          results: []
+        })
       }
     } else {
-      this.handleError(new Error('Le champ est vide.'))
+      this.setState({
+        error: new Error('Le champ est vide.'),
+        results: []
+      })
     }
     this.setState({loading: false})
   }
@@ -77,8 +72,8 @@ class ByCode extends React.Component {
 
         <TryPostalCode
           input={input}
-          onChange={this.handleChange}
-          onSubmit={this.handleSubmit}
+          onChange={this.handleInput}
+          onSubmit={this.handleSearch}
           error={error}
           loading={loading} />
 

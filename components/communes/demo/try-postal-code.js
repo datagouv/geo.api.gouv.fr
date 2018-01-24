@@ -19,7 +19,7 @@ TryPostalCode.propTypes = {
   input: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  error: PropTypes.string,
+  error: PropTypes.object,
   loading: PropTypes.bool
 }
 
