@@ -3,7 +3,7 @@ import debounce from 'debounce'
 
 import SearchInput from '../../search-input'
 import SwitchInput from '../../switch-input'
-import TryContainer from './try-container'
+import TryContainer from '../../try-container'
 
 class TryName extends React.Component {
   constructor(props) {

@@ -4,10 +4,10 @@ import dynamic from 'next/dynamic'
 
 import Loader from '../../loader'
 import Notification from '../../notification'
-import TryContainer from './try-container'
+import TryContainer from '../../try-container'
 import Commune from './commune'
 
-const LeafletMap = dynamic(import('../leaflet-map'), {
+const LeafletMap = dynamic(import('../../leaflet-map'), {
   ssr: false,
   loading: () => (
     <div style={{textAlign: 'center', paddingTop: 20}}>

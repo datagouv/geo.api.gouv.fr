@@ -1,8 +1,8 @@
 import FaTag from 'react-icons/lib/fa/tag'
 
 import Section from '../../section'
-import TryName from '../../demo/try-name'
-import Tuto from '../tuto'
+import TryName from '../demo/try-name'
+import Tuto from '../../tuto'
 
 const json = `[
    {
