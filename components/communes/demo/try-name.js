@@ -1,85 +1,39 @@
-import React from 'react'
-import debounce from 'debounce'
+import PropTypes from 'prop-types'
 
 import SearchInput from '../../search-input'
 import SwitchInput from '../../switch-input'
 import TryContainer from '../../try-container'
 
-class TryName extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      value: '',
-      results: [],
-      loading: false,
-      boost: true
-    }
+const TryName = ({value, results, boost, loading, error, handleChange, handleSelect, handleBoost}) => (
+  <TryContainer error={error}>
+    <SearchInput
+      value={value}
+      results={results}
+      loading={loading}
+      placeholder='Rechercher une commune…'
+      handleSelect={handleSelect}
+      search={handleChange} />
+    <SwitchInput handleChange={handleBoost} label='Boost de population' isChecked={boost} />
+  </TryContainer>
+)
 
-    this.updateValue = this.updateValue.bind(this)
-    this.search = this.search.bind(this)
-    this.toggleBoost = this.toggleBoost.bind(this)
+TryName.propTypes = {
+  value: PropTypes.string,
+  results: PropTypes.array,
+  boost: PropTypes.bool,
+  loading: PropTypes.bool,
+  error: PropTypes.object,
+  handleBoost: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  handleSelect: PropTypes.func.isRequired
+}
 
-    this.search = debounce(this.search, 200)
-  }
-
-  updateValue(value) {
-    this.setState({value, results: [], loading: true}, () => {
-      const {boost} = this.state
-
-      const url = `https://geo.api.gouv.fr/communes?nom=${value}&fields=departement${boost ? '&boost=population' : ''}`
-      this.search(url)
-    })
-  }
-
-  search(url) {
-    const options = {
-      headers: {
-        Accept: 'application/json'
-      },
-      mode: 'cors',
-      method: 'GET'
-    }
-
-    fetch(url, options).then(response => {
-      const contentType = response.headers.get('content-type')
-
-      if (contentType && contentType.indexOf('application/json') !== -1) {
-        response.json().then(json => {
-          this.setState({
-            results: json.splice(0, 5) || [],
-            loading: false
-          })
-        })
-      } else {
-        this.setState({
-          results: [],
-          loading: false
-        })
-      }
-    })
-  }
-
-  toggleBoost() {
-    this.setState(state => ({
-      boost: !state.boost
-    }))
-  }
-
-  render() {
-    const {value, loading, results, boost} = this.state
-
-    return (
-      <TryContainer>
-        <SearchInput
-          value={value}
-          results={results}
-          loading={loading}
-          placeholder='Rechercher une commune…'
-          search={this.updateValue} />
-        <SwitchInput handleChange={this.toggleBoost} label='Boost de population' isChecked={boost} />
-      </TryContainer>
-    )
-  }
+TryName.defaultProps = {
+  value: '',
+  results: null,
+  error: null,
+  boost: false,
+  loading: false
 }
 
 export default TryName

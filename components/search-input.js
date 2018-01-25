@@ -10,6 +10,7 @@ class SearchInput extends React.Component {
 
     this.getItemValue = this.getItemValue.bind(this)
     this.handleSearch = this.handleSearch.bind(this)
+    this.handleSelect = this.handleSelect.bind(this)
 
     this.renderItem = this.renderItem.bind(this)
     this.renderInput = this.renderInput.bind(this)
@@ -23,6 +24,11 @@ class SearchInput extends React.Component {
   handleSearch(event) {
     const {search} = this.props
     search(event.target.value)
+  }
+
+  handleSelect(item) {
+    const {handleSelect} = this.props
+    handleSelect(item)
   }
 
   renderItem(item, isHighlighted) {
@@ -90,8 +96,8 @@ class SearchInput extends React.Component {
 
     return (
       <div className={`menu ${value.length ? '' : 'hidden'}`}>
-        { loading ? (
-          <div className='item'><img src='../../static/loader.gif' /></div>
+        { loading && !items.length ? (
+          <div className='item'><img src='../static/loader.gif' /></div>
         ) : items.length === 0 ? (
           <div className='item'>Aucun résultat</div>
         ) : items}
@@ -125,7 +131,6 @@ class SearchInput extends React.Component {
 
   render() {
     const {value, results} = this.props
-
     return (
       <div>
         <Autocomplete
@@ -157,14 +162,16 @@ SearchInput.propTypes = {
   results: PropTypes.array,
   value: PropTypes.string,
   placeholder: PropTypes.string,
-  loading: PropTypes.bool.isRequired,
+  loading: PropTypes.bool,
+  handleSelect: PropTypes.func.isRequired,
   search: PropTypes.func.isRequired
 }
 
 SearchInput.defaultProps = {
   results: [],
   value: '',
-  placeholder: ''
+  placeholder: '',
+  loading: false
 }
 
 export default SearchInput
