@@ -12,7 +12,6 @@ class SearchInput extends React.Component {
     this.handleSearch = this.handleSearch.bind(this)
     this.handleSelect = this.handleSelect.bind(this)
 
-    this.renderItem = this.renderItem.bind(this)
     this.renderInput = this.renderInput.bind(this)
     this.renderMenu = this.renderMenu.bind(this)
   }
@@ -29,42 +28,6 @@ class SearchInput extends React.Component {
   handleSelect(item) {
     const {handleSelect} = this.props
     handleSelect(item)
-  }
-
-  renderItem(item, isHighlighted) {
-    const description = `${item.departement.nom} - ${item.departement.code}`
-
-    return (
-      <div key={item.code} className={`item ${isHighlighted ? 'item-highlighted' : ''}`}>
-        <div>
-          <div className='label'>{item.nom}</div>
-        </div>
-        <div>{description}</div>
-        <style jsx>{`
-          .item {
-            display: flex;
-            flex-flow: row;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1em;
-            border-bottom: 1px solid whitesmoke;
-          }
-
-          .item .label {
-            font-weight: 600;
-          }
-
-          .item:hover {
-            cursor: pointer;
-          }
-
-          .item-highlighted {
-            background-color: ${theme.primary};
-            color: ${theme.colors.white};
-          }
-        `}</style>
-      </div>
-    )
   }
 
   renderInput(props) {
@@ -130,7 +93,7 @@ class SearchInput extends React.Component {
   }
 
   render() {
-    const {value, results} = this.props
+    const {value, results, renderItem} = this.props
     return (
       <div>
         <Autocomplete
@@ -141,7 +104,7 @@ class SearchInput extends React.Component {
           getItemValue={this.getItemValue}
           onSelect={this.handleSelect}
           onChange={this.handleSearch}
-          renderItem={this.renderItem}
+          renderItem={renderItem}
           renderInput={this.renderInput}
           renderMenu={this.renderMenu} />
 
@@ -164,7 +127,8 @@ SearchInput.propTypes = {
   placeholder: PropTypes.string,
   loading: PropTypes.bool,
   handleSelect: PropTypes.func.isRequired,
-  search: PropTypes.func.isRequired
+  search: PropTypes.func.isRequired,
+  renderItem: PropTypes.func.isRequired
 }
 
 SearchInput.defaultProps = {
