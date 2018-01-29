@@ -7,8 +7,6 @@ import Section from '../../section'
 import Tuto from '../../tuto'
 import TryAdvanced from '../demo/try-advanced'
 
-import theme from '../../../styles/theme'
-
 const fieldsList = [
   'code',
   'codeDepartement',
