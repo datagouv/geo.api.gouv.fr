@@ -3,7 +3,6 @@ import React from 'react'
 import copy from 'copy-to-clipboard'
 
 import Result from './result'
-// import Commune from './communes/commune'
 
 import Presentation from './presentation'
 
