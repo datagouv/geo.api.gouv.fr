@@ -7,6 +7,7 @@ import Summary from '../summary'
 import TechnicalDoc from '../technical-doc/technical-doc'
 
 import ByName from './examples/by-name'
+import CommunesList from './examples/communes-list'
 
 import doc from './doc'
 
@@ -23,6 +24,7 @@ const Departements = () => (
     <TechnicalDoc {...doc} />
 
     <ByName />
+    <CommunesList />
   </div>
 )
 
