@@ -6,6 +6,8 @@ import FaSlider from 'react-icons/lib/fa/sliders'
 import Summary from '../summary'
 import TechnicalDoc from '../technical-doc/technical-doc'
 
+import ByName from './examples/by-name'
+
 import doc from './doc'
 
 const examples = [
@@ -18,9 +20,9 @@ const examples = [
 const Departements = () => (
   <div>
     <Summary examples={examples} />
-
     <TechnicalDoc {...doc} />
 
+    <ByName />
   </div>
 )
 

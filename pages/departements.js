@@ -11,7 +11,7 @@ const description = 'Interrogez les référentiels géographiques plus facilemen
 export default () => (
   <Page title={title} description={description}>
     <Head title={title} icon={<FaMapSigns />}>
-      En savoir plus sur <strong>adresse.data.gouv.fr</strong>.
+      Découvrez comment récupérer facilement les informations dont vous avez besoin au niveau départemental.
     </Head>
     <Departements />
   </Page>
