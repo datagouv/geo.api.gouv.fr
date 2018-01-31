@@ -16,6 +16,7 @@ class ByLatLon extends React.Component {
       position: null,
       results: [],
       loading: false,
+      query: '',
       error: null
     }
     this.handleLocation = this.handleLocation.bind(this)
@@ -31,12 +32,13 @@ class ByLatLon extends React.Component {
 
   async handleSearch(position) {
     const latLon = 'lat=' + position.coords.latitude + '&lon=' + position.coords.longitude
-    const query = 'communes?fields=code,nom,codesPostaux,surface,population,centre,contour&'
+    const fields = 'communes?fields=code,nom,codesPostaux,surface,population,centre,contour&'
+    const query = fields + latLon
 
-    this.setState({position})
+    this.setState({query, position, error: null})
 
     try {
-      const results = await api(query + latLon)
+      const results = await api(query)
       this.setState({results})
     } catch (err) {
       this.setState({
@@ -48,8 +50,7 @@ class ByLatLon extends React.Component {
   }
 
   render() {
-    const {position, results, error, loading} = this.state
-    const latLon = position ? 'lat=' + position.coords.latitude + '&lon=' + position.coords.longitude : ''
+    const {query, position, results, error, loading} = this.state
 
     return (
       <Section background='grey'>
@@ -57,7 +58,7 @@ class ByLatLon extends React.Component {
           title='Recherche géographique'
           description='Il est possible de faire une recherche géographique à l’aide de coordonnées.'
           icon={<FaCompass />}
-          exemple={`https://geo.api.gouv.fr/communes?${latLon}`}
+          exemple={`https://geo.api.gouv.fr/${query}`}
           results={results}
           loading={loading}
           side='left'
@@ -67,7 +68,12 @@ class ByLatLon extends React.Component {
           </div>
         </Tuto>
 
-        <TryGeo coords={position ? position.coords : null} results={results} locateUser={this.handleLocation} error={error} loading={loading} />
+        <TryGeo
+          coords={position ? position.coords : null}
+          results={results}
+          locateUser={this.handleLocation}
+          error={error}
+          loading={loading} />
 
         <style jsx>{`
           .field {
