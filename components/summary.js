@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import Link from 'next/link'
 
 import theme from '../styles/theme'
 
@@ -8,10 +9,12 @@ const Summary = ({examples}) => (
   <Section title='Découvrez l’API' background='white'>
     <div className='main'>
       {examples.map(feature => (
-        <div key={feature.title}>
-          <div className='icon'>{feature.icon}</div>
-          <p>{feature.title}</p>
-        </div>
+        <Link key={feature.title} href={`#${feature.id}`}>
+          <a>
+            <div className='icon'>{feature.icon}</div>
+            <p>{feature.title}</p>
+          </a>
+        </Link>
       ))}
     </div>
 
@@ -28,9 +31,17 @@ const Summary = ({examples}) => (
 
       .main p {
         text-align: center;
-        color: ${theme.themeDarkText};
+        color: ${theme.darkText};
         font-size: 1.2em;
         font-style: italic;
+      }
+
+      .main a {
+        color: ${theme.darkText};
+      }
+
+      .main a:hover {
+        cursor: pointer;
       }
 
       .icon {
