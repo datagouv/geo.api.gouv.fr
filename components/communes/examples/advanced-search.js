@@ -7,20 +7,6 @@ import Section from '../../section'
 import Tuto from '../../tuto'
 import TryAdvanced from '../demo/try-advanced'
 
-const fieldsList = [
-  'code',
-  'codeDepartement',
-  'codeRegion',
-  'nom',
-  'codesPostaux',
-  'surface',
-  'population',
-  'centre',
-  'contour',
-  'departement',
-  'region'
-]
-
 class AdvancedSearch extends React.Component {
   constructor(props) {
     super(props)
@@ -93,17 +79,9 @@ class AdvancedSearch extends React.Component {
           warning='Le format GeoJSON implique de choisir une géométrie principale. Par défaut il s’agit du centre. Cela peut être changé en ajoutant le paramètre geometry=contour.'
           loading={loading}
           side='right'
-        >
+        />
 
-          <div>
-            <div><b>Champs possibles</b> :</div>
-            <ul>
-              {fieldsList.map(field => <li key={field}>{field}</li>)}
-            </ul>
-          </div>
-        </Tuto>
-
-        <TryAdvanced fields={fieldsList} selectedFields={fields} selectField={this.handleSelect} error={error} />
+        <TryAdvanced selectedFields={fields} selectField={this.handleSelect} error={error} />
       </Section>
     )
   }
