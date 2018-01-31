@@ -1,5 +1,5 @@
 import React from 'react'
-import FaSliders from 'react-icons/lib/fa/sliders'
+import PropTypes from 'prop-types'
 
 import api from '../../../lib/api'
 
@@ -66,25 +66,35 @@ class AdvancedSearch extends React.Component {
   }
 
   render() {
+    const {title, id, icon} = this.props
     const {fields, results, loading, error} = this.state
+
     return (
       <Section background='white'>
-        <Tuto
-          title='Recherche avancée'
-          description='Le paramètre fields vous permet de filtrer les informations.'
-          icon={<FaSliders />}
-          exemple={`https://geo.api.gouv.fr/communes?nom=Versailles${fields ? '&fields=' + fields.join(',') : ''}`}
-          results={results}
-          tips='Le paramètre format permet de préciser un format de sortie des données (json/geojson).'
-          warning='Le format GeoJSON implique de choisir une géométrie principale. Par défaut il s’agit du centre. Cela peut être changé en ajoutant le paramètre geometry=contour.'
-          loading={loading}
-          side='right'
-        />
+        <div id={id}>
+          <Tuto
+            title={title}
+            description='Le paramètre fields vous permet de filtrer les informations.'
+            icon={icon}
+            exemple={`https://geo.api.gouv.fr/communes?nom=Versailles${fields ? '&fields=' + fields.join(',') : ''}`}
+            results={results}
+            tips='Le paramètre format permet de préciser un format de sortie des données (json/geojson).'
+            warning='Le format GeoJSON implique de choisir une géométrie principale. Par défaut il s’agit du centre. Cela peut être changé en ajoutant le paramètre geometry=contour.'
+            loading={loading}
+            side='right'
+          />
 
-        <TryAdvanced selectedFields={fields} selectField={this.handleSelect} error={error} />
+          <TryAdvanced selectedFields={fields} selectField={this.handleSelect} error={error} />
+        </div>
       </Section>
     )
   }
+}
+
+AdvancedSearch.propTypes = {
+  title: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  icon: PropTypes.node.isRequired
 }
 
 export default AdvancedSearch

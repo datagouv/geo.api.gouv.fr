@@ -1,5 +1,5 @@
 import React from 'react'
-import FaEnvelope from 'react-icons/lib/fa/envelope'
+import PropTypes from 'prop-types'
 
 import api from '../../../lib/api'
 import theme from '../../../styles/theme'
@@ -53,30 +53,33 @@ class ByCode extends React.Component {
   }
 
   render() {
+    const {title, id, icon} = this.props
     const {input, results, error, loading} = this.state
+
     return (
       <Section background='grey'>
-        <Tuto
-          title='Recherche par code postal'
-          description='Il est possible de rechercher une commune avec son code postal.'
-          icon={<FaEnvelope />}
-          exemple={'https://geo.api.gouv.fr/communes?codePostal=' + input}
-          results={results}
-          side='left'
-          loading={loading}
-        >
-          <div>
-            La variable <span className='field'>codePostal</span> permet de récuperer <b>la liste des communes</b> associées à un code postal.
-          </div>
-        </Tuto>
+        <div id={id}>
+          <Tuto
+            title={title}
+            description='Il est possible de rechercher une commune avec son code postal.'
+            icon={icon}
+            exemple={'https://geo.api.gouv.fr/communes?codePostal=' + input}
+            results={results}
+            side='left'
+            loading={loading}
+          >
+            <div>
+              La variable <span className='field'>codePostal</span> permet de récuperer <b>la liste des communes</b> associées à un code postal.
+            </div>
+          </Tuto>
 
-        <TryPostalCode
-          input={input}
-          onChange={this.handleInput}
-          onSubmit={this.handleSearch}
-          error={error}
-          loading={loading} />
-
+          <TryPostalCode
+            input={input}
+            onChange={this.handleInput}
+            onSubmit={this.handleSearch}
+            error={error}
+            loading={loading} />
+        </div>
         <style jsx>{`
               .field {
                 background: ${theme.primary};
@@ -88,6 +91,12 @@ class ByCode extends React.Component {
       </Section>
     )
   }
+}
+
+ByCode.propTypes = {
+  title: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  icon: PropTypes.node.isRequired
 }
 
 export default ByCode

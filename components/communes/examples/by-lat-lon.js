@@ -1,6 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import debounce from 'debounce'
-import FaCompass from 'react-icons/lib/fa/compass'
 
 import api from '../../../lib/api'
 import theme from '../../../styles/theme'
@@ -50,30 +50,33 @@ class ByLatLon extends React.Component {
   }
 
   render() {
+    const {title, id, icon} = this.props
     const {query, position, results, error, loading} = this.state
 
     return (
       <Section background='grey'>
-        <Tuto
-          title='Recherche géographique'
-          description='Il est possible de faire une recherche géographique à l’aide de coordonnées.'
-          icon={<FaCompass />}
-          exemple={`https://geo.api.gouv.fr/${query}`}
-          results={results}
-          loading={loading}
-          side='left'
-        >
-          <div>
-            <p>En utilisant les variables <span className='field'>lat</span> et <span className='field'>lon</span> l’api renverra la commune correspondante.</p>
-          </div>
-        </Tuto>
+        <div id={id}>
+          <Tuto
+            title={title}
+            description='Il est possible de faire une recherche géographique à l’aide de coordonnées.'
+            icon={icon}
+            exemple={`https://geo.api.gouv.fr/${query}`}
+            results={results}
+            loading={loading}
+            side='left'
+          >
+            <div>
+              <p>En utilisant les variables <span className='field'>lat</span> et <span className='field'>lon</span> l’api renverra la commune correspondante.</p>
+            </div>
+          </Tuto>
 
-        <TryGeo
-          coords={position ? position.coords : null}
-          results={results}
-          locateUser={this.handleLocation}
-          error={error}
-          loading={loading} />
+          <TryGeo
+            coords={position ? position.coords : null}
+            results={results}
+            locateUser={this.handleLocation}
+            error={error}
+            loading={loading} />
+        </div>
 
         <style jsx>{`
           .field {
@@ -86,6 +89,12 @@ class ByLatLon extends React.Component {
       </Section>
     )
   }
+}
+
+ByLatLon.propTypes = {
+  title: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  icon: PropTypes.node.isRequired
 }
 
 export default ByLatLon

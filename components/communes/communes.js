@@ -11,19 +11,19 @@ import ByLatLon from './examples/by-lat-lon'
 import AdvancedSearch from './examples/advanced-search'
 
 const examples = [
-  {title: 'Recherche par code postal', icon: <FaEnvelope />},
-  {title: 'Recherche par nom', icon: <FaTag />},
-  {title: 'Recherche géographique', icon: <FaCompass />},
-  {title: 'Recherche avancée', icon: <FaSlider />}
+  {title: 'Recherche par code postal', id: 'postal-code', icon: <FaEnvelope />},
+  {title: 'Recherche par nom', id: 'name', icon: <FaTag />},
+  {title: 'Recherche géographique', id: 'geo', icon: <FaCompass />},
+  {title: 'Recherche avancée', id: 'advanced', icon: <FaSlider />}
 ]
 
 const Communes = () => (
   <div>
     <Summary examples={examples} />
-    <ByCode />
-    <ByName />
-    <ByLatLon />
-    <AdvancedSearch />
+    <ByCode {...examples[0]} />
+    <ByName {...examples[1]} />
+    <ByLatLon {...examples[2]} />
+    <AdvancedSearch {...examples[3]} />
   </div>
 )
 

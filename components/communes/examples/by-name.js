@@ -1,6 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import debounce from 'debounce'
-import FaTag from 'react-icons/lib/fa/tag'
 
 import api from '../../../lib/api'
 import theme from '../../../styles/theme'
@@ -74,34 +74,39 @@ class ByName extends React.Component {
   }
 
   render() {
+    const {title, id, icon} = this.props
     const {input, query, results, boost, loading, error} = this.state
 
     return (
       <Section background='white'>
-        <Tuto
-          title='Recherche par nom'
-          description='La variable nom vous permet d’effectuer une recherche de communes par nom.'
-          icon={<FaTag />}
-          exemple={`https://geo.api.gouv.fr/${query}`}
-          results={results}
-          tips='Il est possible d’utiliser la recherche par nom pour faire de l’autocomplétion.'
-          side='right'
-          loading={loading}
-        >
-          <div>
-            <p>L’option <span className='field'>boost=population</span> vous permet de prioriser les résultats avec une plus grande population.</p>
-            <p>Cette option prend tout son sens lorsque l’on recherche des communes comme <b>Nantes</b> par exemple.</p>
-          </div>
-        </Tuto>
-        <TryName
-          value={input}
-          results={results}
-          boost={boost}
-          loading={loading}
-          error={error}
-          handleChange={this.handleInput}
-          handleSelect={this.handleSelect}
-          handleBoost={this.handleBoost} />
+        <div id={id}>
+          <Tuto
+            title={title}
+            description='La variable nom vous permet d’effectuer une recherche de communes par nom.'
+            icon={icon}
+            exemple={`https://geo.api.gouv.fr/${query}`}
+            results={results}
+            tips='Il est possible d’utiliser la recherche par nom pour faire de l’autocomplétion.'
+            side='right'
+            loading={loading}
+          >
+            <div>
+              <p>L’option <span className='field'>boost=population</span> vous permet de prioriser les résultats avec une plus grande population.</p>
+              <p>Cette option prend tout son sens lorsque l’on recherche des communes comme <b>Nantes</b> par exemple.</p>
+            </div>
+          </Tuto>
+
+          <TryName
+            value={input}
+            results={results}
+            boost={boost}
+            loading={loading}
+            error={error}
+            handleChange={this.handleInput}
+            handleSelect={this.handleSelect}
+            handleBoost={this.handleBoost} />
+        </div>
+
         <style jsx>{`
           .field {
             background: ${theme.primary};
@@ -113,6 +118,12 @@ class ByName extends React.Component {
       </Section>
     )
   }
+}
+
+ByName.propTypes = {
+  title: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  icon: PropTypes.node.isRequired
 }
 
 export default ByName
