@@ -3,55 +3,23 @@ import PropTypes from 'prop-types'
 
 import theme from '../../styles/theme'
 
+import ExpandableMenu from '../expandable-menu'
 import ParamsTable from './params-table'
 
 class Path extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {expanded: false}
-
-    this.expand = this.expand.bind(this)
-  }
-
-  expand() {
-    this.setState(state => ({
-      expanded: !state.expanded
-    }))
-  }
-
   render() {
-    const {expanded} = this.state
     const {name, description, params} = this.props
-
-    return (
-      <div>
-
-        <div key={name} className='container get' onClick={this.expand}>
-          <div className='method'>get</div>
-          <div className='description'>
-            <div><b>{name}</b></div>
-            <div>{description}</div>
-          </div>
+    const title = (
+      <div className='get'>
+        <div className='method'>get</div>
+        <div className='description'>
+          <div><b>{name}</b></div>
+          <div>{description}</div>
         </div>
-
-        {expanded && <ParamsTable params={params} />}
-
         <style jsx>{`
-          .container {
-            padding: 0.5em 2em 0.5em 0.5em ;
-            background: ${theme.colors.white};
-            border-radius: 3px;
-            color: ${theme.darkText};
-            margin: 0.5em 0;
-          }
-
           .get {
             display: flex;
             align-items: center;
-          }
-
-          .get:hover {
-            cursor: pointer;
           }
 
           .method {
@@ -69,9 +37,16 @@ class Path extends React.Component {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
+            font-weight: 500;
           }
           `}</style>
       </div>
+    )
+
+    return (
+      <ExpandableMenu title={title}>
+        <ParamsTable params={params} />
+      </ExpandableMenu>
     )
   }
 }
