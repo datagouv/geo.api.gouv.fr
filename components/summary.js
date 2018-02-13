@@ -42,6 +42,7 @@ const Summary = ({examples}) => (
 
       .main a:hover {
         cursor: pointer;
+        font-weight: 600;
       }
 
       .icon {
