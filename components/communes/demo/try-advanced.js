@@ -13,20 +13,20 @@ const codeFields = [
 ]
 
 const geoFields = [
-  'surface',
   'centre',
   'contour'
 ]
 
 const infosFields = [
+  'surface',
   'population',
   'codesPostaux'
 ]
 
 const cats = [
-  {name: 'Relation', fields: codeFields},
-  {name: 'Géométrie', fields: geoFields},
-  {name: 'informations', fields: infosFields}
+  {name: 'Relations', fields: codeFields},
+  {name: 'Géographie', fields: geoFields},
+  {name: 'Informations', fields: infosFields}
 ]
 
 class TryAdvanced extends React.Component {
