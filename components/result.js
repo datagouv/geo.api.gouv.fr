@@ -11,7 +11,6 @@ import Code from './code'
 class Tuto extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {raw: false}
     this.copyToClipboard = this.copyToClipboard.bind(this)
     this.handleDisplay = this.handleDisplay.bind(this)
   }
@@ -27,7 +26,7 @@ class Tuto extends React.Component {
   }
 
   render() {
-    const {exemple, results, loading, children} = this.props
+    const {exemple, results, loading} = this.props
 
     return (
       <div className='container'>
@@ -69,14 +68,12 @@ class Tuto extends React.Component {
 Tuto.propTypes = {
   exemple: PropTypes.string.isRequired,
   results: PropTypes.array,
-  loading: PropTypes.bool,
-  children: PropTypes.node
+  loading: PropTypes.bool
 }
 
 Tuto.defaultProps = {
   loading: true,
-  results: null,
-  children: null
+  results: null
 }
 
 export default Tuto
