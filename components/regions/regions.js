@@ -1,20 +1,27 @@
 import FaList from 'react-icons/lib/fa/list'
 import FaTag from 'react-icons/lib/fa/tag'
-import FaCompass from 'react-icons/lib/fa/compass'
-import FaSlider from 'react-icons/lib/fa/sliders'
 
 import Summary from '../summary'
+import TechnicalDoc from '../technical-doc/technical-doc'
 
-const features = [
-  {title: 'Recherche par nom', icon: <FaTag />},
-  {title: 'Liste de communes', icon: <FaList />},
-  {title: 'Recherche géographique', icon: <FaCompass />},
-  {title: 'Recherche avancée', icon: <FaSlider />}
+import ByName from './examples/by-name'
+import DepartementsList from './examples/departements-list'
+
+import doc from './doc'
+
+const examples = [
+  {title: 'Recherche par nom', id: 'name', icon: <FaTag />},
+  {title: 'Liste de départements', id: 'departements-list', icon: <FaList />}
 ]
 
 const Regions = () => (
   <div>
-    <Summary features={features} />
+    <Summary examples={examples} />
+
+    <TechnicalDoc {...doc} />
+
+    <ByName />
+    <DepartementsList />
   </div>
 )
 
