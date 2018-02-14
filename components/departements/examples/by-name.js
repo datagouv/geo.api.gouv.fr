@@ -70,24 +70,26 @@ class ByName extends React.Component {
 
     return (
       <Section background='grey'>
-        <Tuto
-          title='Recherche par nom'
-          description='La variable nom vous permet d’effectuer une recherche de départements par nom.'
-          icon={<FaTag />}
-          exemple={`https://geo.api.gouv.fr/${query}`}
-          results={results}
-          tips='Il est possible d’utiliser la recherche par nom pour faire de l’autocomplétion.'
-          side='right'
-          loading={loading}
-        />
+        <div id='name'>
+          <Tuto
+            title='Recherche par nom'
+            description='La variable nom vous permet d’effectuer une recherche de départements par nom.'
+            icon={<FaTag />}
+            exemple={`https://geo.api.gouv.fr/${query}`}
+            results={results}
+            tips='Il est possible d’utiliser la recherche par nom pour faire de l’autocomplétion.'
+            side='right'
+            loading={loading}
+          />
 
-        <TryName
-          value={input}
-          results={results}
-          loading={loading}
-          error={error}
-          handleChange={this.handleInput}
-          handleSelect={this.handleSelect} />
+          <TryName
+            value={input}
+            results={results}
+            loading={loading}
+            error={error}
+            handleChange={this.handleInput}
+            handleSelect={this.handleSelect} />
+        </div>
 
         <style jsx>{`
           .field {

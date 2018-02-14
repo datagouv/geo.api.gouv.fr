@@ -64,26 +64,28 @@ class CommunesList extends React.Component {
 
     return (
       <Section background='white'>
-        <Tuto
-          title='Liste de communes par départements'
-          description=''
-          icon={<FaList />}
-          exemple={`https://geo.api.gouv.fr/${query}`}
-          results={results}
-          side='left'
-          loading={loading}
-        >
-          <p>
-            <span className='field'>/departements/[codeDepartement]/communes</span> permet de récuperer <b>la liste des communes</b> associées à un département.
-          </p>
-        </Tuto>
+        <div id='communes-list'>
+          <Tuto
+            title='Liste de communes par départements'
+            description=''
+            icon={<FaList />}
+            exemple={`https://geo.api.gouv.fr/${query}`}
+            results={results}
+            side='left'
+            loading={loading}
+          >
+            <p>
+              <span className='field'>/departements/[codeDepartement]/communes</span> permet de récuperer <b>la liste des communes</b> associées à un département.
+            </p>
+          </Tuto>
 
-        <TryCommunesList
-          value={code}
-          results={results}
-          loading={loading}
-          error={error}
-          handleSelect={this.handleSelect} />
+          <TryCommunesList
+            value={code}
+            results={results}
+            loading={loading}
+            error={error}
+            handleSelect={this.handleSelect} />
+        </div>
 
         <style jsx>{`
             .field {
