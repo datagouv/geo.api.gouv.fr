@@ -45,7 +45,7 @@ const TryName = ({value, results, loading, error, handleChange, handleSelect}) =
       value={value}
       results={results}
       loading={loading}
-      placeholder='Rechercher une commune…'
+      placeholder='Rechercher un département…'
       handleSelect={handleSelect}
       search={handleChange}
       renderItem={renderDepartement} />
