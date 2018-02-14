@@ -9,12 +9,15 @@
     "dev": "next",
     "build": "next build",
     "start": "next start -p $PORT",
-    "lint": "xo"
+    "export": "next export",
+    "lint": "xo",
+    "deploy": "touch out/.nojekyll && gh-pages -d out -m 'Deploy [skip ci]' --dotfiles=true"
   },
   "dependencies": {
     "babel-plugin-inline-import": "^2.0.6",
     "copy-to-clipboard": "^3.0.8",
     "debounce": "^1.1.0",
+    "gh-pages": "^1.1.0",
     "leaflet": "^1.2.0",
     "next": "^4.2.1",
     "piwik-react-router": "^0.12.1",
