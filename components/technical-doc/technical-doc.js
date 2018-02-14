@@ -6,7 +6,7 @@ import Section from '../section'
 import Attributs from './attributs'
 import Path from './path'
 
-const TechnicalDoc = ({paths, defaultModel, defaultArgs, optionArgs}) => (
+const TechnicalDoc = ({paths, defaultModel, defaultAttributs, optionAttributs}) => (
   <Section background='primary'>
 
     <div className='title'>
@@ -16,7 +16,7 @@ const TechnicalDoc = ({paths, defaultModel, defaultArgs, optionArgs}) => (
 
     <div>
       {paths.map(path => <Path key={path.name} {...path} />)}
-      <Attributs model={defaultModel} defaults={defaultArgs} optionals={optionArgs} />
+      <Attributs model={defaultModel} defaults={defaultAttributs} optionals={optionAttributs} />
     </div>
 
     <style jsx>{`
@@ -35,12 +35,12 @@ const TechnicalDoc = ({paths, defaultModel, defaultArgs, optionArgs}) => (
 TechnicalDoc.propTypes = {
   paths: PropTypes.array.isRequired,
   defaultModel: PropTypes.array.isRequired,
-  defaultArgs: PropTypes.array.isRequired,
-  optionArgs: PropTypes.array
+  defaultAttributs: PropTypes.array.isRequired,
+  optionAttributs: PropTypes.array
 }
 
 TechnicalDoc.defaultProps = {
-  optionArgs: []
+  optionAttributs: []
 }
 
 export default TechnicalDoc

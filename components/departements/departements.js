@@ -4,17 +4,23 @@ import FaCompass from 'react-icons/lib/fa/compass'
 import FaSlider from 'react-icons/lib/fa/sliders'
 
 import Summary from '../summary'
+import TechnicalDoc from '../technical-doc/technical-doc'
 
-const features = [
-  {title: 'Recherche par nom', icon: <FaTag />},
-  {title: 'Liste de communes', icon: <FaList />},
-  {title: 'Recherche géographique', icon: <FaCompass />},
-  {title: 'Recherche avancée', icon: <FaSlider />}
+import doc from './doc'
+
+const examples = [
+  {title: 'Recherche par nom', id: 'name', icon: <FaTag />},
+  {title: 'Liste de communes', id: 'communes-list', icon: <FaList />},
+  {title: 'Recherche géographique', id: 'geo', icon: <FaCompass />},
+  {title: 'Recherche avancée', id: 'advanced', icon: <FaSlider />}
 ]
 
 const Departements = () => (
   <div>
-    <Summary features={features} />
+    <Summary examples={examples} />
+
+    <TechnicalDoc {...doc} />
+
   </div>
 )
 

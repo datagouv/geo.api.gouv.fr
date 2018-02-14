@@ -125,7 +125,7 @@ const defaultModel = [
   }
 ]
 
-const defaultArgs = [
+const defaultAttributs = [
   code,
   nom,
   codesPostaux,
@@ -135,7 +135,7 @@ const defaultArgs = [
   _score
 ]
 
-const optionArgs = [
+const optionAttributs = [
   departement,
   region,
   surface,
@@ -143,4 +143,4 @@ const optionArgs = [
   contour
 ]
 
-export default {paths, defaultModel, defaultArgs, optionArgs}
+export default {paths, defaultModel, defaultAttributs, optionAttributs}
