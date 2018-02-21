@@ -11,7 +11,7 @@ const description = 'Interrogez les référentiels géographiques plus facilemen
 export default () => (
   <Page title={title} description={description}>
     <Head title={title} icon={<FaMapSigns />}>
-      Découvrez comment récupérer facilement les informations dont vous avez besoin au niveau communal.
+      Découvrez comment récupérer facilement les informations dont vous avez besoin au niveau régional.
     </Head>
     <Regions />
   </Page>
