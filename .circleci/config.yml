@@ -100,10 +100,6 @@ jobs:
           name: Build output bundles
           command: yarn build
 
-      - run:
-          name: Export bundles as static HTML
-          command: yarn export
-
       - persist_to_workspace:
           root: *workspace_root
           paths:
@@ -124,36 +120,10 @@ jobs:
           name: Store built bundles for stats
           path: dist-stats
 
-  deploy:
-    <<: *nodejs_container
-    steps:
-      - *attach_workspace
-      - *restore_node_modules
-
-      - add_ssh_keys:
-          fingerprints:
-            - ee:0b:5b:65:1f:52:2a:b3:07:30:53:33:9a:d4:1d:34
-
-      - run:
-          name: Setup SSH to GitHub
-          command: ssh-keyscan github.com > ~/.ssh/known_hosts
-
-      - run:
-          name: Set SSH user email
-          command: git config --global user.email "infra@beta.gouv.fr"
-
-      - run:
-          name: Set SSH user name
-          command: git config --global user.name "CircleCI"
-
-      - deploy:
-          name: Deploy to gh-pages branch on GitHub
-          command: yarn deploy
-
 workflows:
   version: 2
 
-  build_test_deploy:
+  lint_build:
     jobs:
       - checkout:
           filters: *default_filters
@@ -172,11 +142,3 @@ workflows:
           requires:
             - install
           filters: *default_filters
-
-      - deploy:
-          requires:
-            - lint
-            - build
-          filters:
-            branches:
-              only: master
