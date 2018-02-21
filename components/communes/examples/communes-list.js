@@ -63,7 +63,7 @@ class CommunesList extends React.Component {
     const {code, query, results, loading, error} = this.state
 
     return (
-      <Section background='white'>
+      <Section background='grey'>
         <div id='communes-list'>
           <Tuto
             title='Liste de communes par départements'
