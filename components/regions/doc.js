@@ -1,4 +1,3 @@
-
 // Fields
 const nom = {name: 'nom', description: 'Nom de la région', type: 'string'}
 const code = {name: 'code', description: 'Code (INSEE) de la région', type: 'string'}
@@ -25,8 +24,7 @@ const _score = {
 
 const paths = [
   {name: '/regions', description: 'Rechercher des régions', params: [code, nom, fields]},
-  {name: '/regions/{code}', description: 'Récupérer les informations concernant une commune', params: [code, fields]},
-  {name: '/regions/{code}/departements', description: 'Renvoi les communes d’un département', params: [code, fields]}
+  {name: '/regions/{code}', description: 'Récupérer les informations concernant une commune', params: [code, fields]}
 ]
 
 const defaultModel = [

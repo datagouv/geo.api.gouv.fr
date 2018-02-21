@@ -5,13 +5,13 @@ import Summary from '../summary'
 import TechnicalDoc from '../technical-doc/technical-doc'
 
 import ByName from './examples/by-name'
-import CommunesList from './examples/communes-list'
+import DepartementsList from './examples/departements-list'
 
 import doc from './doc'
 
 const examples = [
   {title: 'Recherche par nom', id: 'name', icon: <FaTag />},
-  {title: 'Liste de communes', id: 'communes-list', icon: <FaList />}
+  {title: 'Liste de départements', id: 'departements-list', icon: <FaList />}
 ]
 
 const Departements = () => (
@@ -21,8 +21,7 @@ const Departements = () => (
     <TechnicalDoc {...doc} />
 
     <ByName />
-    <CommunesList />
-
+    <DepartementsList />
   </div>
 )
 

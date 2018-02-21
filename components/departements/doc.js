@@ -1,20 +1,8 @@
-const geometries = [
-  'centre',
-  'contour'
-]
-
-const formats = [
-  'json',
-  'geojson'
-]
-
 // Fields
 const nom = {name: 'nom', description: 'Nom du département', type: 'string'}
 const code = {name: 'code', description: 'Code (INSEE) du département', type: 'string'}
 const codeRegion = {name: 'codeRegion', description: 'Code de la région associée', type: 'string'}
 const fields = {name: 'fields', description: 'Liste des champs souhaités dans la réponse', type: 'array [string]'}
-const format = {name: 'format', description: 'Format de réponse attendu', type: 'string', data: formats}
-const geometry = {name: 'geometry', description: 'Géométrie à utiliser pour la sortie géographique', type: 'string', data: geometries}
 
 // Arguments
 const departement = {
@@ -47,7 +35,6 @@ const _score = {
 const paths = [
   {name: '/departements', description: 'Rechercher des départements', params: [code, codeRegion, nom, fields]},
   {name: '/departements/{code}', description: 'Récupérer les informations concernant un département', params: [code, fields]},
-  {name: '/departements/{code}/communes', description: 'Renvoi les communes d’un département', params: [code, fields, format, geometry]},
   {name: '/regions/{code}/departements', description: 'Renvoi les départements d’une région', params: [code, fields]}
 ]
 
