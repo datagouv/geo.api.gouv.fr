@@ -12,7 +12,11 @@ export default () => (
         </a>
       </Link>
 
-      <ul className='nav__links' />
+      <ul className='nav__links'>
+        <li><Link href='/communes'><a>Communes</a></Link></li>
+        <li><Link href='/departements'><a>Départements</a></Link></li>
+        <li><Link href='/regions'><a>Régions</a></Link></li>
+      </ul>
 
     </div>
     <style jsx>{`

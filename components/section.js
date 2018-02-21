@@ -94,7 +94,7 @@ Section.propTypes = {
     'white',
     'grey',
     'dark',
-    'color'
+    'primary'
   ])
 }
 

@@ -1,31 +1,15 @@
-import FaEnvelope from 'react-icons/lib/fa/envelope'
-import FaTag from 'react-icons/lib/fa/tag'
-import FaCompass from 'react-icons/lib/fa/compass'
-import FaSlider from 'react-icons/lib/fa/sliders'
-
 import Section from '../section'
+
+import ButtonLink from '../button-link'
 
 import theme from '../../styles/theme'
 
 export default () => (
   <Section title='Découvrez l’API' background='white'>
     <div className='main'>
-      <div>
-        <FaEnvelope size={72} />
-        <p>Recherche par code postal</p>
-      </div>
-      <div>
-        <FaTag size={72} />
-        <p>Recherche par nom</p>
-      </div>
-      <div>
-        <FaCompass size={72} />
-        <p>Recherche géographique</p>
-      </div>
-      <div>
-        <FaSlider size={72} />
-        <p>Recherche avancée</p>
-      </div>
+      <ButtonLink href='/communes'>Communes</ButtonLink>
+      <ButtonLink href='/departements'>Départements</ButtonLink>
+      <ButtonLink href='/regions'>Régions</ButtonLink>
     </div>
 
     <style jsx>{`
@@ -42,9 +26,14 @@ export default () => (
         font-style: italic;
       }
 
+      img {
+        width: 230px;
+        margin: 0 auto;
+      }
+
       @media (min-width: 768px) {
         .main {
-          grid-template-columns: repeat(4, 1fr);
+          grid-template-columns: repeat(3, 1fr);
         }
 
         .main div {

@@ -2,10 +2,9 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import copy from 'copy-to-clipboard'
 
-import theme from '../../styles/theme'
+import Result from './result'
 
-import InputExemple from '../input-exemple'
-import Notification from '../notification'
+import Presentation from './presentation'
 
 class Tuto extends React.Component {
   constructor(props) {
@@ -18,25 +17,21 @@ class Tuto extends React.Component {
   }
 
   render() {
-    const {title, description, icon, exemple, code, tips, warning, side, children} = this.props
+    const {title, description, icon, exemple, results, tips, warning, side, loading, children} = this.props
 
     return (
       <div className='container'>
 
         <div className='presentation'>
-          <h3>{icon} {title}</h3>
-          <p>{description}</p>
-          {children}
-          {tips && <Notification message={tips} type='info' />}
-          {warning && <Notification message={warning} type='warning' />}
+          <Presentation title={title} description={description} icon={icon} tips={tips} warning={warning}>
+            {children}
+          </Presentation>
         </div>
 
         <div className='result'>
-          <InputExemple value={exemple} copy={this.copyToClipboard} />
-          <div>
-            <pre><code>{code}</code></pre>
-          </div>
+          <Result exemple={exemple} results={results} side={side} loading={loading} />
         </div>
+
         <style jsx>{`
           .container {
             display: flex;
@@ -47,23 +42,9 @@ class Tuto extends React.Component {
           .result {
             width: 50%;
           }
-
           .presentation {
             width: 40%;
             margin-right: 1em;
-          }
-
-          pre {
-            background: ${theme.colors.white};
-            border: 1px solid ${theme.backgroundGrey}
-            border-radius: 5px;
-            width: 100%;
-            padding: 1em;
-          }
-
-          code {
-            width: 100%;
-            max-height: 400px;
           }
 
           @media (max-width: 768px) {
@@ -86,18 +67,21 @@ Tuto.propTypes = {
   description: PropTypes.string.isRequired,
   icon: PropTypes.element.isRequired,
   exemple: PropTypes.string.isRequired,
-  code: PropTypes.string.isRequired,
   side: PropTypes.PropTypes.oneOf([
     'right', 'left'
   ]).isRequired,
+  results: PropTypes.array,
   tips: PropTypes.string,
   warning: PropTypes.string,
+  loading: PropTypes.bool,
   children: PropTypes.node
 }
 
 Tuto.defaultProps = {
   tips: '',
   warning: '',
+  results: null,
+  loading: true,
   children: null
 }
 

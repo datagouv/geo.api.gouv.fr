@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import FaLocationArrow from 'react-icons/lib/fa/location-arrow'
 
-import theme from '../../styles/theme'
+import theme from '../../../styles/theme'
 
-import Button from '../button'
+import Button from '../../button'
 
 class Commune extends React.Component {
   render() {

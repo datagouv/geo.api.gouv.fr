@@ -21,7 +21,7 @@ class InputExemple extends React.Component {
       <div>
         <div className='exemple'>
           <input type='text' value={`curl '${value}'`} readOnly />
-          <Button style={{'border-radius': '0 5px 5px 0;'}} onClick={this.handleClick}>Copier</Button>
+          <Button style={{borderRadius: '0 5px 5px 0'}} onClick={this.handleClick}>Copier</Button>
         </div>
         <style jsx>{`
           .exemple {
