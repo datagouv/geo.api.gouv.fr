@@ -1,9 +1,9 @@
 import FaMapSigns from 'react-icons/lib/fa/map-signs'
 
-import Head from '../components/head'
-import Page from '../layouts/main'
+import Head from '../../components/head'
+import Page from '../../layouts/main'
 
-import Departements from '../components/departements/departements'
+import Departements from '../../components/departements/departements'
 
 const title = 'Départements'
 const description = 'Interrogez les référentiels géographiques plus facilement.'

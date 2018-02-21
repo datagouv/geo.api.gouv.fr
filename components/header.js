@@ -13,9 +13,9 @@ export default () => (
       </Link>
 
       <ul className='nav__links'>
-        <li><Link href='/communes'><a>Communes</a></Link></li>
-        <li><Link href='/departements'><a>Départements</a></Link></li>
-        <li><Link href='/regions'><a>Régions</a></Link></li>
+        <li><Link href='/docs/communes'><a>Communes</a></Link></li>
+        <li><Link href='/docs/departements'><a>Départements</a></Link></li>
+        <li><Link href='/docs/regions'><a>Régions</a></Link></li>
       </ul>
 
     </div>
