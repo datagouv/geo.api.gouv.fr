@@ -24,7 +24,7 @@ class ExpandableMenu extends React.Component {
       <div className='container' onClick={this.expand}>
         <div className='head'>
           <div className='title'>{title}</div>
-          <img className={`${expanded ? 'reverse' : ''}`} src='static/images/icons/arrow-down.svg' />
+          <img className={`${expanded ? 'reverse' : ''}`} src='/static/images/icons/arrow-down.svg' />
         </div>
 
         {expanded && children}
