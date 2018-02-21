@@ -7,9 +7,9 @@ import theme from '../../styles/theme'
 export default () => (
   <Section title='Découvrez l’API' background='white'>
     <div className='main'>
-      <ButtonLink href='/communes'>Communes</ButtonLink>
-      <ButtonLink href='/departements'>Départements</ButtonLink>
-      <ButtonLink href='/regions'>Régions</ButtonLink>
+      <ButtonLink href='/docs/communes'>Communes</ButtonLink>
+      <ButtonLink href='/docs/departements'>Départements</ButtonLink>
+      <ButtonLink href='/docs/regions'>Régions</ButtonLink>
     </div>
 
     <style jsx>{`
