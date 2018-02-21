@@ -11,7 +11,7 @@ import doc from './doc'
 
 const examples = [
   {title: 'Recherche par nom', id: 'name', icon: <FaTag />},
-  {title: 'liste des régions', id: 'regions-list', icon: <FaList />}
+  {title: 'Liste des régions', id: 'regions-list', icon: <FaList />}
 ]
 
 const Regions = () => (
