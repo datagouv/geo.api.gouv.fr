@@ -5,7 +5,7 @@ import Page from '../layouts/main'
 
 import Departements from '../components/departements/departements'
 
-const title = 'Departements'
+const title = 'Départements'
 const description = 'Interrogez les référentiels géographiques plus facilement.'
 
 export default () => (
