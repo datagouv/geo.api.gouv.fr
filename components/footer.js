@@ -11,7 +11,7 @@ const Footer = () => (
           <li><Link href='https://twitter.com/geodatagouv'><a><img src='/static/images/medias/twitter.svg' alt='Twitter' /></a></Link></li>
           <li><Link href='https://github.com/etalab/api-communes'><a><img src='/static/images/medias/github.svg' alt='Github' /></a></Link></li>
           <li><Link href='https://blog.geo.data.gouv.fr'><a><img src='/static/images/medias/medium.svg' alt='Medium' /></a></Link></li>
-          <li><a href='mailto:contact@geo.api.gouv.fr'><img src='/static/images/medias/envelop.svg' alt='Contact' /></a></li>
+          <li><a href='mailto:geo@api.gouv.fr'><img src='/static/images/medias/envelop.svg' alt='Contact' /></a></li>
         </ul>
       </div>
       <ul className='footer__links'>
