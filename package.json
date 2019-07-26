@@ -19,7 +19,7 @@
     "piwik-react-router": "^0.12.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
-    "react-autocomplete": "^1.7.2",
+    "react-autocomplete": "^1.8.1",
     "react-dom": "^16.8.6",
     "react-icons": "^2.2.7",
     "react-leaflet": "^1.7.8",
