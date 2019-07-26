@@ -23,7 +23,7 @@
     "react-dom": "^16.8.6",
     "react-icons": "^2.2.7",
     "react-leaflet": "^1.7.8",
-    "underscore.string": "^3.3.4"
+    "underscore.string": "^3.3.5"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.2",
