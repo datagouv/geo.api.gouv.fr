@@ -32,7 +32,7 @@
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.6.1",
     "webpack-bundle-analyzer": "^2.9.1",
-    "xo": "^0.18.2"
+    "xo": "^0.24.0"
   },
   "xo": {
     "extends": "xo-nextjs",
@@ -41,7 +41,8 @@
     "env": "browser",
     "rules": {
       "react/jsx-uses-react": "off",
-      "react/react-in-jsx-scope": "off"
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-sort-props": "off"
     }
   }
 }
