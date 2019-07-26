@@ -12,7 +12,6 @@
     "lint": "xo"
   },
   "dependencies": {
-    "babel-plugin-inline-import": "^2.0.6",
     "copy-to-clipboard": "^3.0.8",
     "debounce": "^1.1.0",
     "leaflet": "^1.2.0",
@@ -27,9 +26,11 @@
     "underscore.string": "^3.3.4"
   },
   "devDependencies": {
-    "babel-eslint": "^8.0.3",
-    "eslint-config-xo-nextjs": "^1.2.0",
-    "eslint-plugin-react": "^7.4.0",
+    "babel-eslint": "^10.0.2",
+    "babel-plugin-inline-import": "^3.0.0",
+    "eslint-config-xo-nextjs": "^1.4.0",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.6.1",
     "webpack-bundle-analyzer": "^2.9.1",
     "xo": "^0.18.2"
   },
