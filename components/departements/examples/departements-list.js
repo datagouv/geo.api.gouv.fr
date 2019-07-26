@@ -50,12 +50,13 @@ class DepartementsList extends React.Component {
       this.setState({
         results: results || []
       })
-    } catch (err) {
+    } catch (error) {
       this.setState({
         results: [],
-        error: err
+        error
       })
     }
+
     this.setState({loading: false})
   }
 

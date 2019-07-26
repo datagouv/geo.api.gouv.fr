@@ -28,7 +28,7 @@ class TryCommunesList extends React.Component {
     try {
       const results = await api('departements?fieds=code')
       this.setState({departements: results})
-    } catch (err) {
+    } catch (error) {
       this.setState({
         departements: [],
         demoError: 'Une erreur est survenue, essayez de recharcher la page.'

@@ -58,8 +58,8 @@ class SearchInput extends React.Component {
     const {loading} = this.props
 
     return (
-      <div className={`menu ${value.length ? '' : 'hidden'}`}>
-        { loading && !items.length ? (
+      <div className={`menu ${value.length > 0 ? '' : 'hidden'}`}>
+        {loading && !items.length > 0 ? (
           <div className='item'><img src='../static/loader.gif' /></div>
         ) : items.length === 0 ? (
           <div className='item'>Aucun résultat</div>

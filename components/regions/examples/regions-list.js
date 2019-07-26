@@ -33,12 +33,13 @@ class RegionsList extends React.Component {
       this.setState({
         results: results || []
       })
-    } catch (err) {
+    } catch (error) {
       this.setState({
         results: [],
-        error: err
+        error
       })
     }
+
     this.setState({loading: false})
   }
 
@@ -64,7 +65,7 @@ class RegionsList extends React.Component {
               <div className='error'>
                 <Notification message={error.message} type='error' />
               </div>
-              }
+            }
           </Tuto>
         </div>
 

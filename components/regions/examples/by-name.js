@@ -56,12 +56,13 @@ class ByName extends React.Component {
       this.setState({
         results: results.splice(0, 5) || []
       })
-    } catch (err) {
+    } catch (error) {
       this.setState({
         results: [],
-        error: err
+        error
       })
     }
+
     this.setState({loading: false})
   }
 
