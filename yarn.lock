@@ -5894,7 +5894,7 @@ prop-types-exact@1.1.1:
     has "^1.0.1"
     object.assign "^4.0.4"
 
-prop-types@15.6.0, prop-types@^15.5.10, prop-types@^15.6.0:
+prop-types@15.6.0, prop-types@^15.5.10:
   version "15.6.0"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.0.tgz#ceaf083022fc46b4a35f69e13ef75aed0d639856"
   integrity sha1-zq8IMCL8RrSjX2nhPvda7Q1jmFY=
