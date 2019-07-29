@@ -2,23 +2,38 @@ import Link from 'next/link'
 
 import theme from '../styles/theme'
 
+import HamburgerMenu from './hamburger-menu'
+
+const links = [
+  {text: 'Communes', href: '/docs/communes'},
+  {text: 'Départements', href: '/docs/departements'},
+  {text: 'Régions', href: '/docs/regions'}
+]
+
 export default () => (
   <nav className='nav'>
     <div className='nav__container'>
 
       <Link href='/'>
         <a className='nav__link'>
-          <img className='nav__logo' src='/static/images/logos/geo-api.svg' alt='Accueil de geo.api.gouv.fr' />
+          <img className='nav__logo' src='/static/images/logos/geo-api.svg' alt='Page d’accueil de geo.api.gouv.fr' />
         </a>
       </Link>
 
       <ul className='nav__links'>
-        <li><Link href='/docs/communes'><a>Communes</a></Link></li>
-        <li><Link href='/docs/departements'><a>Départements</a></Link></li>
-        <li><Link href='/docs/regions'><a>Régions</a></Link></li>
+        {links.map(link => (
+          <li key={link.text}>
+            <Link href={link.href}><a>{link.text}</a></Link>
+          </li>
+        ))}
       </ul>
 
+      <div className='hamburger-menu'>
+        <HamburgerMenu links={links} />
+      </div>
+
     </div>
+
     <style jsx>{`
       .nav {
         border-bottom: 1px solid ${theme.boxShadow};
@@ -40,21 +55,18 @@ export default () => (
         align-items: center;
       }
 
-      .nav__home {
-        height: 40px;
-      }
-
-      .nav__link {
-        padding: 1em;
-        height: 70px;
-      }
-
       .nav__logo {
-        height: 100%;
+        height: 70px;
+        padding: 1em;
+      }
+
+      .nav__link:hover {
+        background-color: ${theme.colors.white};
       }
 
       .nav__links {
-        display: inline;
+        display: flex;
+        flex-flow: wrap;
         margin: 0;
         padding: 1em;
         list-style-type: none;
@@ -68,6 +80,7 @@ export default () => (
 
       .nav__links a,
       .nav__links .dropdown {
+        text-decoration: none;
         color: ${theme.colors.black};
         padding: 0.4em 0.8em;
         border-radius: 3px;
@@ -79,7 +92,7 @@ export default () => (
 
       .nav__links a:hover,
       .nav__links .dropdown:hover {
-        background: ${theme.lightGrey};
+        background-color: ${theme.colors.lightGrey};
         transition: background ease-out 0.5s;
       }
 
@@ -88,11 +101,26 @@ export default () => (
         color: ${theme.colors.white};
       }
 
-      @media (--smaller-than-phablet) {
+      .hamburger-menu {
+        display: none;
+      }
+
+      @media (max-width: 800px) {
         .nav__links {
-          padding-top: 0;
+          display: none;
+        }
+
+        .hamburger-menu {
+          display: block;
+          margin: 1em;
         }
       }
-    `}</style>
+
+      @media (max-width: 380px) {
+        .nav__logo {
+          height: 60px;
+        }
+      }
+  `}</style>
   </nav>
 )
