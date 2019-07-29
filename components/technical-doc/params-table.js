@@ -5,7 +5,7 @@ import theme from '../../styles/theme'
 import Code from '../code'
 
 const ParamsTable = ({params}) => (
-  <div className='container'>
+  <div className='params-table-container'>
     <table>
       <tbody>
         <tr>
@@ -46,7 +46,7 @@ const ParamsTable = ({params}) => (
       ))}
     </table>
     <style jsx>{`
-      .container {
+      .params-table-container {
         padding: 0.5em;
         background: ${theme.colors.white};
         border-radius: 3px;

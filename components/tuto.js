@@ -20,7 +20,7 @@ class Tuto extends React.Component {
     const {title, description, icon, exemple, results, tips, warning, side, loading, children} = this.props
 
     return (
-      <div className='container'>
+      <div className='tuto-container'>
 
         <div className='presentation'>
           <Presentation title={title} description={description} icon={icon} tips={tips} warning={warning}>
@@ -33,7 +33,7 @@ class Tuto extends React.Component {
         </div>
 
         <style jsx>{`
-          .container {
+          .tuto-container {
             display: flex;
             justify-content: space-around;
             flex-direction: ${side === 'right' ? 'row-reverse' : 'row'};
@@ -48,11 +48,11 @@ class Tuto extends React.Component {
           }
 
           @media (max-width: 768px) {
-            .container {
+            .tuto-container {
               flex-direction: column;
             }
 
-            .container div {
+            .tuto-container div {
               width: 100%;
             }
           }

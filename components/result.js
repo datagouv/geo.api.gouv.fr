@@ -29,7 +29,7 @@ class Tuto extends React.Component {
     const {exemple, results, loading} = this.props
 
     return (
-      <div className='container'>
+      <div className='result-container'>
         <InputExemple value={exemple} copy={this.copyToClipboard} />
         {loading ?
           <div className='loading-pre'>
@@ -40,7 +40,7 @@ class Tuto extends React.Component {
           <Code code={JSON.stringify(results, null, 2)} />
         }
         <style jsx>{`
-          .container {
+          .result-container {
             display: flex;
             flex-direction: column;
           }

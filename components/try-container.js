@@ -5,7 +5,7 @@ import theme from '../styles/theme'
 import Notification from './notification'
 
 const TryContainer = ({error, children}) => (
-  <div className='container'>
+  <div className='try-container'>
     <h3>Essayez-moi</h3>
     {children}
     {error &&
@@ -14,7 +14,7 @@ const TryContainer = ({error, children}) => (
       </div>
     }
     <style jsx>{`
-      .container {
+      .try-container {
         padding: 2em;
         background: white;
         border-radius: 4px;
