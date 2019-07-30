@@ -72,7 +72,7 @@ class AdvancedSearch extends React.Component {
     const {fields, results, loading, error} = this.state
 
     return (
-      <Section background='white'>
+      <Section background='grey'>
         <div id={id}>
           <Tuto
             title={title}

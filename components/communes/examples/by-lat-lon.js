@@ -55,7 +55,7 @@ class ByLatLon extends React.Component {
     const {query, position, results, error, loading} = this.state
 
     return (
-      <Section background='grey'>
+      <Section>
         <div id={id}>
           <Tuto
             title={title}
