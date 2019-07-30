@@ -7,7 +7,12 @@ defaults:
   nodejs_container: &nodejs_container
     working_directory: *workspace_root
     docker:
-      - image: circleci/node:8-stretch
+      - image: circleci/node:10-stretch
+
+  golang_container: &golang_container
+    working_directory: *workspace_root
+    docker:
+      - image: circleci/golang:1-stretch
 
   filters: &default_filters
     tags:
@@ -21,8 +26,9 @@ defaults:
     restore_cache:
       name: Restore node_modules cache
       keys:
-        - v1-geoapigouv-node-{{ checksum "yarn.lock" }}
-        - v1-geoapigouv-node-
+        - v1-geoapigouv-node-{{ .Branch }}-{{ checksum "yarn.lock" }}
+        - v1-geoapigouv-node-master-{{ checksum "yarn.lock" }}
+        - v1-geoapigouv-node-master-
 
 jobs:
   checkout:
@@ -49,7 +55,7 @@ jobs:
 
       - run:
           name: Install dependencies
-          command: yarn
+          command: yarn --frozen-lockfile
 
       - save_cache:
           name: Save yarn cache
@@ -59,7 +65,7 @@ jobs:
 
       - save_cache:
           name: Save node_modules cache
-          key: v1-geoapigouv-node-{{ checksum "yarn.lock" }}
+          key: v1-geoapigouv-node-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths:
             - node_modules/
 
@@ -83,13 +89,6 @@ jobs:
           name: Run tests
           command: yarn test
 
-      - store_test_results:
-          path: reports/tests/
-
-      - run:
-          name: Upload code coverage to codecov
-          command: yarn codecov
-
   build:
     <<: *nodejs_container
     steps:
@@ -104,26 +103,11 @@ jobs:
           root: *workspace_root
           paths:
             - .next/
-            - out/
-
-      - run:
-          name: Extract built bundles for stats
-          command: |
-            mkdir dist-stats
-            cp -r .next/app.js .next/bundles dist-stats
-            # Remove _document.js as it’s only used by the server.
-            rm dist-stats/bundles/pages/_document.js
-            tar cvf dist-stats/chunks.js.tar .next/chunks/*.js
-            gzip -r dist-stats
-
-      -  store_artifacts:
-          name: Store built bundles for stats
-          path: dist-stats
 
 workflows:
   version: 2
 
-  lint_build:
+  push:
     jobs:
       - checkout:
           filters: *default_filters
@@ -134,6 +118,11 @@ workflows:
           filters: *default_filters
 
       - lint:
+          requires:
+            - install
+          filters: *default_filters
+
+      - test:
           requires:
             - install
           filters: *default_filters
