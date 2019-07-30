@@ -8,7 +8,7 @@ const Code = ({code}) => (
     <style jsx>{`
       pre {
         background: ${theme.colors.white};
-        border: 1px solid ${theme.backgroundGrey}
+        border: 1px solid ${theme.backgroundGrey};
         border-radius: 5px;
         width: 100%;
         padding: 1em;
@@ -17,7 +17,8 @@ const Code = ({code}) => (
 
       code {
         width: 100%;
-        max-height: 400px;
+        max-height: 360px;
+        min-height: 360px;
         background: ${theme.backgroundGrey}
       }
     `}</style>

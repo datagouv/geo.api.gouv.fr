@@ -47,16 +47,16 @@ class Tuto extends React.Component {
 
           .loading-pre {
             background: ${theme.colors.white};
-            border: 1px solid ${theme.backgroundGrey}
+            border: 1px solid ${theme.backgroundGrey};
             border-radius: 5px;
             width: 100%;
             padding: 1em;
-            margin: 1em 0;
+            margin-bottom: 1em;
           }
 
           .loading-code {
             width: 100%;
-            height: 200px;
+            height: 360px;
             background: ${theme.backgroundGrey}
           }
         `}</style>
