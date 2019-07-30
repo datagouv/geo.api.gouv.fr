@@ -1,0 +1,20 @@
+{
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "env": {
+    "YARN_PRODUCTION": "false"
+  },
+  "formation": {
+  },
+  "name": "geo.api.gouv.fr",
+  "scripts": {
+    "postdeploy": "yarn build"
+  },
+  "stack": "heroku-18"
+}
