@@ -7,7 +7,7 @@ import Attributs from './attributs'
 import Path from './path'
 
 const TechnicalDoc = ({paths, defaultModel, defaultAttributs, optionAttributs}) => (
-  <Section background='primary'>
+  <Section background='color'>
 
     <div className='title'>
       <FaBook size={24} />

@@ -23,8 +23,7 @@ const Head = ({children, title, icon}) => (
       .row {
         display: flex;
         align-items: center;
-        max-width: 1400px;
-        margin-top: 0;
+        justify-content: flex-start;
         color: ${theme.colors.white};
         padding: 40px;
       }
@@ -39,10 +38,15 @@ const Head = ({children, title, icon}) => (
 
       .description {
         margin: 0 auto 2em;
-        max-width: 640px;
         font-size: 1.1em;
         font-style: italic;
         margin-bottom: 0;
+      }
+
+      @media (max-width: 600px) {
+        .row {
+          padding: 40px 0;
+        }
       }
       `}</style>
   </div>

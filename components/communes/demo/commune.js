@@ -11,8 +11,8 @@ class Commune extends React.Component {
     const {commune, onClick} = this.props
 
     return (
-      <div className='container'>
-        {commune ?
+      <div>
+        {commune ? (
           <div className='commune'>
             <h2>{commune.nom}</h2>
             <div><b>Code INSEE :</b> <span>{commune.code}</span></div>
@@ -26,16 +26,14 @@ class Commune extends React.Component {
                 <div>latitude : <span>{commune.centre.coordinates[0]}</span></div>
               </div>
             </div>
-          </div> :
-          <Button onClick={onClick}>
+          </div>
+        ) : (
+          <Button size='large' onClick={onClick}>
             <FaLocationArrow /> <span>Trouver ma commune</span>
-          </Button>}
-        <style jsx>{`
-          .container {
-            margin: 0 auto;
-            width: 50%:
-          }
+          </Button>
+        )}
 
+        <style jsx>{`
           .commune {
             text-align: center;
           }

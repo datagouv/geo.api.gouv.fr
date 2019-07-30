@@ -7,7 +7,7 @@ import Section from './section'
 
 const Summary = ({examples}) => (
   <Section title='Découvrez l’API' background='white'>
-    <div className='main'>
+    <div className='summary'>
       {examples.map(feature => (
         <Link key={feature.title} href={`#${feature.id}`}>
           <a>
@@ -19,48 +19,32 @@ const Summary = ({examples}) => (
     </div>
 
     <style jsx>{`
-      .main {
+      .summary {
         display: grid;
-        grid-template-columns: 1fr;
-        grid-row-gap: 0.6em;
-      }
-
-      .main div {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
         text-align: center;
       }
 
-      .main p {
+      .summary p {
         text-align: center;
         color: ${theme.darkText};
         font-size: 1.2em;
         font-style: italic;
       }
 
-      .main a {
+      .summary a {
         color: ${theme.darkText};
+        text-decoration: none;
       }
 
-      .main a:hover {
+      .summary a:hover {
+        background: white;
         cursor: pointer;
-        font-weight: 600;
+        font-weight: 700;
       }
 
       .icon {
         font-size: 72px;
-      }
-
-      @media (min-width: 768px) {
-        .main {
-          grid-template-columns: repeat(${examples.length}, 1fr);
-        }
-
-        .main p {
-          padding: 0 2em;
-        }
-
-        .main p:not(:last-child) {
-          border-right: 1px solid ${theme.themeBorderLighter};
-        }
       }
     `}</style>
   </Section>

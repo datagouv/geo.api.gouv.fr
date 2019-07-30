@@ -21,7 +21,7 @@ class ExpandableMenu extends React.Component {
     const {expanded} = this.state
     const {title, children} = this.props
     return (
-      <div className='container' onClick={this.expand}>
+      <div className='expandable-menu-container' onClick={this.expand}>
         <div className='head'>
           <div className='title'>{title}</div>
           <img className={`${expanded ? 'reverse' : ''}`} src='/static/images/icons/arrow-down.svg' />
@@ -30,7 +30,7 @@ class ExpandableMenu extends React.Component {
         {expanded && children}
 
         <style jsx>{`
-          .container {
+          .expandable-menu-container {
             margin: 0.5em 0;
             padding: 0.5em;
             background: ${theme.colors.white};
@@ -38,7 +38,7 @@ class ExpandableMenu extends React.Component {
             color: ${theme.darkText};
           }
 
-          .container:hover {
+          .expandable-menu-container:hover {
             cursor: pointer;
           }
 

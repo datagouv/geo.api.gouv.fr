@@ -5,12 +5,10 @@ import theme from '../../../styles/theme'
 import SearchInput from '../../search-input'
 import TryContainer from '../../try-container'
 
-function renderDepartement(item, isHighlighted) {
+function renderRegion(item, isHighlighted) {
   return (
     <div key={item.code} className={`item ${isHighlighted ? 'item-highlighted' : ''}`}>
-      <div>
-        <div className='label'>{item.nom}</div>
-      </div>
+      <div>{item.nom}</div>
       <div>{item.code}</div>
       <style jsx>{`
         .item {
@@ -20,10 +18,6 @@ function renderDepartement(item, isHighlighted) {
           align-items: center;
           padding: 1em;
           border-bottom: 1px solid whitesmoke;
-        }
-
-        .item .label {
-          font-weight: 600;
         }
 
         .item:hover {
@@ -46,9 +40,11 @@ const TryName = ({value, results, loading, error, handleChange, handleSelect}) =
       results={results}
       loading={loading}
       placeholder='Rechercher une région…'
-      handleSelect={handleSelect}
-      search={handleChange}
-      renderItem={renderDepartement} />
+      onSelect={handleSelect}
+      onSearch={handleChange}
+      renderItem={renderRegion}
+      getItemValue={item => item.nom}
+    />
   </TryContainer>
 )
 

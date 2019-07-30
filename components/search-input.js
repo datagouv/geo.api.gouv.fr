@@ -1,41 +1,60 @@
 import React from 'react'
 import Autocomplete from 'react-autocomplete'
 import PropTypes from 'prop-types'
+import FaSearch from 'react-icons/lib/fa/search'
 
 import theme from '../styles/theme'
 
+import Loader from './loader'
+
 class SearchInput extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.getItemValue = this.getItemValue.bind(this)
-    this.handleSearch = this.handleSearch.bind(this)
-    this.handleSelect = this.handleSelect.bind(this)
-
-    this.renderInput = this.renderInput.bind(this)
-    this.renderMenu = this.renderMenu.bind(this)
+  static propTypes = {
+    results: PropTypes.array,
+    value: PropTypes.string,
+    placeholder: PropTypes.string,
+    loading: PropTypes.bool,
+    wrapperStyle: PropTypes.object,
+    onSelect: PropTypes.func.isRequired,
+    onSearch: PropTypes.func.isRequired,
+    renderItem: PropTypes.func.isRequired,
+    getItemValue: PropTypes.func.isRequired,
+    fullscreen: PropTypes.bool
   }
 
-  getItemValue(item) {
-    return item.nom
+  static defaultProps = {
+    results: [],
+    value: '',
+    placeholder: '',
+    loading: false,
+    wrapperStyle: null,
+    fullscreen: false
   }
 
-  handleSearch(event) {
-    const {search} = this.props
-    search(event.target.value)
+  handleSearch = event => {
+    const {onSearch} = this.props
+
+    onSearch(event.target.value)
   }
 
-  handleSelect(item) {
-    const {handleSelect} = this.props
-    handleSelect(item)
+  handleSelect = (itemName, item) => {
+    const {onSelect} = this.props
+
+    onSelect(item)
   }
 
-  renderInput(props) {
+  renderInput = props => {
     const {placeholder} = this.props
+
     return (
-      <div>
-        <input className='search' {...props} placeholder={placeholder} />
+      <div className='search-input-container'>
+        {/* disable safari zoom in on focus with font-size at 16px */}
+        <input style={{fontSize: '16px'}} className='search' {...props} placeholder={placeholder} />
+        <span><FaSearch /></span>
         <style jsx>{`
+          .search-input-container {
+            position: relative;
+          }
+
           .search {
             background-color: ${theme.colors.white};
             border: 1px solid ${theme.border};
@@ -49,36 +68,47 @@ class SearchInput extends React.Component {
             padding: 7px;
             width: 100%;
           }
+
+          input {
+            text-indent: 2em;
+          }
+
+          span {
+            position: absolute;
+            top: 15px;
+            left: 12px;
+            font-size: 20px;
+            color: ${theme.colors.darkGrey};
+          }
         `}</style>
       </div>
     )
   }
 
-  renderMenu(items, value) {
-    const {loading} = this.props
+  renderMenu = (items, value) => {
+    const {loading, fullscreen} = this.props
 
     return (
-      <div className={`menu ${value.length > 0 ? '' : 'hidden'}`}>
-        {loading && !items.length > 0 ? (
-          <div className='item'><img src='../static/loader.gif' /></div>
+      <div className={`menu ${value.length > 0 ? '' : 'hidden'} ${fullscreen ? 'fullscreen' : ''}`}>
+        {loading && items.length === 0 ? (
+          <div className='item'><Loader size='small' /></div>
         ) : items.length === 0 ? (
           <div className='item'>Aucun résultat</div>
         ) : items}
         <style jsx>{`
           .menu {
-            margin-right: 100%;
-            float: left;
+            position: relative;
+            box-shadow: 0 1px 4px ${theme.boxShadow};
+            z-index: 1;
             width: 100%;
             background-color: ${theme.colors.white};
             border: 1px solid ${theme.border};
-            border-radius: 5px;
-            margin-bottom: 1em;
-            outline: none;
+            color: ${theme.colors.black};
+            border-radius: 0 0 5px 5px;
           }
 
           .item {
             display: flex;
-            flex-flow: row;
             justify-content: space-between;
             align-items: center;
             padding: 1em;
@@ -87,21 +117,33 @@ class SearchInput extends React.Component {
           .hidden {
             display: none;
           }
+
+          @media (max-width: 399px) {
+            .menu {
+              width: calc(100% - 40px);
+            }
+
+            .fullscreen {
+              width: 100%;
+            }
+          }
         `}</style>
       </div>
     )
   }
 
   render() {
-    const {value, results, renderItem} = this.props
+    const {value, results, renderItem, getItemValue, wrapperStyle} = this.props
+
     return (
-      <div>
+      <div className='wrap'>
         <Autocomplete
+          inputProps={{onFocus: this.onFocus}}
           value={value}
-          inputProps={{id: 'states-autocomplete'}}
-          wrapperStyle={null}
+          wrapperStyle={wrapperStyle}
           items={results}
-          getItemValue={this.getItemValue}
+          getItemValue={getItemValue}
+          isItemSelectable={item => !item.header}
           onSelect={this.handleSelect}
           onChange={this.handleSearch}
           renderItem={renderItem}
@@ -119,23 +161,6 @@ class SearchInput extends React.Component {
       </div>
     )
   }
-}
-
-SearchInput.propTypes = {
-  results: PropTypes.array,
-  value: PropTypes.string,
-  placeholder: PropTypes.string,
-  loading: PropTypes.bool,
-  handleSelect: PropTypes.func.isRequired,
-  search: PropTypes.func.isRequired,
-  renderItem: PropTypes.func.isRequired
-}
-
-SearchInput.defaultProps = {
-  results: [],
-  value: '',
-  placeholder: '',
-  loading: false
 }
 
 export default SearchInput

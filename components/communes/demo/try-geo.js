@@ -20,7 +20,7 @@ const TryGeo = ({coords, results, loading, error, locateUser}) => {
 
   return (
     <TryContainer error={error}>
-      <div className='container'>
+      <div className='try-container'>
         {commune ?
           <LeafletMap
             data={commune.contour}
@@ -42,14 +42,14 @@ const TryGeo = ({coords, results, loading, error, locateUser}) => {
 
       </div>
       <style jsx>{`
-        .container {
+        .try-container {
           display: flex;
           justify-content: space-between;
           align-items: center;
           flex-flow: wrap:
         }
 
-        .container > div {
+        .try-container > div {
           width: 50%;
         }
 
@@ -65,11 +65,11 @@ const TryGeo = ({coords, results, loading, error, locateUser}) => {
         }
 
         @media (max-width: 768px) {
-          .container {
+          .try-container {
             flex-direction: column;
           }
 
-          .container div {
+          .try-container div {
             width: 100%;
           }
         }
