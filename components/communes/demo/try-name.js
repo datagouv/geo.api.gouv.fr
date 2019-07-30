@@ -11,9 +11,7 @@ function renderCommune(item, isHighlighted) {
 
   return (
     <div key={item.code} className={`item ${isHighlighted ? 'item-highlighted' : ''}`}>
-      <div>
-        <div className='label'>{item.nom}</div>
-      </div>
+      <div>{item.nom}</div>
       <div>{description}</div>
       <style jsx>{`
         .item {
@@ -23,10 +21,6 @@ function renderCommune(item, isHighlighted) {
           align-items: center;
           padding: 1em;
           border-bottom: 1px solid whitesmoke;
-        }
-
-        .item .label {
-          font-weight: 600;
         }
 
         .item:hover {
@@ -49,9 +43,11 @@ const TryName = ({value, results, boost, loading, error, handleChange, handleSel
       results={results}
       loading={loading}
       placeholder='Rechercher une commune…'
-      handleSelect={handleSelect}
-      search={handleChange}
-      renderItem={renderCommune} />
+      onSelect={handleSelect}
+      onSearch={handleChange}
+      renderItem={renderCommune}
+      getItemValue={item => item.nom}
+    />
     <SwitchInput handleChange={handleBoost} label='Boost de population' isChecked={boost} />
   </TryContainer>
 )

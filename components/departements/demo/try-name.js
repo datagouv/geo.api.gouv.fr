@@ -8,22 +8,15 @@ import TryContainer from '../../try-container'
 function renderDepartement(item, isHighlighted) {
   return (
     <div key={item.code} className={`item ${isHighlighted ? 'item-highlighted' : ''}`}>
-      <div>
-        <div className='label'>{item.nom}</div>
-      </div>
+      <div>{item.nom}</div>
       <div>{item.code}</div>
       <style jsx>{`
         .item {
           display: flex;
-          flex-flow: row;
           justify-content: space-between;
           align-items: center;
           padding: 1em;
           border-bottom: 1px solid whitesmoke;
-        }
-
-        .item .label {
-          font-weight: 600;
         }
 
         .item:hover {
@@ -46,9 +39,11 @@ const TryName = ({value, results, loading, error, handleChange, handleSelect}) =
       results={results}
       loading={loading}
       placeholder='Rechercher un département…'
-      handleSelect={handleSelect}
-      search={handleChange}
-      renderItem={renderDepartement} />
+      onSelect={handleSelect}
+      onSearch={handleChange}
+      renderItem={renderDepartement}
+      getItemValue={item => item.nom}
+    />
   </TryContainer>
 )
 
