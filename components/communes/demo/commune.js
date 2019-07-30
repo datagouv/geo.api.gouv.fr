@@ -28,7 +28,7 @@ class Commune extends React.Component {
             </div>
           </div>
         ) : (
-          <Button onClick={onClick}>
+          <Button size='large' onClick={onClick}>
             <FaLocationArrow /> <span>Trouver ma commune</span>
           </Button>
         )}
