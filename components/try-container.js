@@ -12,7 +12,7 @@ const TryContainer = ({error, children}) => (
       <div className='error'>
         <Notification message={error.message} type='error' />
       </div>
-      }
+    }
     <style jsx>{`
       .container {
         padding: 2em;

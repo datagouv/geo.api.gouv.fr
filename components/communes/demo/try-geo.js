@@ -16,7 +16,6 @@ const LeafletMap = dynamic(import('../../leaflet-map'), {
 })
 
 const TryGeo = ({coords, results, loading, error, locateUser}) => {
-  // eslint-disable-next-line no-unused-vars
   const commune = results.length > 0 ? results[0] : null
 
   return (

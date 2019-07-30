@@ -43,7 +43,7 @@ const ParamsTable = ({params}) => (
               </td>
             </tr>}
         </tbody>
-        ))}
+      ))}
     </table>
     <style jsx>{`
       .container {

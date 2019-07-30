@@ -12,26 +12,27 @@
     "lint": "xo"
   },
   "dependencies": {
-    "babel-plugin-inline-import": "^2.0.6",
-    "copy-to-clipboard": "^3.0.8",
-    "debounce": "^1.1.0",
-    "leaflet": "^1.2.0",
-    "next": "^4.2.1",
+    "copy-to-clipboard": "^3.2.0",
+    "debounce": "^1.2.0",
+    "leaflet": "^1.5.1",
+    "next": "^9.0.2",
     "piwik-react-router": "^0.12.1",
-    "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-autocomplete": "^1.7.2",
-    "react-dom": "^16.2.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-autocomplete": "^1.8.1",
+    "react-dom": "^16.8.6",
     "react-icons": "^2.2.7",
-    "react-leaflet": "^1.7.8",
-    "underscore.string": "^3.3.4"
+    "react-leaflet": "^2.4.0",
+    "underscore.string": "^3.3.5"
   },
   "devDependencies": {
-    "babel-eslint": "^8.0.3",
-    "eslint-config-xo-nextjs": "^1.2.0",
-    "eslint-plugin-react": "^7.4.0",
-    "webpack-bundle-analyzer": "^2.9.1",
-    "xo": "^0.18.2"
+    "babel-eslint": "^10.0.2",
+    "babel-plugin-inline-import": "^3.0.0",
+    "eslint-config-xo-nextjs": "^1.4.0",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.6.1",
+    "webpack-bundle-analyzer": "^3.3.2",
+    "xo": "^0.24.0"
   },
   "xo": {
     "extends": "xo-nextjs",
@@ -40,7 +41,8 @@
     "env": "browser",
     "rules": {
       "react/jsx-uses-react": "off",
-      "react/react-in-jsx-scope": "off"
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-sort-props": "off"
     }
   }
 }

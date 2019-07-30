@@ -40,12 +40,13 @@ class ByLatLon extends React.Component {
     try {
       const results = await api(query)
       this.setState({results})
-    } catch (err) {
+    } catch (error) {
       this.setState({
-        error: err,
-        results: []
+        results: [],
+        error
       })
     }
+
     this.setState({loading: false})
   }
 

@@ -28,7 +28,7 @@ class TryDepartementsList extends React.Component {
     try {
       const results = await api('regions?fieds=code')
       this.setState({regions: results})
-    } catch (err) {
+    } catch (error) {
       this.setState({
         regions: [],
         demoError: 'Une erreur est survenue, essayez de recharcher la page.'

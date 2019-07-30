@@ -1,11 +1,9 @@
-import {Fragment} from 'react'
-
 import theme from '../styles/theme'
 
 import Fonts from './styles/fonts'
 
 const MainStyle = () => (
-  <Fragment>
+  <>
     <Fonts />
     <style jsx global>{`
       * {
@@ -237,7 +235,7 @@ const MainStyle = () => (
       }
 
     `}</style>
-  </Fragment>
-  )
+  </>
+)
 
 export default MainStyle
