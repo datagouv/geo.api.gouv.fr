@@ -40,8 +40,8 @@ class ByName extends React.Component {
     })
   }
 
-  handleSelect(input) {
-    this.setState({input})
+  handleSelect(item) {
+    this.setState({input: item.nom})
     this.update()
   }
 
