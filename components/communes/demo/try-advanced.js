@@ -65,7 +65,13 @@ class TryAdvanced extends React.Component {
             <div className='fields'>
               {cat.fields.map(field => (
                 <div key={field} className='field'>
-                  <input type='checkbox' value={field} checked={selectedFields.includes(field)} onClick={this.handleChange} />
+                  <input
+                    type='checkbox'
+                    value={field}
+                    checked={selectedFields.includes(field)}
+                    onClick={this.handleChange}
+                    onChange={() => {}}
+                  />
                   <label className='label-inline'>{field}</label>
                 </div>
               ))}
