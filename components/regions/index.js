@@ -2,7 +2,7 @@ import FaTag from 'react-icons/lib/fa/tag'
 import FaList from 'react-icons/lib/fa/list'
 
 import Summary from '../summary'
-import TechnicalDoc from '../technical-doc/technical-doc'
+import TechnicalDoc from '../technical-doc'
 
 import ByName from './examples/by-name'
 import RegionsList from './examples/regions-list'

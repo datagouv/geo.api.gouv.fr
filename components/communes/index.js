@@ -5,7 +5,7 @@ import FaSlider from 'react-icons/lib/fa/sliders'
 import FaList from 'react-icons/lib/fa/list'
 
 import Summary from '../summary'
-import TechnicalDoc from '../technical-doc/technical-doc'
+import TechnicalDoc from '../technical-doc'
 
 import ByCode from './examples/by-code'
 import ByName from './examples/by-name'
