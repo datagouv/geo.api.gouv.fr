@@ -17,7 +17,6 @@
     "copy-to-clipboard": "^3.2.0",
     "debounce": "^1.2.0",
     "express": "^4.17.1",
-    "leaflet": "^1.5.1",
     "mapbox-gl": "^1.2.0",
     "next": "^9.0.2",
     "piwik-react-router": "^0.12.1",
@@ -26,7 +25,6 @@
     "react-autocomplete": "^1.8.1",
     "react-dom": "^16.8.6",
     "react-icons": "^2.2.7",
-    "react-leaflet": "^2.4.0",
     "underscore.string": "^3.3.5"
   },
   "devDependencies": {
