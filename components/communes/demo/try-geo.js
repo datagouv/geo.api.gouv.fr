@@ -1,34 +1,63 @@
+import {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
-import dynamic from 'next/dynamic'
+import computeBbox from '@turf/bbox'
+
+import Mapbox from '../../mapbox'
 
 import Loader from '../../loader'
 import Notification from '../../notification'
 import TryContainer from '../../try-container'
+import ContourMap from '../../mapbox/contour-map'
+
 import Commune from './commune'
 
-const LeafletMap = dynamic(import('../../leaflet-map'), {
-  ssr: false,
-  loading: () => (
-    <div style={{textAlign: 'center', paddingTop: 20}}>
-      Chargement…
-    </div>
-  )
-})
+function contoursToGeoJson(communes) {
+  const communesWithCtr = communes.filter(commune => commune.contour)
 
-const TryGeo = ({coords, results, loading, error, locateUser}) => {
-  const commune = results.length > 0 ? results[0] : null
+  return {
+    type: 'FeatureCollection',
+    features: communesWithCtr.map(commune => communeContour(commune))
+  }
+}
+
+function communeContour(commune) {
+  const {contour, code, nom} = commune
+  return {
+    id: code,
+    type: 'Feature',
+    geometry: contour,
+    properties: {
+      code,
+      nom
+    }
+  }
+}
+
+const TryGeo = ({coords, commune, loading, error, locateUser}) => {
+  const [bbox, setBbox] = useState(null)
+  const [contour, setContour] = useState(null)
+
+  useEffect(() => {
+    if (commune) {
+      setBbox(computeBbox(commune.contour))
+      setContour(contoursToGeoJson([commune]))
+    }
+  }, [commune])
 
   return (
-    <TryContainer error={error}>
+    <TryContainer>
       <div className='try-container'>
-        {commune ?
-          <LeafletMap
-            data={commune.contour}
-            position={[coords.latitude, coords.longitude]}
-            center={commune.centre.coordinates.reverse()}
-            zoom={12.5} /> :
-          <LeafletMap />
-        }
+        <div className='try-geo-map'>
+          <Mapbox error={error ? error.message : null} bbox={bbox}>
+            {({...mapboxProps}) => (
+              <ContourMap
+                {...mapboxProps}
+                contour={contour}
+                coords={coords}
+              />
+            )}
+          </Mapbox>
+        </div>
 
         <div className='action'>
           {loading ?
@@ -46,11 +75,15 @@ const TryGeo = ({coords, results, loading, error, locateUser}) => {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          flex-flow: wrap:
+          flex-flow: wrap;
         }
 
         .try-container > div {
           width: 50%;
+        }
+
+        .try-geo-map {
+          height: 400px;
         }
 
         .action {
@@ -83,7 +116,7 @@ TryGeo.propTypes = {
     latitude: PropTypes.number.isRequired,
     longitude: PropTypes.number.isRequired
   }),
-  results: PropTypes.array,
+  commune: PropTypes.object,
   loading: PropTypes.bool,
   error: PropTypes.object,
   locateUser: PropTypes.func.isRequired
@@ -91,7 +124,7 @@ TryGeo.propTypes = {
 
 TryGeo.defaultProps = {
   coords: null,
-  results: [],
+  commune: null,
   error: null,
   loading: false
 }
