@@ -8,8 +8,38 @@ import theme from '../../../styles/theme'
 import {useInput} from '../../hooks/input'
 
 import Section from '../../section'
-import TryName from '../demo/try-name'
+import TryName from '../../try-name'
 import Tuto from '../../tuto'
+
+function renderCommune(item, isHighlighted) {
+  const description = `${item.departement.nom} - ${item.departement.code}`
+
+  return (
+    <div key={item.code} className={`item ${isHighlighted ? 'item-highlighted' : ''}`}>
+      <div>{item.nom}</div>
+      <div>{description}</div>
+      <style jsx>{`
+        .item {
+          display: flex;
+          flex-flow: row;
+          justify-content: space-between;
+          align-items: center;
+          padding: 1em;
+          border-bottom: 1px solid whitesmoke;
+        }
+
+        .item:hover {
+          cursor: pointer;
+        }
+
+        .item-highlighted {
+          background-color: ${theme.primary};
+          color: ${theme.colors.white};
+        }
+      `}</style>
+    </div>
+  )
+}
 
 let currentRequest = null
 
@@ -76,13 +106,17 @@ const ByName = ({title, id, icon}) => {
 
         <TryName
           value={input}
+          placeholder='Rechercher une commune…'
           results={results}
           boost={boost}
           loading={loading}
           error={error}
+          disabledBoost={false}
+          renderItem={renderCommune}
           handleChange={setInput}
           handleSelect={handleSelect}
-          handleBoost={handleBoost} />
+          handleBoost={handleBoost}
+        />
       </div>
 
       <style jsx>{`

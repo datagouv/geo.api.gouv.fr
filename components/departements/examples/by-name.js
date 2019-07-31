@@ -6,8 +6,35 @@ import api from '../../../lib/api'
 import theme from '../../../styles/theme'
 
 import Section from '../../section'
-import TryName from '../demo/try-name'
+import TryName from '../../try-name'
 import Tuto from '../../tuto'
+
+function renderDepartement(item, isHighlighted) {
+  return (
+    <div key={item.code} className={`item ${isHighlighted ? 'item-highlighted' : ''}`}>
+      <div>{item.nom}</div>
+      <div>{item.code}</div>
+      <style jsx>{`
+        .item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 1em;
+          border-bottom: 1px solid whitesmoke;
+        }
+
+        .item:hover {
+          cursor: pointer;
+        }
+
+        .item-highlighted {
+          background-color: ${theme.primary};
+          color: ${theme.colors.white};
+        }
+      `}</style>
+    </div>
+  )
+}
 
 class ByName extends React.Component {
   constructor(props) {
@@ -85,11 +112,14 @@ class ByName extends React.Component {
 
           <TryName
             value={input}
+            placeholder='Rechercher un département…'
             results={results}
             loading={loading}
             error={error}
+            renderItem={renderDepartement}
             handleChange={this.handleInput}
-            handleSelect={this.handleSelect} />
+            handleSelect={this.handleSelect}
+          />
         </div>
 
         <style jsx>{`
