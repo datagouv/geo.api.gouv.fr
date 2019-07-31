@@ -1,10 +1,12 @@
 import FaList from 'react-icons/lib/fa/list'
 import FaTag from 'react-icons/lib/fa/tag'
 
+import Section from '../section'
+
 import Summary from '../summary'
 import TechnicalDoc from '../technical-doc'
+import ByName from '../by-name'
 
-import ByName from './examples/by-name'
 import DepartementsList from './examples/departements-list'
 
 import doc from './doc'
@@ -20,7 +22,13 @@ const Departements = () => (
 
     <TechnicalDoc {...doc} />
 
-    <ByName />
+    <Section background='grey'>
+      <ByName
+        defaultInput='Yvelines'
+        placeholder='Rechercher un département…'
+        renderQuery={input => 'departements?nom=' + input}
+      />
+    </Section>
     <DepartementsList />
   </div>
 )

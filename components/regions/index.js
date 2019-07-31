@@ -1,10 +1,11 @@
 import FaTag from 'react-icons/lib/fa/tag'
 import FaList from 'react-icons/lib/fa/list'
 
+import Section from '../section'
 import Summary from '../summary'
 import TechnicalDoc from '../technical-doc'
+import ByName from '../by-name'
 
-import ByName from './examples/by-name'
 import RegionsList from './examples/regions-list'
 
 import doc from './doc'
@@ -20,7 +21,13 @@ const Regions = () => (
 
     <TechnicalDoc {...doc} />
 
-    <ByName />
+    <Section background='grey'>
+      <ByName
+        defaultInput='Hauts-de-France'
+        placeholder='Rechercher une région…'
+        renderQuery={input => 'regions?nom=' + input}
+      />
+    </Section>
     <RegionsList />
   </div>
 )
