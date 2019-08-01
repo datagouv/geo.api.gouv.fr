@@ -1,4 +1,4 @@
-import {useState, useCallback} from 'react'
+import {useState} from 'react'
 import FaList from 'react-icons/lib/fa/list'
 
 import theme from '../../styles/theme'
@@ -6,18 +6,19 @@ import theme from '../../styles/theme'
 import Tuto from '../tuto'
 import TryList from '../demo/try-list'
 import Section from '../section'
+
 import {useSearch} from '../hooks/search'
+import {useQuery} from '../hooks/query'
 
 const DepartementsList = () => {
   const [code, setCode] = useState('28')
-  const [query, setQuery] = useState(`regions/${code}/departements`)
+  const [query] = useQuery(code, code => `regions/${code}/departements`)
   const [response, loading, error] = useSearch(query, false)
 
-  const handleSelect = useCallback(option => {
+  const handleSelect = option => {
     const code = option.split(' ')[0]
     setCode(code)
-    setQuery(`regions/${code}/departements`)
-  }, [setCode, setQuery])
+  }
 
   return (
     <Section background='white'>

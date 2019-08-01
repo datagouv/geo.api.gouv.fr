@@ -8,6 +8,7 @@ import Tuto from '../tuto'
 import {useSearch} from '../hooks/search'
 import {useInput} from '../hooks/input'
 
+import {useQuery} from '../hooks/query'
 import TryName from './try-name'
 
 function renderDefaultItem(item, isHighlighted) {
@@ -42,7 +43,7 @@ const ByName = ({defaultInput, placeholder, disabledBoost, renderQuery, renderIt
   const [input, setInput] = useInput(defaultInput || '')
   const [results, setResults] = useState([])
   const [boost, setBoost] = useState(true)
-  const [query, setQuery] = useState(renderQuery(input, boost))
+  const [query] = useQuery({input, boost}, renderQuery)
   const [response, loading, error] = useSearch(query, true)
 
   const handleSelect = useCallback(item => {
@@ -52,11 +53,6 @@ const ByName = ({defaultInput, placeholder, disabledBoost, renderQuery, renderIt
   const handleBoost = useCallback(() => {
     setBoost(!boost)
   }, [boost, setBoost])
-
-  useEffect(() => {
-    const query = renderQuery(input, boost)
-    setQuery(query)
-  }, [input, boost, renderQuery])
 
   useEffect(() => {
     if (response) {

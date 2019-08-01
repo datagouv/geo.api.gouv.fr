@@ -25,10 +25,12 @@ export function useSearch(query, debounced) {
   const [debouncedFunction] = useDebouncedCallback(_search, 200)
 
   useEffect(() => {
-    if (debounced) {
-      debouncedFunction()
-    } else {
-      _search()
+    if (query) {
+      if (debounced) {
+        debouncedFunction()
+      } else {
+        _search()
+      }
     }
   }, [_search, debounced, debouncedFunction, query])
 

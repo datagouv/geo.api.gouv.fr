@@ -26,7 +26,7 @@ const Regions = () => (
       <ByName
         defaultInput='Hauts-de-France'
         placeholder='Rechercher une région…'
-        renderQuery={input => 'regions?nom=' + input}
+        renderQuery={({input}) => 'regions?nom=' + input}
       />
     </Section>
     <RegionsList />

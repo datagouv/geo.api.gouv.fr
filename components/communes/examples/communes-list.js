@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import FaList from 'react-icons/lib/fa/list'
 
 import theme from '../../../styles/theme'
@@ -6,21 +6,19 @@ import theme from '../../../styles/theme'
 import Tuto from '../../tuto'
 import Section from '../../section'
 import TryList from '../../demo/try-list'
+
 import {useSearch} from '../../hooks/search'
+import {useQuery} from '../../hooks/query'
 
 const CommunesList = () => {
   const [code, setCode] = useState('01')
-  const [query, setQuery] = useState(`departements/${code}/communes`)
+  const [query] = useQuery(code, code => `departements/${code}/communes`)
   const [response, loading, error] = useSearch(query, true)
 
   const handleSelect = option => {
     const code = option.split(' ')[0]
     setCode(code)
   }
-
-  useEffect(() => {
-    setQuery(`departements/${code}/communes`)
-  }, [code])
 
   return (
     <Section background='grey'>

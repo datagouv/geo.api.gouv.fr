@@ -1,14 +1,16 @@
-import {useState, useCallback, useEffect} from 'react'
+import {useState, useCallback} from 'react'
 import PropTypes from 'prop-types'
 
 import Section from '../../section'
 import Tuto from '../../tuto'
 import TryAdvanced from '../demo/try-advanced'
+
 import {useSearch} from '../../hooks/search'
+import {useQuery} from '../../hooks/query'
 
 const AdvancedSearch = ({title, id, icon}) => {
   const [fields, setFields] = useState([])
-  const [query, setQuery] = useState('communes?nom=Versailles')
+  const [query] = useQuery(fields, fields => `communes?nom=Versailles&fields=${fields.length > 0 ? fields.join(',') : ''}`)
   const [response, loading, error] = useSearch(query, false)
 
   const handleSelect = useCallback(field => {
@@ -21,14 +23,6 @@ const AdvancedSearch = ({title, id, icon}) => {
     }
 
     setFields(nfields)
-  }, [fields])
-
-  useEffect(() => {
-    if (fields.length > 0) {
-      setQuery(`communes?nom=Versailles&fields=${fields.join(',')}`)
-    } else {
-      setQuery('communes?nom=Versailles')
-    }
   }, [fields])
 
   return (
