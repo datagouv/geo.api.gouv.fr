@@ -1,17 +1,14 @@
 import {useState, useCallback, useEffect} from 'react'
 import PropTypes from 'prop-types'
-import debounce from 'debounce'
 import FaTag from 'react-icons/lib/fa/tag'
 
-import api from '../lib/api'
 import theme from '../styles/theme'
 
+import {useSearch} from './hooks/search'
 import {useInput} from './hooks/input'
 
 import TryName from './try-name'
 import Tuto from './tuto'
-
-let currentRequest = null
 
 function renderDefaultItem(item, isHighlighted) {
   return (
@@ -44,32 +41,13 @@ function renderDefaultItem(item, isHighlighted) {
 const ByName = ({defaultInput, placeholder, renderQuery, renderItem, children}) => {
   const [input, setInput] = useInput(defaultInput || '')
   const [results, setResults] = useState([])
-  const [loading, setLoading] = useState(false)
   const [boost, setBoost] = useState(true)
-  const [error, setError] = useState(null)
   const [query, setQuery] = useState(renderQuery(input, boost))
+  const [response, loading, error] = useSearch(query, true)
 
   const handleSelect = useCallback(item => {
     setInput(item.nom)
   }, [setInput])
-
-  const handleSearch = useCallback(debounce(async () => {
-    setError(null)
-    try {
-      const req = api(query)
-
-      currentRequest = req
-
-      const response = await await api(query)
-      if (currentRequest === req) {
-        setResults(response.splice(0, 5) || [])
-      }
-    } catch (error) {
-      setError(error)
-    }
-
-    setLoading(false)
-  }, 200), [results, error, query, setLoading, setError])
 
   const handleBoost = useCallback(() => {
     setBoost(!boost)
@@ -78,11 +56,13 @@ const ByName = ({defaultInput, placeholder, renderQuery, renderItem, children}) 
   useEffect(() => {
     const query = renderQuery(input, boost)
     setQuery(query)
-  }, [input, boost, handleSearch, renderQuery])
+  }, [input, boost, renderQuery])
 
   useEffect(() => {
-    handleSearch()
-  }, [handleSearch, query])
+    if (response) {
+      setResults(response)
+    }
+  }, [response, setResults])
 
   return (
     <div id='name'>

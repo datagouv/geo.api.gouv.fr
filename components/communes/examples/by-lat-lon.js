@@ -1,6 +1,5 @@
-import {useState, useCallback, useEffect} from 'react'
+import {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
-import debounce from 'debounce'
 
 import api from '../../../lib/api'
 import theme from '../../../styles/theme'
@@ -9,8 +8,6 @@ import Section from '../../section'
 import Tuto from '../../tuto'
 
 import TryGeo from '../demo/try-geo'
-
-let currentRequest = null
 
 const ByLatLon = ({title, id, icon}) => {
   const [position, setPosition] = useState(null)
@@ -24,25 +21,6 @@ const ByLatLon = ({title, id, icon}) => {
     navigator.geolocation.getCurrentPosition(setPosition, error => setError(error))
   }
 
-  const handleSearch = useCallback(debounce(async () => {
-    try {
-      const req = api(query)
-
-      currentRequest = req
-
-      const response = await api(query)
-
-      if (currentRequest === req) {
-        setResults(response)
-      }
-    } catch (error) {
-      setResults([])
-      setError(error)
-    }
-
-    setLoading(false)
-  }, 200), [query])
-
   useEffect(() => {
     if (position) {
       const latLon = 'lat=' + position.coords.latitude + '&lon=' + position.coords.longitude
@@ -52,11 +30,22 @@ const ByLatLon = ({title, id, icon}) => {
   }, [position])
 
   useEffect(() => {
+    const handleSearch = async () => {
+      try {
+        const response = await api(query)
+        setResults(response)
+      } catch (error) {
+        setResults([])
+        setError(error)
+      }
+
+      setLoading(false)
+    }
+
     if (query) {
-      setError(null)
       handleSearch()
     }
-  }, [handleSearch, query])
+  }, [query])
 
   return (
     <Section>
