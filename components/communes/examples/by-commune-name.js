@@ -49,6 +49,7 @@ const ByCommuneName = ({title, id, icon}) => {
           defaultInput='Nantes'
           placeholder='Rechercher une commune…'
           icon={icon}
+          disabledBoost={false}
           renderQuery={renderQuery}
           renderItem={renderCommune}
         >

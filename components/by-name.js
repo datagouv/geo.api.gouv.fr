@@ -38,7 +38,7 @@ function renderDefaultItem(item, isHighlighted) {
   )
 }
 
-const ByName = ({defaultInput, placeholder, renderQuery, renderItem, children}) => {
+const ByName = ({ defaultInput, placeholder, disabledBoost, renderQuery, renderItem, children}) => {
   const [input, setInput] = useInput(defaultInput || '')
   const [results, setResults] = useState([])
   const [boost, setBoost] = useState(true)
@@ -86,7 +86,7 @@ const ByName = ({defaultInput, placeholder, renderQuery, renderItem, children}) 
         boost={boost}
         loading={loading}
         error={error}
-        disabledBoost={false}
+        disabledBoost={disabledBoost}
         renderItem={renderItem || renderDefaultItem}
         handleChange={setInput}
         handleSelect={handleSelect}
@@ -108,6 +108,7 @@ const ByName = ({defaultInput, placeholder, renderQuery, renderItem, children}) 
 ByName.defaultProps = {
   defaultInput: '',
   placeholder: null,
+  disabledBoost: true,
   renderItem: null,
   children: null
 }
@@ -115,6 +116,7 @@ ByName.defaultProps = {
 ByName.propTypes = {
   defaultInput: PropTypes.string,
   placeholder: PropTypes.string,
+  disabledBoost: PropTypes.bool,
   renderQuery: PropTypes.func.isRequired,
   renderItem: PropTypes.func,
   children: PropTypes.node
