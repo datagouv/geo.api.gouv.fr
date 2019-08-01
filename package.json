@@ -25,7 +25,8 @@
     "react-autocomplete": "^1.8.1",
     "react-dom": "^16.8.6",
     "react-icons": "^2.2.7",
-    "underscore.string": "^3.3.5"
+    "underscore.string": "^3.3.5",
+    "use-debounce": "^2.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.2",
