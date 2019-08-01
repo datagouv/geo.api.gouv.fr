@@ -2,13 +2,13 @@ import {useState, useCallback, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import FaTag from 'react-icons/lib/fa/tag'
 
-import theme from '../styles/theme'
+import theme from '../../styles/theme'
 
-import {useSearch} from './hooks/search'
-import {useInput} from './hooks/input'
+import Tuto from '../tuto'
+import {useSearch} from '../hooks/search'
+import {useInput} from '../hooks/input'
 
 import TryName from './try-name'
-import Tuto from './tuto'
 
 function renderDefaultItem(item, isHighlighted) {
   return (
@@ -38,7 +38,7 @@ function renderDefaultItem(item, isHighlighted) {
   )
 }
 
-const ByName = ({ defaultInput, placeholder, disabledBoost, renderQuery, renderItem, children}) => {
+const ByName = ({defaultInput, placeholder, disabledBoost, renderQuery, renderItem, children}) => {
   const [input, setInput] = useInput(defaultInput || '')
   const [results, setResults] = useState([])
   const [boost, setBoost] = useState(true)

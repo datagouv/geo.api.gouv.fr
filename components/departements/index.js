@@ -5,9 +5,10 @@ import Section from '../section'
 
 import Summary from '../summary'
 import TechnicalDoc from '../technical-doc'
-import ByName from '../by-name'
 
-import DepartementsList from './examples/departements-list'
+import ByName from '../demo/by-name'
+
+import DepartementsList from './departements-list'
 
 import doc from './doc'
 

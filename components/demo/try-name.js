@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 
-import SearchInput from './search-input'
-import SwitchInput from './switch-input'
-import TryContainer from './try-container'
+import SearchInput from '../search-input'
+import SwitchInput from '../switch-input'
+import TryContainer from '../try-container'
 
 const TryName = ({value, placeholder, results, boost, renderItem, loading, error, disabledBoost, handleChange, handleSelect, handleBoost}) => (
   <TryContainer error={error}>

@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import theme from '../../../styles/theme'
 
 import Section from '../../section'
-import ByName from '../../by-name'
+
+import ByName from '../../demo/by-name'
 
 const ByCommuneName = ({title, id, icon}) => {
   const renderCommune = (item, isHighlighted) => {

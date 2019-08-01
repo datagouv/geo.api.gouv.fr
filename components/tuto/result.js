@@ -2,11 +2,12 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import copy from 'copy-to-clipboard'
 
-import theme from '../styles/theme'
+import theme from '../../styles/theme'
 
-import Loader from './loader'
+import Code from '../code'
+
+import Loader from '../loader'
 import InputExemple from './input-exemple'
-import Code from './code'
 
 class Tuto extends React.Component {
   constructor(props) {

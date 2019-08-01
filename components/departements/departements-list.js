@@ -1,12 +1,12 @@
 import {useState, useCallback} from 'react'
 import FaList from 'react-icons/lib/fa/list'
 
-import theme from '../../../styles/theme'
+import theme from '../../styles/theme'
 
-import Tuto from '../../tuto'
-import TryList from '../../try-list'
-import Section from '../../section'
-import {useSearch} from '../../hooks/search'
+import Tuto from '../tuto'
+import TryList from '../demo/try-list'
+import Section from '../section'
+import {useSearch} from '../hooks/search'
 
 const DepartementsList = () => {
   const [code, setCode] = useState('28')

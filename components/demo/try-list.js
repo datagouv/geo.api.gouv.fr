@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 
-import SelectInput from './select-input'
-import TryContainer from './try-container'
-import {useSearch} from './hooks/search'
+import SelectInput from '../select-input'
+import TryContainer from '../try-container'
+import {useSearch} from '../hooks/search'
 
 const TryList = ({value, items, description, label, query, error, handleSelect}) => {
   const [response] = useSearch(query, false)

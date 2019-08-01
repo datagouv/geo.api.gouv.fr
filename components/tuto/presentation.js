@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import Notification from './notification'
+import Notification from '../notification'
 
 const Presentation = ({title, description, icon, tips, warning, children}) => (
   <div className='presentation'>

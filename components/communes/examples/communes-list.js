@@ -4,8 +4,8 @@ import FaList from 'react-icons/lib/fa/list'
 import theme from '../../../styles/theme'
 
 import Tuto from '../../tuto'
-import TryList from '../../try-list'
 import Section from '../../section'
+import TryList from '../../demo/try-list'
 import {useSearch} from '../../hooks/search'
 
 const CommunesList = () => {

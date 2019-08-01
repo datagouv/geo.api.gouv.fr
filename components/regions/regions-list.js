@@ -1,11 +1,11 @@
 import FaList from 'react-icons/lib/fa/list'
 
-import theme from '../../../styles/theme'
+import theme from '../../styles/theme'
 
-import Tuto from '../../tuto'
-import Section from '../../section'
-import Notification from '../../notification'
-import {useSearch} from '../../hooks/search'
+import Tuto from '../tuto'
+import Section from '../section'
+import Notification from '../notification'
+import {useSearch} from '../hooks/search'
 
 const RegionsList = () => {
   const [response, loading, error] = useSearch('regions', true)
