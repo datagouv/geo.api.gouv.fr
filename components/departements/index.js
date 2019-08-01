@@ -27,7 +27,7 @@ const Departements = () => (
       <ByName
         defaultInput='Yvelines'
         placeholder='Rechercher un département…'
-        renderQuery={({input}) => 'departements?nom=' + input}
+        renderQuery={({input}) => `departements?nom=${input}&limit=5`}
       />
     </Section>
     <DepartementsList />

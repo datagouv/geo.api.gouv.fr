@@ -39,7 +39,7 @@ const ByCommuneName = ({title, id, icon}) => {
   }
 
   const renderQuery = ({input, boost}) => {
-    return `communes?nom=${input}&limit=10&fields=departement${boost ? '&boost=population' : ''}`
+    return `communes?nom=${input}&fields=departement${boost ? '&boost=population' : ''}&limit=5`
   }
 
   return (
