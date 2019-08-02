@@ -1,7 +1,15 @@
 const {join} = require('path')
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
+const nextRuntimeDotenv = require('next-runtime-dotenv')
 
-module.exports = {
+const withConfig = nextRuntimeDotenv({
+  public: [
+    'API_GEO_URL',
+    'API_ADRESSE'
+  ]
+})
+
+module.exports = withConfig({
   webpack(config, {dev}) {
     if (!dev) {
       config.plugins.push(new BundleAnalyzerPlugin({
@@ -21,4 +29,4 @@ module.exports = {
       '/cgu': {page: '/cgu'}
     }
   }
-}
+})
