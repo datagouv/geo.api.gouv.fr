@@ -1,24 +1,37 @@
-# Node.js
-node_modules
+# Environment config
+.env*
+!.env.sample
 
-# Build
-.next
-/out
+# Runtime
+pids
+*.pid
+*.seed
+*.pid.lock
 
-# Reports
-reports
+# Logs
+logs
+*.log
+npm-debug.log*
+CHANGELOG.md
 
-# Apple stuff
-.DS_Store
+# Mac
+*.DS_Store
 .AppleDouble
 .LSOverride
 
-# Icon must end with two \r
-Icon
+# Build
+.next
+bundle-stats
 
+# Cache
+.yarn-cache
+.npm
+.eslintcache
+.changelog
 
-# Thumbnails
-._*
+# Node
+node_modules
 
-# Logs
-*.log
+# Reports
+coverage
+reports
