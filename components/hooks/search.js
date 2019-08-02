@@ -1,7 +1,7 @@
 import {useState, useCallback, useEffect} from 'react'
 import {useDebouncedCallback} from 'use-debounce'
 
-import api from '../../lib/api'
+import api from '../../lib/geo'
 
 export function useSearch(query, debounced) {
   const [response, setResponse] = useState(null)

@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 
-import api from '../../../lib/api'
+import api from '../../../lib/geo'
 import theme from '../../../styles/theme'
 
 import Section from '../../section'
