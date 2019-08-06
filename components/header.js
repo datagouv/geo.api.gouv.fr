@@ -3,9 +3,13 @@ import Link from 'next/link'
 import HamburgerMenu from './hamburger-menu'
 
 const links = [
-  {text: 'Communes', href: '/docs/communes'},
-  {text: 'Départements', href: '/docs/departements'},
-  {text: 'Régions', href: '/docs/regions'}
+  {text: 'Adresse', href: '/adresse'},
+  {text: 'Cadastre', href: '/cadastre'}
+]
+
+const extendLinks = [
+  ...links,
+  {text: 'Découpage Administratif', href: '/decoupage-administratif'}
 ]
 
 export default () => (
@@ -26,11 +30,22 @@ export default () => (
               <Link href={link.href}><a>{link.text}</a></Link>
             </li>
           ))}
+
+          <li className='nav__item'>
+            <div className='dropdown'>
+              Découpage administratif
+              <div className='dropdown-content'>
+                <Link href='/decoupage-administratif/communes'><a>Communes</a></Link>
+                <Link href='/decoupage-administratif/departements'><a>Départements</a></Link>
+                <Link href='/decoupage-administratif/regions'><a>Régions</a></Link>
+              </div>
+            </div>
+          </li>
         </ul>
       </nav>
 
       <div className='hamburger-menu'>
-        <HamburgerMenu links={links} />
+        <HamburgerMenu links={extendLinks} />
       </div>
     </div>
 
@@ -68,6 +83,6 @@ export default () => (
           height: 60px;
         }
       }
-  `}</style>
+    `}</style>
   </header>
 )
