@@ -5,10 +5,10 @@ import theme from '../../styles/theme'
 import Tuto from '../tuto'
 import Section from '../section'
 import Notification from '../notification'
-import {useSearch} from '../hooks/search'
+import {useFetch} from '../hooks/fetch'
 
 const RegionsList = () => {
-  const [response, loading, error] = useSearch('regions', true)
+  const [response, loading, error] = useFetch('regions', true)
 
   return (
     <Section background='white'>

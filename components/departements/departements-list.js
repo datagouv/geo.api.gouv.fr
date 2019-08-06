@@ -7,13 +7,13 @@ import Tuto from '../tuto'
 import TryList from '../demo/try-list'
 import Section from '../section'
 
-import {useSearch} from '../hooks/search'
+import {useFetch} from '../hooks/fetch'
 import {useQuery} from '../hooks/query'
 
 const DepartementsList = () => {
   const [code, setCode] = useState('28')
   const [query] = useQuery(code, code => `regions/${code}/departements`)
-  const [response, loading, error] = useSearch(query, false)
+  const [response, loading, error] = useFetch(query, false)
 
   const handleSelect = option => {
     const code = option.split(' ')[0]

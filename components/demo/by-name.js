@@ -5,7 +5,7 @@ import FaTag from 'react-icons/lib/fa/tag'
 import theme from '../../styles/theme'
 
 import Tuto from '../tuto'
-import {useSearch} from '../hooks/search'
+import {useFetch} from '../hooks/fetch'
 import {useInput} from '../hooks/input'
 
 import {useQuery} from '../hooks/query'
@@ -44,7 +44,7 @@ const ByName = ({defaultInput, placeholder, disabledBoost, renderQuery, renderIt
   const [results, setResults] = useState([])
   const [boost, setBoost] = useState(true)
   const [query] = useQuery({input, boost}, renderQuery)
-  const [response, loading, error] = useSearch(query, true)
+  const [response, loading, error] = useFetch(query, true)
 
   const handleSelect = useCallback(item => {
     setInput(item.nom)

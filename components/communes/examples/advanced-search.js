@@ -5,13 +5,13 @@ import Section from '../../section'
 import Tuto from '../../tuto'
 import TryAdvanced from '../demo/try-advanced'
 
-import {useSearch} from '../../hooks/search'
+import {useFetch} from '../../hooks/fetch'
 import {useQuery} from '../../hooks/query'
 
 const AdvancedSearch = ({title, id, icon}) => {
   const [fields, setFields] = useState([])
   const [query] = useQuery(fields, fields => `communes?nom=Versailles&fields=${fields.length > 0 ? fields.join(',') : ''}`)
-  const [response, loading, error] = useSearch(query, false)
+  const [response, loading, error] = useFetch(query, false)
 
   const handleSelect = useCallback(field => {
     const nfields = [...fields]

@@ -7,13 +7,13 @@ import Tuto from '../../tuto'
 import Section from '../../section'
 import TryList from '../../demo/try-list'
 
-import {useSearch} from '../../hooks/search'
+import {useFetch} from '../../hooks/fetch'
 import {useQuery} from '../../hooks/query'
 
 const CommunesList = () => {
   const [code, setCode] = useState('01')
   const [query] = useQuery(code, code => `departements/${code}/communes`)
-  const [response, loading, error] = useSearch(query, true)
+  const [response, loading, error] = useFetch(query, true)
 
   const handleSelect = option => {
     const code = option.split(' ')[0]

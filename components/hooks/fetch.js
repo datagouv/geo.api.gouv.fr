@@ -1,9 +1,7 @@
 import {useState, useCallback, useEffect} from 'react'
 import {useDebouncedCallback} from 'use-debounce'
 
-import api from '../../lib/geo'
-
-export function useSearch(query, debounced) {
+export function useFetch(call, debounced) {
   const [response, setResponse] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
@@ -13,26 +11,26 @@ export function useSearch(query, debounced) {
     setError(null)
 
     try {
-      const response = await api(query)
+      const response = await call()
       setResponse(response)
     } catch (error) {
       setError(error)
     }
 
     setLoading(false)
-  }, [query, setResponse, setError, setLoading])
+  }, [call])
 
   const [debouncedFunction] = useDebouncedCallback(_search, 200)
 
   useEffect(() => {
-    if (query) {
+    if (call) {
       if (debounced) {
         debouncedFunction()
       } else {
         _search()
       }
     }
-  }, [_search, debounced, debouncedFunction, query])
+  }, [_search, call, debounced, debouncedFunction])
 
   return [response, loading, error]
 }

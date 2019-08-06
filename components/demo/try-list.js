@@ -2,10 +2,10 @@ import PropTypes from 'prop-types'
 
 import SelectInput from '../select-input'
 import TryContainer from '../try-container'
-import {useSearch} from '../hooks/search'
+import {useFetch} from '../hooks/fetch'
 
 const TryList = ({value, items, description, label, query, error, handleSelect}) => {
-  const [response] = useSearch(query, false)
+  const [response] = useFetch(query, false)
 
   const renderOption = option => {
     return <option key={`option-${option.code}`}>{option.code} - {option.nom}</option>

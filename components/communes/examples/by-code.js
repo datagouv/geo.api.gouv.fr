@@ -1,19 +1,23 @@
-import {useState, useCallback} from 'react'
+import {useCallback} from 'react'
 import PropTypes from 'prop-types'
+
+import {getCommunes} from '../../../lib/api/geo'
 
 import theme from '../../../styles/theme'
 
 import Section from '../../section'
 import Tuto from '../../tuto'
+
 import {useInput} from '../../hooks/input'
-import {useSearch} from '../../hooks/search'
+import {useFetch} from '../../hooks/fetch'
+import {useQuery} from '../../hooks/query'
 
 import TryPostalCode from '../demo/try-postal-code'
 
 const ByCode = ({title, id, icon}) => {
   const [input, setInput] = useInput('78000')
-  const [query, setQuery] = useState('communes?codePostal=' + input)
-  const [response, loading, error] = useSearch(query, false)
+  const [query, setQuery] = useQuery(input, input => 'communes?codePostal=' + input)
+  const [response, loading, error] = useFetch(query, false)
 
   const handleInput = input => {
     setInput(input)
