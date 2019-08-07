@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import FaList from 'react-icons/lib/fa/list'
 
 import theme from '../../../styles/theme'
@@ -13,6 +13,7 @@ import {getDepartements, getDepartementCommunes} from '../../../lib/api/geo'
 
 const CommunesList = () => {
   const [code, setCode] = useState('01')
+  const [departements, setDepartements] = useState({url: '', option: null})
   const [url, options] = useQuery(code, code => getDepartementCommunes(code))
   const [response, loading, error] = useFetch(url, options, false)
 
@@ -20,6 +21,11 @@ const CommunesList = () => {
     const code = option.split(' ')[0]
     setCode(code)
   }
+
+  useEffect(() => {
+    const departements = getDepartements()
+    setDepartements(departements)
+  }, [])
 
   return (
     <Section background='grey'>
@@ -43,7 +49,7 @@ const CommunesList = () => {
           items={response || []}
           description='communes dans ce département'
           label='Départements'
-          query={getDepartements()}
+          query={departements}
           loading={loading}
           error={error}
           handleSelect={handleSelect} />
