@@ -2,13 +2,17 @@ import FaList from 'react-icons/lib/fa/list'
 
 import theme from '../../styles/theme'
 
+import {useFetch} from '../hooks/fetch'
+import {useQuery} from '../hooks/query'
+import {getRegions} from '../../lib/api/geo'
+
 import Tuto from '../tuto'
 import Section from '../section'
 import Notification from '../notification'
-import {useFetch} from '../hooks/fetch'
 
 const RegionsList = () => {
-  const [response, loading, error] = useFetch('regions', true)
+  const [url, options] = useQuery({}, () => getRegions())
+  const [response, loading, error] = useFetch(url, options, true)
 
   return (
     <Section background='white'>
@@ -17,7 +21,7 @@ const RegionsList = () => {
           title='Liste des régions'
           description=''
           icon={<FaList />}
-          exemple='https://geo.api.gouv.fr/regions'
+          exemple={url}
           results={response}
           side='left'
           loading={loading}
