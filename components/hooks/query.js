@@ -1,13 +1,16 @@
 import {useState, useEffect} from 'react'
 
 export function useQuery(value, func) {
-  const [query, setQuery] = useState({})
+  const [url, setUrl] = useState('')
+  const [options, setOptions] = useState(null)
 
   useEffect(() => {
     if (value && func) {
-      const query = func(value)
-      setQuery(query)
+      const {url, options} = func(value)
+      setUrl(url)
+      setOptions(options)
     }
-  }, [func, value])
-  return [query]
+  }, [value, func])
+
+  return [url, options]
 }

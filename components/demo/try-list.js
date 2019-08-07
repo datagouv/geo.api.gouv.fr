@@ -5,7 +5,7 @@ import TryContainer from '../try-container'
 import {useFetch} from '../hooks/fetch'
 
 const TryList = ({value, items, description, label, query, error, handleSelect}) => {
-  const [response] = useFetch(query, false)
+  const [response] = useFetch(query.url, query.options, false)
 
   const renderOption = option => {
     return <option key={`option-${option.code}`}>{option.code} - {option.nom}</option>
@@ -29,7 +29,10 @@ TryList.propTypes = {
   items: PropTypes.array,
   description: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  query: PropTypes.string.isRequired,
+  query: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+    options: PropTypes.object
+  }).isRequired,
   error: PropTypes.object,
   handleSelect: PropTypes.func.isRequired
 }

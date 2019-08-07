@@ -41,10 +41,9 @@ function renderDefaultItem(item, isHighlighted) {
 
 const ByName = ({defaultInput, placeholder, disabledBoost, renderQuery, renderItem, children}) => {
   const [input, setInput] = useInput(defaultInput || '')
-  const [results, setResults] = useState([])
   const [boost, setBoost] = useState(true)
-  const [query] = useQuery({input, boost}, renderQuery)
-  const [response, loading, error] = useFetch(query, true)
+  const [url, options] = useQuery({input, boost}, renderQuery)
+  const [response, loading, error] = useFetch(url, options, true)
 
   const handleSelect = useCallback(item => {
     setInput(item.nom)
@@ -54,20 +53,14 @@ const ByName = ({defaultInput, placeholder, disabledBoost, renderQuery, renderIt
     setBoost(!boost)
   }, [boost, setBoost])
 
-  useEffect(() => {
-    if (response) {
-      setResults(response)
-    }
-  }, [response, setResults])
-
   return (
     <div id='name'>
       <Tuto
         title='Recherche par nom'
         description='La variable nom vous permet d’effectuer une recherche par nom.'
         icon={<FaTag />}
-        exemple={`https://geo.api.gouv.fr/${query}`}
-        results={results}
+        exemple={url}
+        results={response || []}
         tips='Il est possible d’utiliser la recherche par nom pour faire de l’autocomplétion.'
         side='right'
         loading={loading}
@@ -78,7 +71,7 @@ const ByName = ({defaultInput, placeholder, disabledBoost, renderQuery, renderIt
       <TryName
         value={input}
         placeholder={placeholder}
-        results={results}
+        results={response || []}
         boost={boost}
         loading={loading}
         error={error}

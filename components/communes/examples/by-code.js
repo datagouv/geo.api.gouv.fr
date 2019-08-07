@@ -1,4 +1,4 @@
-import {useCallback} from 'react'
+import {useState, useCallback} from 'react'
 import PropTypes from 'prop-types'
 
 import {getCommunes} from '../../../lib/api/geo'
@@ -10,22 +10,22 @@ import Tuto from '../../tuto'
 
 import {useInput} from '../../hooks/input'
 import {useFetch} from '../../hooks/fetch'
-import {useQuery} from '../../hooks/query'
 
 import TryPostalCode from '../demo/try-postal-code'
 
 const ByCode = ({title, id, icon}) => {
   const [input, setInput] = useInput('78000')
-  const [query, setQuery] = useQuery(input, input => 'communes?codePostal=' + input)
-  const [response, loading, error] = useFetch(query, false)
+  const [{url, options}, setQuery] = useState(getCommunes({params: {codePostal: input}}))
+  const [response, loading, error] = useFetch(url, options, false)
 
   const handleInput = input => {
     setInput(input)
   }
 
   const handleSubmit = useCallback(() => {
-    setQuery('communes?codePostal=' + input)
-  }, [input])
+    const query = getCommunes({params: {codePostal: input}})
+    setQuery(query)
+  }, [input, setQuery])
 
   return (
     <Section background='grey'>
@@ -34,7 +34,7 @@ const ByCode = ({title, id, icon}) => {
           title={title}
           description='Il est possible de rechercher une commune avec son code postal.'
           icon={icon}
-          exemple={'https://geo.api.gouv.fr/communes?codePostal=' + input}
+          exemple={url}
           results={response}
           side='left'
           loading={loading}

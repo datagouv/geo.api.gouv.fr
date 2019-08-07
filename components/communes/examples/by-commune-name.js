@@ -5,6 +5,7 @@ import theme from '../../../styles/theme'
 import Section from '../../section'
 
 import ByName from '../../demo/by-name'
+import {getCommunes} from '../../../lib/api/geo'
 
 const ByCommuneName = ({title, id, icon}) => {
   const renderCommune = (item, isHighlighted) => {
@@ -39,7 +40,13 @@ const ByCommuneName = ({title, id, icon}) => {
   }
 
   const renderQuery = ({input, boost}) => {
-    return `communes?nom=${input}&fields=departement${boost ? '&boost=population' : ''}&limit=5`
+    const query = getCommunes({
+      boost,
+      params: {nom: input},
+      fields: ['departement'],
+      limit: 5
+    })
+    return query
   }
 
   return (
