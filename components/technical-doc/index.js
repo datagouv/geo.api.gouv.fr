@@ -15,8 +15,14 @@ const TechnicalDoc = ({paths, defaultModel, defaultAttributs, optionAttributs}) 
     </div>
 
     <div>
-      {paths.map(path => <Path key={path.name} {...path} />)}
-      <Attributs model={defaultModel} defaults={defaultAttributs} optionals={optionAttributs} />
+      {paths.map(path => (
+        <Path key={path.name} {...path} />
+      ))}
+      <Attributs
+        model={defaultModel}
+        defaults={defaultAttributs}
+        optionals={optionAttributs}
+      />
     </div>
 
     <style jsx>{`
@@ -34,7 +40,10 @@ const TechnicalDoc = ({paths, defaultModel, defaultAttributs, optionAttributs}) 
 
 TechnicalDoc.propTypes = {
   paths: PropTypes.array.isRequired,
-  defaultModel: PropTypes.array.isRequired,
+  defaultModel: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object
+  ]).isRequired,
   defaultAttributs: PropTypes.array.isRequired,
   optionAttributs: PropTypes.array
 }

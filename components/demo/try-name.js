@@ -25,7 +25,10 @@ const TryName = ({value, placeholder, results, boost, renderItem, loading, error
 TryName.propTypes = {
   value: PropTypes.string,
   placeholder: PropTypes.string,
-  results: PropTypes.array,
+  results: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object
+  ]),
   boost: PropTypes.bool,
   loading: PropTypes.bool,
   error: PropTypes.object,
