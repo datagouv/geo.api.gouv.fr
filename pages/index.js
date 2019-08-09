@@ -2,7 +2,6 @@ import PropTypes from 'prop-types'
 import Link from 'next/link'
 
 import FaCompass from 'react-icons/lib/fa/compass'
-import FaConnectdevelop from 'react-icons/lib/fa/connectdevelop'
 import FaMapSigns from 'react-icons/lib/fa/map-signs'
 
 import Page from '../layouts/main'
@@ -25,12 +24,6 @@ const apis = [
     icon: <FaCompass />
   },
   {
-    title: 'Cadastre',
-    href: '/cadastre',
-    description: <span>Récuper les informations cadastral.</span>,
-    icon: <FaConnectdevelop />
-  },
-  {
     title: 'Découpage admministratif',
     href: '/decoupage-administratif',
     description: <span>Récupérez facilement les informations dont vous avez besoin pour chaque découpage administratif.</span>,
@@ -49,10 +42,6 @@ const Api = ({title, icon, description, href}) => {
         <div className='article__author-img'>{icon}</div>
         <p className='article__author-description'>{description}</p>
         <style jsx>{`
-          .article__author {
-            min-width: 270px;
-          }
-
           .article__author:hover {
             cursor: pointer;
             border-color: ${theme.primary};
@@ -80,7 +69,7 @@ export default () => (
   <Page title={title} description={tagline}>
     <Hero title={title} tagline={tagline} />
     <Section title='Les API géographique publique' subtitle={tagline}>
-      <div className='apis grid'>
+      <div className='apis'>
         {apis.map(({title, href, description, icon}) => (
           <Api
             key={title}
@@ -96,6 +85,8 @@ export default () => (
 
     <style jsx>{`
       .apis {
+        display: flex;
+        justify-content: space-between;
         margin-top: 2em;
       }
       `}</style>
