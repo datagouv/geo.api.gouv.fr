@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-import Button from './button'
+import Button from '../button'
 
 class InputExemple extends React.Component {
   constructor(props) {

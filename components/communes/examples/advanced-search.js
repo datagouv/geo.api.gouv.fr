@@ -1,96 +1,49 @@
-import React from 'react'
+import {useState, useCallback} from 'react'
 import PropTypes from 'prop-types'
-
-import api from '../../../lib/api'
 
 import Section from '../../section'
 import Tuto from '../../tuto'
 import TryAdvanced from '../demo/try-advanced'
 
-class AdvancedSearch extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      fields: [],
-      results: [],
-      loading: false,
-      error: null
+import {useSearch} from '../../hooks/search'
+import {useQuery} from '../../hooks/query'
+
+const AdvancedSearch = ({title, id, icon}) => {
+  const [fields, setFields] = useState([])
+  const [query] = useQuery(fields, fields => `communes?nom=Versailles&fields=${fields.length > 0 ? fields.join(',') : ''}`)
+  const [response, loading, error] = useSearch(query, false)
+
+  const handleSelect = useCallback(field => {
+    const nfields = [...fields]
+    if (nfields.includes(field)) {
+      const index = nfields.indexOf(field)
+      nfields.splice(index, 1)
+    } else {
+      nfields.push(field)
     }
 
-    this.handleSelect = this.handleSelect.bind(this)
-    this.handleSearch = this.handleSearch.bind(this)
-  }
+    setFields(nfields)
+  }, [fields])
 
-  componentDidMount() {
-    this.handleSearch()
-  }
+  return (
+    <Section background='grey'>
+      <div id={id}>
+        <Tuto
+          title={title}
+          description='Le paramètre fields vous permet de filtrer les informations.'
+          icon={icon}
+          exemple={`https://geo.api.gouv.fr/${query}`}
+          results={response}
+          tips='Le paramètre format permet de préciser un format de sortie des données (json/geojson).'
+          warning='Le format GeoJSON implique de choisir une géométrie principale. Par défaut il s’agit du centre. Cela peut être changé en ajoutant le paramètre geometry=contour.'
+          loading={loading}
+          side='right'
+        />
 
-  componentDidUpdate(prevProps, prevState) {
-    const {fields} = this.state
-
-    if (fields !== prevState.fields) {
-      this.handleSearch()
-    }
-  }
-
-  handleSelect(field) {
-    this.setState(state => {
-      const fields = [...state.fields]
-      if (fields.includes(field)) {
-        const index = fields.indexOf(field)
-        fields.splice(index, 1)
-      } else {
-        fields.push(field)
-      }
-
-      return {fields}
-    })
-  }
-
-  async handleSearch() {
-    const {fields} = this.state
-    const query = `communes?nom=Versailles${fields ? '&fields=' + fields.join(',') : ''}`
-
-    this.setState({loading: true})
-    try {
-      const results = await api(query)
-      this.setState({
-        results: results.splice(0, 5) || []
-      })
-    } catch (error) {
-      this.setState({
-        results: [],
-        error
-      })
-    }
-
-    this.setState({loading: false})
-  }
-
-  render() {
-    const {title, id, icon} = this.props
-    const {fields, results, loading, error} = this.state
-
-    return (
-      <Section background='grey'>
-        <div id={id}>
-          <Tuto
-            title={title}
-            description='Le paramètre fields vous permet de filtrer les informations.'
-            icon={icon}
-            exemple={`https://geo.api.gouv.fr/communes?nom=Versailles${fields ? '&fields=' + fields.join(',') : ''}`}
-            results={results}
-            tips='Le paramètre format permet de préciser un format de sortie des données (json/geojson).'
-            warning='Le format GeoJSON implique de choisir une géométrie principale. Par défaut il s’agit du centre. Cela peut être changé en ajoutant le paramètre geometry=contour.'
-            loading={loading}
-            side='right'
-          />
-
-          <TryAdvanced selectedFields={fields} selectField={this.handleSelect} error={error} />
-        </div>
-      </Section>
-    )
-  }
+        <TryAdvanced selectedFields={fields} selectField={handleSelect} error={error} />
+      </div>
+    </Section>
+  )
 }
 
 AdvancedSearch.propTypes = {
