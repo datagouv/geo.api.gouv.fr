@@ -1,4 +1,4 @@
-import FaTag from 'react-icons/lib/fa/tag'
+import FaICursor from 'react-icons/lib/fa/i-cursor'
 import FaCompass from 'react-icons/lib/fa/compass'
 
 import Page from '../layouts/main'
@@ -9,12 +9,13 @@ import TechnicalDoc from '../components/technical-doc'
 
 import doc from '../components/adresse/doc'
 
+import ByAddressName from '../components/adresse/examples/by-address-name'
+
 const title = 'Adresse'
 const description = 'Cherchez des adresses et lieux-dits.'
 
 const examples = [
-  {title: 'Recherche par texte', id: 'text', icon: <FaTag />},
-  {title: 'Rechercher par coordonnée', id: 'coords', icon: <FaCompass />}
+  {title: 'Recherche par texte', id: 'text', icon: <FaICursor />}
 ]
 
 export default () => (
@@ -26,5 +27,7 @@ export default () => (
     <Summary examples={examples} />
 
     <TechnicalDoc {...doc} />
+
+    <ByAddressName {...examples[0]} />
   </Page>
 )

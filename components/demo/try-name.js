@@ -8,7 +8,7 @@ const TryName = ({value, placeholder, results, boost, renderItem, loading, error
   <TryContainer error={error}>
     <SearchInput
       value={value}
-      results={results}
+      items={results}
       loading={loading}
       placeholder={placeholder}
       onSelect={handleSelect}
