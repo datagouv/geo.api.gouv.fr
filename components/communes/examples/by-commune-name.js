@@ -8,7 +8,7 @@ import ByName from '../../demo/by-name'
 
 const ByCommuneName = ({title, id, icon}) => {
   const renderCommune = (item, isHighlighted) => {
-    const description = item.departement ? `${item.departement.nom} - ${item.departement.code}` : 'Outre-mer'
+    const description = item.departement ? `${item.departement.nom} - ${item.departement.code}` : 'Collectivité d’outre-mer'
 
     return (
       <div key={item.code} className={`item ${isHighlighted ? 'item-highlighted' : ''}`}>
