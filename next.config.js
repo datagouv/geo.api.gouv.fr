@@ -23,10 +23,10 @@ module.exports = withConfig({
     return config
   },
 
-  exportPathMap() {
-    return {
-      '/': {page: '/'},
-      '/cgu': {page: '/cgu'}
-    }
+  // Quick and dirty
+  // Ensure publicRuntimeConfig is defined
+  // More infos: https://github.com/zeit/next.js/issues/7713
+  publicRuntimeConfig: {
+    init: true
   }
 })
