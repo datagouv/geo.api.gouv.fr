@@ -1,4 +1,4 @@
-import {useCallback} from 'react'
+import {useState, useCallback} from 'react'
 import PropTypes from 'prop-types'
 
 import theme from '../../../styles/theme'
@@ -33,9 +33,8 @@ const renderQuery = ({input, autocomplete, type}) => {
   if (input) {
     const query = search({
       q: input,
-      autocomplete: autocomplete ? 1 : 0,
       type,
-      limit: 5
+      autocomplete: autocomplete ? 1 : 0
     })
     return query
   }
@@ -87,8 +86,8 @@ const renderList = response => {
 }
 
 const ByAddressName = ({title, id, icon}) => {
-  const [input, setInput] = useInput('20 avenue de Ségur')
-  const [type, setType] = useInput(null)
+  const [input, setInput] = useInput('20 avenue de Ségur, Paris')
+  const [type, setType] = useState('housenumber')
   const [autocomplete, setAutocomplete] = useInput(true)
   const [url, options] = useQuery({input, type, autocomplete}, renderQuery)
   const [response, loading, error] = useFetch(url, options, true)
