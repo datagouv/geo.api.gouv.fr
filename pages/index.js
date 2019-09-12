@@ -13,21 +13,21 @@ import Section from '../components/section'
 
 import Subscribe from '../components/home/subscribe'
 
-const title = 'Documentation geo.api.gouv.fr'
+const title = 'geo.api.gouv.fr'
 const tagline = 'Interrogez les référentiels géographiques plus facilement.'
 
 const apis = [
   {
-    title: 'Adresse',
-    href: '/adresse',
-    description: <span>Cherchez des adresses et lieux-dits.</span>,
-    icon: <FaCompass />
+    title: 'Découpage administratif',
+    href: '/decoupage-administratif',
+    description: <span>Rechercher et localiser les communes, départements et régions.</span>,
+    icon: <FaMapSigns />
   },
   {
-    title: 'Découpage admministratif',
-    href: '/decoupage-administratif',
-    description: <span>Récupérez facilement les informations dont vous avez besoin pour chaque découpage administratif.</span>,
-    icon: <FaMapSigns />
+    title: 'Adresses',
+    href: '/adresse',
+    description: <span>Rechercher et localiser des adresses et lieux-dits.</span>,
+    icon: <FaCompass />
   }
 ]
 
@@ -68,7 +68,7 @@ Api.propTypes = {
 export default () => (
   <Page title={title} description={tagline}>
     <Hero title={title} tagline={tagline} />
-    <Section title='Les API géographique publique' subtitle={tagline}>
+    <Section title='Les API actuellement en production'>
       <div className='apis'>
         {apis.map(({title, href, description, icon}) => (
           <Api
