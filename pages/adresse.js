@@ -10,6 +10,7 @@ import TechnicalDoc from '../components/technical-doc'
 import doc from '../components/adresse/doc'
 
 import ByAddressName from '../components/adresse/examples/by-address-name'
+import CurlDoc from '../components/adresse/curl-doc'
 
 const title = 'Adresse'
 const description = 'Cherchez des adresses et lieux-dits.'
@@ -28,6 +29,9 @@ export default () => (
 
     <TechnicalDoc {...doc} />
 
+    <CurlDoc />
+
     <ByAddressName {...examples[0]} />
+
   </Page>
 )

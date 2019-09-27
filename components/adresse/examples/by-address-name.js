@@ -98,7 +98,7 @@ const ByAddressName = ({title, id, icon}) => {
   }, [setType, type])
 
   return (
-    <Section background='white'>
+    <Section background='grey'>
       <div id={id}>
         <Tuto
           title={title}
