@@ -9,6 +9,7 @@ import Notification from '../../notification'
 import TryContainer from '../../try-container'
 import ContourMap from '../../mapbox/contour-map'
 
+import {useGeolocation} from '../../hooks/geolocation'
 import Commune from './commune'
 
 function contoursToGeoJson(communes) {
@@ -33,9 +34,16 @@ function communeContour(commune) {
   }
 }
 
-const TryGeo = ({coords, commune, loading, error, locateUser}) => {
+const TryGeo = ({commune, locateUser, fetchError}) => {
+  const [position, handleLocation, loading, locationError] = useGeolocation()
   const [bbox, setBbox] = useState(null)
   const [contour, setContour] = useState(null)
+
+  const error = fetchError || locationError
+
+  useEffect(() => {
+    locateUser(position)
+  }, [locateUser, position])
 
   useEffect(() => {
     if (commune) {
@@ -53,7 +61,7 @@ const TryGeo = ({coords, commune, loading, error, locateUser}) => {
               <ContourMap
                 {...mapboxProps}
                 contour={contour}
-                coords={coords}
+                coords={position ? position.coords : null}
               />
             )}
           </Mapbox>
@@ -65,7 +73,7 @@ const TryGeo = ({coords, commune, loading, error, locateUser}) => {
               <Notification message='Le temps de chargement n’est pas représentatif des performances de l’API ' type='info' />
               <Loader size='big' text='Chargement…' />
             </div> :
-            <Commune commune={commune} onClick={locateUser} />
+            <Commune commune={commune} onClick={handleLocation} />
           }
         </div>
 
@@ -79,14 +87,16 @@ const TryGeo = ({coords, commune, loading, error, locateUser}) => {
         }
 
         .try-container > div {
-          width: 50%;
         }
 
         .try-geo-map {
+          position: relative;
+          flex: 1;
           height: 400px;
         }
 
         .action {
+          flex: 1;
           padding: 1em 2em;
           text-align: center;
         }
@@ -112,21 +122,14 @@ const TryGeo = ({coords, commune, loading, error, locateUser}) => {
 }
 
 TryGeo.propTypes = {
-  coords: PropTypes.shape({
-    latitude: PropTypes.number.isRequired,
-    longitude: PropTypes.number.isRequired
-  }),
   commune: PropTypes.object,
-  loading: PropTypes.bool,
-  error: PropTypes.object,
+  fetchError: PropTypes.object,
   locateUser: PropTypes.func.isRequired
 }
 
 TryGeo.defaultProps = {
-  coords: null,
   commune: null,
-  error: null,
-  loading: false
+  fetchError: null
 }
 
 export default TryGeo

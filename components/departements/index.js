@@ -1,6 +1,8 @@
 import FaList from 'react-icons/lib/fa/list'
 import FaTag from 'react-icons/lib/fa/tag'
 
+import {getDepartements} from '../../lib/api/geo'
+
 import Section from '../section'
 
 import Summary from '../summary'
@@ -27,7 +29,7 @@ const Departements = () => (
       <ByName
         defaultInput='Yvelines'
         placeholder='Rechercher un département…'
-        renderQuery={({input}) => `departements?nom=${input}&limit=5`}
+        renderQuery={({input}) => getDepartements({params: {nom: input}, limit: 5})}
       />
     </Section>
     <DepartementsList />

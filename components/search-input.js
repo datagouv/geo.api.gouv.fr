@@ -9,7 +9,7 @@ import Loader from './loader'
 
 class SearchInput extends React.Component {
   static propTypes = {
-    results: PropTypes.array,
+    items: PropTypes.array,
     value: PropTypes.string,
     placeholder: PropTypes.string,
     loading: PropTypes.bool,
@@ -22,7 +22,7 @@ class SearchInput extends React.Component {
   }
 
   static defaultProps = {
-    results: [],
+    items: [],
     value: '',
     placeholder: '',
     loading: false,
@@ -97,7 +97,7 @@ class SearchInput extends React.Component {
         ) : items}
         <style jsx>{`
           .menu {
-            position: relative;
+            position: absolute;
             box-shadow: 0 1px 4px ${theme.boxShadow};
             z-index: 1;
             width: 100%;
@@ -133,7 +133,7 @@ class SearchInput extends React.Component {
   }
 
   render() {
-    const {value, results, renderItem, getItemValue, wrapperStyle} = this.props
+    const {value, items, renderItem, getItemValue, wrapperStyle} = this.props
 
     return (
       <div className='wrap'>
@@ -141,7 +141,7 @@ class SearchInput extends React.Component {
           inputProps={{onFocus: this.onFocus}}
           value={value}
           wrapperStyle={wrapperStyle}
-          items={results}
+          items={items}
           getItemValue={getItemValue}
           isItemSelectable={item => !item.header}
           onSelect={this.handleSelect}
@@ -151,6 +151,10 @@ class SearchInput extends React.Component {
           renderMenu={this.renderMenu} />
 
         <style jsx>{`
+          .wrap {
+            position: relative;
+          }
+
           @media (max-width: 550px) {
             .wrap {
               width: 100%;

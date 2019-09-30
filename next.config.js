@@ -1,7 +1,15 @@
 const {join} = require('path')
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
+const nextRuntimeDotenv = require('next-runtime-dotenv')
 
-module.exports = {
+const withConfig = nextRuntimeDotenv({
+  public: [
+    'API_GEO_URL',
+    'API_ADRESSE'
+  ]
+})
+
+module.exports = withConfig({
   webpack(config, {dev}) {
     if (!dev) {
       config.plugins.push(new BundleAnalyzerPlugin({
@@ -15,10 +23,10 @@ module.exports = {
     return config
   },
 
-  exportPathMap() {
-    return {
-      '/': {page: '/'},
-      '/cgu': {page: '/cgu'}
-    }
+  // Quick and dirty
+  // Ensure publicRuntimeConfig is defined
+  // More infos: https://github.com/zeit/next.js/issues/7713
+  publicRuntimeConfig: {
+    init: true
   }
-}
+})

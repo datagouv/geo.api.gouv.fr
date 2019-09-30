@@ -1,51 +1,37 @@
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import PropTypes from 'prop-types'
 
-import api from '../../../lib/api'
 import theme from '../../../styles/theme'
+
+import {getCommunes} from '../../../lib/api/geo'
+
+import {useFetch} from '../../hooks/fetch'
+import {useQuery} from '../../hooks/query'
 
 import Section from '../../section'
 import Tuto from '../../tuto'
 
 import TryGeo from '../demo/try-geo'
 
+function getInfos(position) {
+  if (position) {
+    const fields = ['code', 'nom', 'codesPostaux', 'surface', 'population', 'centre', 'contour']
+    const query = getCommunes({
+      fields,
+      params: {
+        lat: position.coords.latitude,
+        lon: position.coords.longitude
+      }
+    })
+
+    return query
+  }
+}
+
 const ByLatLon = ({title, id, icon}) => {
   const [position, setPosition] = useState(null)
-  const [results, setResults] = useState([])
-  const [query, setQuery] = useState('')
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
-
-  const handleLocation = () => {
-    setLoading(true)
-    navigator.geolocation.getCurrentPosition(setPosition, error => setError(error))
-  }
-
-  useEffect(() => {
-    if (position) {
-      const latLon = 'lat=' + position.coords.latitude + '&lon=' + position.coords.longitude
-      const fields = 'communes?fields=code,nom,codesPostaux,surface,population,centre,contour&'
-      setQuery(fields + latLon)
-    }
-  }, [position])
-
-  useEffect(() => {
-    const handleSearch = async () => {
-      try {
-        const response = await api(query)
-        setResults(response)
-      } catch (error) {
-        setResults([])
-        setError(error)
-      }
-
-      setLoading(false)
-    }
-
-    if (query) {
-      handleSearch()
-    }
-  }, [query])
+  const [url, options] = useQuery(position, getInfos)
+  const [response, loading, error] = useFetch(url, options, false)
 
   return (
     <Section>
@@ -54,8 +40,8 @@ const ByLatLon = ({title, id, icon}) => {
           title={title}
           description='Il est possible de faire une recherche géographique à l’aide de coordonnées.'
           icon={icon}
-          exemple={`https://geo.api.gouv.fr/${query}`}
-          results={results}
+          exemple={url}
+          results={response || []}
           loading={loading}
           side='left'
         >
@@ -65,11 +51,10 @@ const ByLatLon = ({title, id, icon}) => {
         </Tuto>
 
         <TryGeo
-          coords={position ? position.coords : null}
-          commune={results[0]}
-          locateUser={handleLocation}
-          error={error}
-          loading={loading} />
+          commune={response ? response[0] : null}
+          locateUser={setPosition}
+          fetchError={error}
+        />
       </div>
 
       <style jsx>{`

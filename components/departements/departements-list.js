@@ -1,24 +1,32 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import FaList from 'react-icons/lib/fa/list'
 
 import theme from '../../styles/theme'
+
+import {getRegionDepartements, getRegions} from '../../lib/api/geo'
+
+import {useFetch} from '../hooks/fetch'
+import {useQuery} from '../hooks/query'
 
 import Tuto from '../tuto'
 import TryList from '../demo/try-list'
 import Section from '../section'
 
-import {useSearch} from '../hooks/search'
-import {useQuery} from '../hooks/query'
-
 const DepartementsList = () => {
   const [code, setCode] = useState('28')
-  const [query] = useQuery(code, code => `regions/${code}/departements`)
-  const [response, loading, error] = useSearch(query, false)
+  const [regions, setRegions] = useState({url: '', option: null})
+  const [url, options] = useQuery(code, code => getRegionDepartements(code))
+  const [response, loading, error] = useFetch(url, options, false)
 
   const handleSelect = option => {
     const code = option.split(' ')[0]
     setCode(code)
   }
+
+  useEffect(() => {
+    const regions = getRegions()
+    setRegions(regions)
+  }, [])
 
   return (
     <Section background='white'>
@@ -27,7 +35,7 @@ const DepartementsList = () => {
           title='Liste de departements par région'
           description=''
           icon={<FaList />}
-          exemple={`https://geo.api.gouv.fr/${query}`}
+          exemple={url}
           results={response}
           side='left'
           loading={loading}
@@ -42,7 +50,7 @@ const DepartementsList = () => {
           items={response || []}
           description='départements dans cette région'
           label='Région'
-          query='regions?fieds=code'
+          query={regions}
           loading={loading}
           error={error}
           handleSelect={handleSelect} />

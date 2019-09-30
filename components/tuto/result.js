@@ -9,7 +9,7 @@ import Code from '../code'
 import Loader from '../loader'
 import InputExemple from './input-exemple'
 
-class Tuto extends React.Component {
+class Result extends React.Component {
   constructor(props) {
     super(props)
     this.copyToClipboard = this.copyToClipboard.bind(this)
@@ -66,15 +66,18 @@ class Tuto extends React.Component {
   }
 }
 
-Tuto.propTypes = {
+Result.propTypes = {
   exemple: PropTypes.string.isRequired,
-  results: PropTypes.array,
+  results: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object
+  ]),
   loading: PropTypes.bool
 }
 
-Tuto.defaultProps = {
+Result.defaultProps = {
   loading: true,
   results: null
 }
 
-export default Tuto
+export default Result

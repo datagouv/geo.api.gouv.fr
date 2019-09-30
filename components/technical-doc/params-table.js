@@ -4,8 +4,9 @@ import theme from '../../styles/theme'
 
 import Code from '../code'
 
-const ParamsTable = ({params}) => (
+const ParamsTable = ({label, params}) => (
   <div className='params-table-container'>
+    {label && <label>{label}</label>}
     <table>
       <tbody>
         <tr>
@@ -42,6 +43,14 @@ const ParamsTable = ({params}) => (
                 </table>
               </td>
             </tr>}
+
+          {param.subs && param.subs.map(sub => (
+            <tr key={`sub-${param.name}-${sub.name}`} className='sub'>
+              <td>{sub.name}</td>
+              <td>{sub.description}</td>
+              <td>{sub.type}</td>
+            </tr>
+          ))}
         </tbody>
       ))}
     </table>
@@ -67,6 +76,14 @@ const ParamsTable = ({params}) => (
         padding: 0.5em;
       }
 
+      tr.sub > td:nth-child(1) {
+        text-align: right;
+      }
+
+      tr.sub td {
+        background-color: whitesmoke !important;
+      }
+
       .data {
         background-color: ${theme.colors.lighterBlue} !important;
       }
@@ -82,7 +99,12 @@ const ParamsTable = ({params}) => (
   </div>
 )
 
+ParamsTable.defaultProps = {
+  label: null
+}
+
 ParamsTable.propTypes = {
+  label: PropTypes.string,
   params: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,

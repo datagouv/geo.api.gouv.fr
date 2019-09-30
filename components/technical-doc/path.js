@@ -6,12 +6,23 @@ import theme from '../../styles/theme'
 import ExpandableMenu from '../expandable-menu'
 import ParamsTable from './params-table'
 
+const getMethodColor = method => {
+  switch (method) {
+    case 'post':
+      return theme.colors.green
+    case 'put':
+      return theme.colors.orange
+    default:
+      return theme.primary
+  }
+}
+
 class Path extends React.Component {
   render() {
-    const {name, description, params} = this.props
+    const {name, description, params, method, body} = this.props
     const title = (
       <div className='get'>
-        <div className='method'>get</div>
+        <div className='method'>{method}</div>
         <div className='description'>
           <div><b>{name}</b></div>
           <div>{description}</div>
@@ -23,12 +34,14 @@ class Path extends React.Component {
           }
 
           .method {
-            background: ${theme.primary};
+            background-color: ${getMethodColor(method)};
             color: ${theme.colors.white};
             font-weight: 600;
             border-radius: 3px;
             padding: 0.3em 1em;
             margin-right: 1em;
+            width: 75px;
+            text-align: center;
             text-transform: uppercase;
           }
 
@@ -46,15 +59,23 @@ class Path extends React.Component {
     return (
       <ExpandableMenu title={title}>
         <ParamsTable params={params} />
+        {body && <ParamsTable label='body' params={[body]} />}
       </ExpandableMenu>
     )
   }
 }
 
+Path.defaultProps = {
+  method: 'get',
+  body: null
+}
+
 Path.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  params: PropTypes.array.isRequired
+  params: PropTypes.array.isRequired,
+  method: PropTypes.oneOf(['get', 'post', 'put']),
+  body: PropTypes.object
 }
 
 export default Path

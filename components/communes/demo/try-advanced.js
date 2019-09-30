@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import theme from '../../../styles/theme'
-
 import TryContainer from '../../try-container'
 
 const codeFields = [
@@ -92,16 +90,6 @@ class TryAdvanced extends React.Component {
           .field {
             display: flex;
             margin: 0 1em;
-          }
-
-          .default > input:checked {
-            background-color: ${theme.colors.lightGrey}
-            border-color: ${theme.colors.grey}
-          }
-
-          .selected {
-            background: ${theme.primary}
-            color: ${theme.colors.white}
           }
           `}</style>
       </TryContainer>

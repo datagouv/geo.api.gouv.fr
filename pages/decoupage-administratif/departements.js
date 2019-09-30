@@ -3,16 +3,16 @@ import FaMapSigns from 'react-icons/lib/fa/map-signs'
 import Head from '../../components/head'
 import Page from '../../layouts/main'
 
-import Regions from '../../components/regions'
+import Departements from '../../components/departements'
 
-const title = 'Régions'
-const description = 'Interrogez les référentiels géographiques plus facilement.'
+const title = 'API Découpage administratif > Départements'
+const description = 'Tous les départements de France.'
 
 export default () => (
   <Page title={title} description={description}>
     <Head title={title} icon={<FaMapSigns />}>
-      Découvrez comment récupérer facilement les informations dont vous avez besoin au niveau régional.
+      {description}
     </Head>
-    <Regions />
+    <Departements />
   </Page>
 )

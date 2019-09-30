@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import FaList from 'react-icons/lib/fa/list'
 
 import theme from '../../../styles/theme'
@@ -7,18 +7,25 @@ import Tuto from '../../tuto'
 import Section from '../../section'
 import TryList from '../../demo/try-list'
 
-import {useSearch} from '../../hooks/search'
+import {useFetch} from '../../hooks/fetch'
 import {useQuery} from '../../hooks/query'
+import {getDepartements, getDepartementCommunes} from '../../../lib/api/geo'
 
 const CommunesList = () => {
   const [code, setCode] = useState('01')
-  const [query] = useQuery(code, code => `departements/${code}/communes`)
-  const [response, loading, error] = useSearch(query, true)
+  const [departements, setDepartements] = useState({url: '', option: null})
+  const [url, options] = useQuery(code, code => getDepartementCommunes(code))
+  const [response, loading, error] = useFetch(url, options, false)
 
   const handleSelect = option => {
     const code = option.split(' ')[0]
     setCode(code)
   }
+
+  useEffect(() => {
+    const departements = getDepartements()
+    setDepartements(departements)
+  }, [])
 
   return (
     <Section background='grey'>
@@ -27,8 +34,8 @@ const CommunesList = () => {
           title='Liste de communes par départements'
           description=''
           icon={<FaList />}
-          exemple={`https://geo.api.gouv.fr/${query}`}
-          results={response}
+          exemple={url}
+          results={response || []}
           side='left'
           loading={loading}
         >
@@ -42,7 +49,7 @@ const CommunesList = () => {
           items={response || []}
           description='communes dans ce département'
           label='Départements'
-          query='departements?fieds=code'
+          query={departements}
           loading={loading}
           error={error}
           handleSelect={handleSelect} />

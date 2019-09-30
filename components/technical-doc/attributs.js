@@ -8,8 +8,10 @@ import ParamsTable from './params-table'
 const Attributs = ({model, defaults, optionals}) => (
   <ExpandableMenu title='Attributs'>
     <div>
-      <ParamsTable params={defaults} />
-      {optionals && <ParamsTable params={optionals} />}
+      <ParamsTable label='Par défaut' params={defaults} />
+      {optionals && (
+        <ParamsTable label='Optionnels' params={optionals} />
+      )}
     </div>
 
     <b>Modèle de réponse (par défaut)</b>
@@ -18,7 +20,10 @@ const Attributs = ({model, defaults, optionals}) => (
 )
 
 Attributs.propTypes = {
-  model: PropTypes.array.isRequired,
+  model: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object
+  ]).isRequired,
   defaults: PropTypes.array.isRequired,
   optionals: PropTypes.array
 }

@@ -1,12 +1,14 @@
-import {useState, useCallback, useEffect} from 'react'
+import {useState, useCallback} from 'react'
 import PropTypes from 'prop-types'
 import FaTag from 'react-icons/lib/fa/tag'
 
 import theme from '../../styles/theme'
 
-import Tuto from '../tuto'
-import {useSearch} from '../hooks/search'
+import {useFetch} from '../hooks/fetch'
 import {useInput} from '../hooks/input'
+import {useListItem} from '../hooks/list-items'
+
+import Tuto from '../tuto'
 
 import {useQuery} from '../hooks/query'
 import TryName from './try-name'
@@ -39,12 +41,12 @@ function renderDefaultItem(item, isHighlighted) {
   )
 }
 
-const ByName = ({defaultInput, placeholder, disabledBoost, renderQuery, renderItem, children}) => {
+const ByName = ({defaultInput, placeholder, disabledBoost, renderQuery, renderList, renderItem, children}) => {
   const [input, setInput] = useInput(defaultInput || '')
-  const [results, setResults] = useState([])
   const [boost, setBoost] = useState(true)
-  const [query] = useQuery({input, boost}, renderQuery)
-  const [response, loading, error] = useSearch(query, true)
+  const [url, options] = useQuery({input, boost}, renderQuery)
+  const [response, loading, error] = useFetch(url, options, true)
+  const list = useListItem(response, renderList)
 
   const handleSelect = useCallback(item => {
     setInput(item.nom)
@@ -54,20 +56,14 @@ const ByName = ({defaultInput, placeholder, disabledBoost, renderQuery, renderIt
     setBoost(!boost)
   }, [boost, setBoost])
 
-  useEffect(() => {
-    if (response) {
-      setResults(response)
-    }
-  }, [response, setResults])
-
   return (
     <div id='name'>
       <Tuto
         title='Recherche par nom'
         description='La variable nom vous permet d’effectuer une recherche par nom.'
         icon={<FaTag />}
-        exemple={`https://geo.api.gouv.fr/${query}`}
-        results={results}
+        exemple={url}
+        results={response || []}
         tips='Il est possible d’utiliser la recherche par nom pour faire de l’autocomplétion.'
         side='right'
         loading={loading}
@@ -78,7 +74,7 @@ const ByName = ({defaultInput, placeholder, disabledBoost, renderQuery, renderIt
       <TryName
         value={input}
         placeholder={placeholder}
-        results={results}
+        results={list}
         boost={boost}
         loading={loading}
         error={error}
@@ -105,6 +101,7 @@ ByName.defaultProps = {
   defaultInput: '',
   placeholder: null,
   disabledBoost: true,
+  renderList: null,
   renderItem: null,
   children: null
 }
@@ -114,6 +111,7 @@ ByName.propTypes = {
   placeholder: PropTypes.string,
   disabledBoost: PropTypes.bool,
   renderQuery: PropTypes.func.isRequired,
+  renderList: PropTypes.func,
   renderItem: PropTypes.func,
   children: PropTypes.node
 }

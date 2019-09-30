@@ -1,11 +1,11 @@
 import {useState, useCallback, useEffect} from 'react'
 import {useDebouncedCallback} from 'use-debounce'
 
-import api from '../../lib/api'
+import _fetch from '../../lib/fetch'
 
-export function useSearch(query, debounced) {
+export function useFetch(url, options, debounced) {
   const [response, setResponse] = useState(null)
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(Boolean(url))
   const [error, setError] = useState(null)
 
   const _search = useCallback(async () => {
@@ -13,26 +13,30 @@ export function useSearch(query, debounced) {
     setError(null)
 
     try {
-      const response = await api(query)
+      const response = await _fetch(url, options)
       setResponse(response)
     } catch (error) {
       setError(error)
     }
-
-    setLoading(false)
-  }, [query, setResponse, setError, setLoading])
+  }, [options, url])
 
   const [debouncedFunction] = useDebouncedCallback(_search, 200)
 
   useEffect(() => {
-    if (query) {
+    if (response || error) {
+      setLoading(false)
+    }
+  }, [response, error])
+
+  useEffect(() => {
+    if (url) {
       if (debounced) {
         debouncedFunction()
       } else {
         _search()
       }
     }
-  }, [_search, debounced, debouncedFunction, query])
+  }, [url, options, _search, debounced, debouncedFunction])
 
   return [response, loading, error]
 }

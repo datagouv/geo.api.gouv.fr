@@ -70,7 +70,10 @@ Tuto.propTypes = {
   side: PropTypes.PropTypes.oneOf([
     'right', 'left'
   ]).isRequired,
-  results: PropTypes.array,
+  results: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object
+  ]),
   tips: PropTypes.string,
   warning: PropTypes.string,
   loading: PropTypes.bool,
