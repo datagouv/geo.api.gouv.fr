@@ -3,7 +3,7 @@ import Link from 'next/link'
 import HamburgerMenu from './hamburger-menu'
 
 const links = [
-  { text: 'Adresse', href: '/adresse' },
+  {text: 'Adresse', href: '/adresse'},
   {text: 'FAQ', href: '/faq'}
 ]
 

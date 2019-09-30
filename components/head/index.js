@@ -1,4 +1,3 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 
 import theme from '../../styles/theme'
@@ -7,7 +6,7 @@ import Container from '../container'
 
 import BetaRibbon from './beta-ribbon'
 
-const Head = ({ title, icon, beta }) => (
+const Head = ({title, icon, beta}) => (
   <div>
     <div className='head'>
       <Container>
