@@ -4,8 +4,8 @@ import Page from '../layouts/main'
 import Section from '../components/section'
 import ButtonLink from '../components/button-link'
 
-const title = 'Découpage administratif'
-const description = 'Découvrez comment récupérer facilement les informations dont vous avez besoin pour chaque découpage administratif.'
+const title = 'API Découpage administratif'
+const description = 'Rechercher et localiser les communes, départements et régions, et obtenez des informations les concernant'
 
 export default () => (
   <Page title={title} description={description}>
@@ -13,18 +13,18 @@ export default () => (
     <Section>
       <div className='grid'>
         <div className='col'>
-          <h3>Communale</h3>
-          <p>Découvrez comment récupérer facilement les informations dont vous avez besoin au niveau communal.</p>
+          <h3>Communes</h3>
+          <p>Toutes les communes de France, mais aussi les communes anciennes et les arrondissements.</p>
           <ButtonLink href='/decoupage-administratif/communes' size='large'>Voir la documentation <FaBook /></ButtonLink>
         </div>
         <div className='col'>
-          <h3>Départemental</h3>
-          <p>Découvrez comment récupérer facilement les informations dont vous avez besoin au niveau départemental.</p>
+          <h3>Départements</h3>
+          <p>Tous les départements de France.</p>
           <ButtonLink href='/decoupage-administratif/departements' size='large'>Voir la documentation <FaBook /></ButtonLink>
         </div>
         <div className='col'>
-          <h3>Régionnal</h3>
-          <p>Découvrez comment récupérer facilement les informations dont vous avez besoin au niveau régionnal.</p>
+          <h3>Régions</h3>
+          <p>Toutes les régions de France.</p>
           <ButtonLink href='/decoupage-administratif/regions' size='large'>Voir la documentation <FaBook /></ButtonLink>
         </div>
       </div>
