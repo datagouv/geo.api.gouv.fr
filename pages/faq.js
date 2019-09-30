@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import FaQuestion from 'react-icons/lib/fa/question'
 
 import Page from '../layouts/main'
