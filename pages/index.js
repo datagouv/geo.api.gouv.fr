@@ -18,13 +18,13 @@ const tagline = 'Interrogez les référentiels géographiques plus facilement.'
 
 const apis = [
   {
-    title: 'Découpage administratif',
+    title: 'API Découpage administratif',
     href: '/decoupage-administratif',
     description: <span>Rechercher et localiser les communes, départements et régions.</span>,
     icon: <FaMapSigns />
   },
   {
-    title: 'Adresses',
+    title: 'API Adresse',
     href: '/adresse',
     description: <span>Rechercher et localiser des adresses et lieux-dits.</span>,
     icon: <FaCompass />
