@@ -5,13 +5,13 @@ import Page from '../../layouts/main'
 
 import Regions from '../../components/regions'
 
-const title = 'Régions'
-const description = 'Interrogez les référentiels géographiques plus facilement.'
+const title = 'API Découpage administratif > Régions'
+const description = 'Toutes les régions de France.'
 
 export default () => (
   <Page title={title} description={description}>
     <Head title={title} icon={<FaMapSigns />}>
-      Découvrez comment récupérer facilement les informations dont vous avez besoin au niveau régional.
+      {description}
     </Head>
     <Regions />
   </Page>

@@ -5,13 +5,13 @@ import Page from '../../layouts/main'
 
 import Departements from '../../components/departements'
 
-const title = 'Départements'
-const description = 'Interrogez les référentiels géographiques plus facilement.'
+const title = 'API Découpage administratif > Départements'
+const description = 'Tous les départements de France.'
 
 export default () => (
   <Page title={title} description={description}>
     <Head title={title} icon={<FaMapSigns />}>
-      Découvrez comment récupérer facilement les informations dont vous avez besoin au niveau départemental.
+      {description}
     </Head>
     <Departements />
   </Page>
