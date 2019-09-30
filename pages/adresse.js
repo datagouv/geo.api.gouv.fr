@@ -25,11 +25,9 @@ export default () => (
       {description}
     </Head>
 
-    <Summary examples={examples} />
+    <CurlDoc />
 
     <TechnicalDoc {...doc} />
-
-    <CurlDoc />
 
     <ByAddressName {...examples[0]} />
 
