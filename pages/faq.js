@@ -36,7 +36,7 @@ export default () => (
           <h3>API Adresse</h3>
 
           <Question question='Quelle est la licence des données proposées par l’API Adresse ?'>
-            <p>Les données utilisées sont les données <strong>Adresses ODbL</strong> disponibles <a href='https://adresse.data.gouv.fr/donnees-nationales'>sur cette page</a>. Ces données sont sous licence <strong>ODbL 1.0</strong>.</p>
+            <p>Les données utilisées sont les données <strong>Adresses</strong> disponibles <a href='https://adresse.data.gouv.fr/donnees-nationales'>sur cette page</a>. Ces données sont sous <a href='https://www.etalab.gouv.fr/licence-ouverte-open-licence'>Licence Ouverte</a>.</p>
           </Question>
         </div>
 
