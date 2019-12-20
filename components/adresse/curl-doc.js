@@ -113,7 +113,7 @@ const CurlDoc = () => (
           <p>Point d’entrée pour le géocodage de masse à partir d’un fichier CSV.</p>
         </div>
         <div className='details'>
-          <p>Le fichier csv, encodé en UTF-8 et limité actuellement à 8Mo, doit être passé via le paramètre <b>data</b>. Veuillez noter l’arobase après <b>data=</b>.</p>
+          <p>Le fichier CSV, dont la taille ne doit pas excéder 50 Mo, doit être passé via le paramètre <b>data</b>. Veuillez noter l’arobase après <b>data=</b>.</p>
           <pre><code>curl -X POST -F data=@path/to/file.csv https://api-adresse.data.gouv.fr/search/csv/</code></pre>
           <p>Par défaut, toutes les colonnes sont concaténées pour constituer l’adresse qui sera géocodée. On peut définir les colonnes à utiliser via de multiples paramètres <b>columns</b>:</p>
           <pre><code>curl -X POST -F data=@path/to/file.csv -F columns=voie -F columns=ville https://api-adresse.data.gouv.fr/search/csv/</code></pre>
@@ -132,7 +132,7 @@ const CurlDoc = () => (
           <p>Point d’entrée pour le géocodage inverse de masse à partir d’un fichier CSV.</p>
         </div>
         <div className='details'>
-          <p>Le fichier csv, encodé en UTF-8 et limité actuellement à 8Mo, doit être passé via le paramètre <b>data</b>. Il doit contenir les colonnes <b>latitude</b> (ou <em>lat</em>) et <b>longitude</b> (ou <em>lon</em> ou <em>lng</em>).</p>
+          <p>Le fichier CSV, encodé en UTF-8 et limité actuellement à 6 Mo, doit être passé via le paramètre <b>data</b>. Il doit contenir les colonnes <b>latitude</b> (ou <em>lat</em>) et <b>longitude</b> (ou <em>lon</em> ou <em>lng</em>).</p>
           <pre><code>curl -X POST -F data=@path/to/file.csv https://api-adresse.data.gouv.fr/reverse/csv/</code></pre>
           <p>On peut utiliser le fichier <a href='https://adresse.data.gouv.fr/static/exemples/reverse.csv'>https://adresse.data.gouv.fr/static/exemples/reverse.csv</a> comme exemple.</p>
         </div>
