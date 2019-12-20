@@ -57,7 +57,7 @@ const paths = [
     method: 'post',
     body: {
       name: 'data',
-      description: 'Fichier csv, encodé en UTF-8 et limité actuellement à 8Mo',
+      description: 'Fichier CSV de moins de 50 Mo',
       type: 'file'
     }
   },
@@ -76,7 +76,7 @@ const paths = [
     method: 'post',
     body: {
       name: 'data',
-      description: 'Fichier csv, encodé en UTF-8 et limité actuellement à 8Mo devant contenir les colonnes latitude (ou lat) et longitude (ou lon ou lng)',
+      description: 'Fichier CSV, encodé en UTF-8 et limité actuellement à 6 Mo devant contenir les colonnes latitude (ou lat) et longitude (ou lon ou lng)',
       type: 'file'
     }
   }

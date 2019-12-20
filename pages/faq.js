@@ -21,7 +21,7 @@ export default () => (
               <ul>
                 <li>10 requêtes par seconde et par IP pour l’API Découpage administratif ;</li>
                 <li>50 requêtes par seconde et par IP pour le géocodage simple via l’API Adresse ;</li>
-                <li>2 requêtes simultanées par IP pour le géocodage de masse (maximum 6 Mo par envoi de fichier).</li>
+                <li>2 requêtes simultanées par IP pour le géocodage de masse (maximum 50 Mo par envoi de fichier pour le géocodage direct, 6 Mo pour le géocodage inversé).</li>
               </ul>
             </>
           </Question>
