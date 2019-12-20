@@ -51,6 +51,7 @@ const paths = [
     description: 'Point d’entrée pour le géocodage de masse à partir d’un fichier CSV',
     params: [
       {name: 'columns', description: 'Paramètre multiple définissant les colonnes à utiliser ', type: 'string'},
+      {name: 'result_columns', description: 'Paramètre multiple permettant de filtrer les colonnes que doit retourner l’API. Cela permet d’alléger la réponse dans le cadre d’un processus industrialisé.'},
       {name: 'citycode', description: 'Précise le nom d’une colonne contenant le code INSEE', type: 'string'},
       {name: 'postcode', description: 'Précise le nom d’une colonne contenant le code Postal', type: 'string'}
     ],
