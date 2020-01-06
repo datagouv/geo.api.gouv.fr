@@ -17,14 +17,14 @@
     "copy-to-clipboard": "^3.2.0",
     "express": "^4.17.1",
     "isomorphic-unfetch": "^3.0.0",
-    "mapbox-gl": "^1.4.0",
-    "next": "^9.0.7",
+    "mapbox-gl": "^1.6.1",
+    "next": "^9.1.7",
     "next-runtime-dotenv": "^1.2.0",
     "piwik-react-router": "^0.12.1",
     "prop-types": "^15.7.2",
-    "react": "^16.10.1",
+    "react": "^16.12.0",
     "react-autocomplete": "^1.8.1",
-    "react-dom": "^16.10.1",
+    "react-dom": "^16.12.0",
     "react-icons": "^2.2.7",
     "underscore.string": "^3.3.5",
     "use-debounce": "^2.2.0"
@@ -35,7 +35,7 @@
     "eslint-config-xo-nextjs": "^1.4.0",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^2.1.1",
-    "webpack-bundle-analyzer": "^3.5.2",
+    "webpack-bundle-analyzer": "^3.6.0",
     "xo": "^0.24.0"
   },
   "xo": {
