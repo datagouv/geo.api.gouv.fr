@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import FaList from 'react-icons/lib/fa/list'
+import {List} from 'react-feather'
 
 import theme from '../../../styles/theme'
 
@@ -33,7 +33,7 @@ const CommunesList = () => {
         <Tuto
           title='Liste de communes par départements'
           description=''
-          icon={<FaList />}
+          icon={<List style={{verticalAlign: 'sub', marginRight: '3px'}} />}
           exemple={url}
           results={response || []}
           side='left'

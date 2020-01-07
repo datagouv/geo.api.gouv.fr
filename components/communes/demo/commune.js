@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import FaLocationArrow from 'react-icons/lib/fa/location-arrow'
+import {Navigation} from 'react-feather'
 
 import theme from '../../../styles/theme'
 
@@ -29,7 +29,7 @@ class Commune extends React.Component {
           </div>
         ) : (
           <Button size='large' onClick={onClick}>
-            <FaLocationArrow /> <span>Trouver ma commune</span>
+            <Navigation style={{verticalAlign: 'middle', marginRight: '3px'}} /> <span>Trouver ma commune</span>
           </Button>
         )}
 
