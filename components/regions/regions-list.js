@@ -1,4 +1,4 @@
-import FaList from 'react-icons/lib/fa/list'
+import {List} from 'react-feather'
 
 import theme from '../../styles/theme'
 
@@ -20,7 +20,7 @@ const RegionsList = () => {
         <Tuto
           title='Liste des régions'
           description=''
-          icon={<FaList />}
+          icon={<List />}
           exemple={url}
           results={response}
           side='left'
@@ -43,6 +43,10 @@ const RegionsList = () => {
             color: ${theme.colors.white};
             border-radius: 2px;
             padding: 0.1em 0.3em;
+          }
+
+          .feather-icon {
+            vertical-align: middle;
           }
       `}</style>
     </Section>

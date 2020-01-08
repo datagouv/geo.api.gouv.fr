@@ -11,7 +11,7 @@ const Summary = ({examples}) => (
       {examples.map(feature => (
         <Link key={feature.title} href={`#${feature.id}`}>
           <a>
-            <div className='icon'>{feature.icon}</div>
+            <div className='icon'><div className='feather-icon'>{feature.icon}</div></div>
             <p>{feature.title}</p>
           </a>
         </Link>
@@ -45,6 +45,7 @@ const Summary = ({examples}) => (
 
       .icon {
         font-size: 72px;
+        vertical-align: middle;
       }
     `}</style>
   </Section>

@@ -42,6 +42,7 @@ class Tuto extends React.Component {
           .result {
             width: 50%;
           }
+
           .presentation {
             width: 40%;
             margin-right: 1em;

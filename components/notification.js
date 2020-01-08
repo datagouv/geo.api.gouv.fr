@@ -1,22 +1,19 @@
 import PropTypes from 'prop-types'
 
-import FaLightbulbO from 'react-icons/lib/fa/lightbulb-o'
-import FaExclamationTriangle from 'react-icons/lib/fa/exclamation-triangle'
-import FaCheck from 'react-icons/lib/fa/check'
-import FaClose from 'react-icons/lib/fa/close'
+import {HelpCircle, AlertTriangle, Check, X} from 'react-feather'
 
 import theme from '../styles/theme'
 
 const types = {
-  info: {icon: <FaLightbulbO />, title: 'Bon à savoir'},
-  success: {icon: <FaCheck />, title: 'Réussi'},
-  warning: {icon: <FaExclamationTriangle />, title: 'Attention'},
-  error: {icon: <FaClose />, title: 'Erreur'}
+  info: {icon: <HelpCircle />, title: 'Bon à savoir'},
+  success: {icon: <Check />, title: 'Réussi'},
+  warning: {icon: <AlertTriangle />, title: 'Attention'},
+  error: {icon: <X />, title: 'Erreur'}
 }
 
 const Notification = ({message, type}) => (
   <div className={`notification ${type}`}>
-    <h4><div className='icon'>{types[type].icon}</div> {types[type].title}</h4>
+    <h4><div className='icon'><div className='feather-icon'>{types[type].icon}</div></div> {types[type].title}</h4>
     {message}
     <style jsx>{`
       h4 {
@@ -54,8 +51,9 @@ const Notification = ({message, type}) => (
       }
 
       .icon {
-        margin: 0 10px 3px 0;
+        margin-right: 3px;
       }
+
       `}</style>
   </div>
 )

@@ -12,7 +12,9 @@ const Head = ({title, icon, beta}) => (
       <Container>
         <div className='flex'>
           <div className='title'>
-            <div className='icon'>{icon}</div>
+            <div className='icon'>
+              <div className='feather-icon'>{icon}</div>
+            </div>
             <h1>{title}</h1>
           </div>
 

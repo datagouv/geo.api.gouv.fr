@@ -33,7 +33,7 @@ const CommunesList = () => {
         <Tuto
           title='Liste de communes par départements'
           description=''
-          icon={<List style={{verticalAlign: 'sub', marginRight: '3px'}} />}
+          icon={<List />}
           exemple={url}
           results={response || []}
           side='left'

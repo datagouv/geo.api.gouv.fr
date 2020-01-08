@@ -1,8 +1,4 @@
-import FaEnvelope from 'react-icons/lib/fa/envelope'
-import FaTag from 'react-icons/lib/fa/tag'
-import FaCompass from 'react-icons/lib/fa/compass'
-import FaSlider from 'react-icons/lib/fa/sliders'
-import FaList from 'react-icons/lib/fa/list'
+import {Mail, Tag, List, Compass, Sliders} from 'react-feather'
 
 import Summary from '../summary'
 import TechnicalDoc from '../technical-doc'
@@ -16,11 +12,11 @@ import AdvancedSearch from './examples/advanced-search'
 import doc from './doc'
 
 const examples = [
-  {title: 'Recherche par code postal', id: 'postal-code', icon: <FaEnvelope />},
-  {title: 'Recherche par nom', id: 'name', icon: <FaTag />},
-  {title: 'Liste de communes', id: 'communes-list', icon: <FaList />},
-  {title: 'Recherche géographique', id: 'geo', icon: <FaCompass />},
-  {title: 'Recherche avancée', id: 'advanced', icon: <FaSlider />}
+  {title: 'Recherche par code postal', id: 'postal-code', icon: <Mail />},
+  {title: 'Recherche par nom', id: 'name', icon: <Tag />},
+  {title: 'Liste de communes', id: 'communes-list', icon: <List />},
+  {title: 'Recherche géographique', id: 'geo', icon: <Compass />},
+  {title: 'Recherche avancée', id: 'advanced', icon: <Sliders />}
 ]
 
 const Communes = () => (
@@ -34,7 +30,6 @@ const Communes = () => (
     <CommunesList {...examples[2]} />
     <ByLatLon {...examples[3]} />
     <AdvancedSearch {...examples[4]} />
-
   </div>
 )
 

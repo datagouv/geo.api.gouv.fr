@@ -1,7 +1,7 @@
 import React from 'react'
 import Autocomplete from 'react-autocomplete'
 import PropTypes from 'prop-types'
-import FaSearch from 'react-icons/lib/fa/search'
+import {Search} from 'react-feather'
 
 import theme from '../styles/theme'
 
@@ -49,7 +49,7 @@ class SearchInput extends React.Component {
       <div className='search-input-container'>
         {/* disable safari zoom in on focus with font-size at 16px */}
         <input style={{fontSize: '16px'}} className='search' {...props} placeholder={placeholder} />
-        <span><FaSearch /></span>
+        <span className='feather-icon'><Search /></span>
         <style jsx>{`
           .search-input-container {
             position: relative;

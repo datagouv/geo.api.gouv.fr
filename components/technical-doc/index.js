@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import FaBook from 'react-icons/lib/fa/book'
+import {Book} from 'react-feather'
 
 import Section from '../section'
 
@@ -10,7 +10,7 @@ const TechnicalDoc = ({paths, defaultModel, defaultAttributs, optionAttributs}) 
   <Section background='color'>
 
     <div className='title'>
-      <FaBook size={24} />
+      <div className='feather-icon'><Book /></div>
       <h2>Documentation technique</h2>
     </div>
 
@@ -33,6 +33,11 @@ const TechnicalDoc = ({paths, defaultModel, defaultAttributs, optionAttributs}) 
 
       .title > svg {
         margin-right: 1em;
+      }
+
+      .feather-icon {
+        font-size: 25px;
+        margin-right: 5px;
       }
       `}</style>
   </Section>

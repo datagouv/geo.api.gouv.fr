@@ -1,6 +1,6 @@
 import {useState, useCallback} from 'react'
 import PropTypes from 'prop-types'
-import FaTag from 'react-icons/lib/fa/tag'
+import {Tag} from 'react-feather'
 
 import theme from '../../styles/theme'
 
@@ -61,7 +61,7 @@ const ByName = ({defaultInput, placeholder, disabledBoost, renderQuery, renderLi
       <Tuto
         title='Recherche par nom'
         description='La variable nom vous permet d’effectuer une recherche par nom.'
-        icon={<FaTag />}
+        icon={<Tag />}
         exemple={url}
         results={response || []}
         tips='Il est possible d’utiliser la recherche par nom pour faire de l’autocomplétion.'

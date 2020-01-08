@@ -1,5 +1,4 @@
-import FaICursor from 'react-icons/lib/fa/i-cursor'
-import FaCompass from 'react-icons/lib/fa/compass'
+import {Compass, Search} from 'react-feather'
 
 import Page from '../layouts/main'
 
@@ -15,12 +14,12 @@ const title = 'API Adresse'
 const description = 'Cherchez des adresses et lieux-dits.'
 
 const examples = [
-  {title: 'Recherche par texte', id: 'text', icon: <FaICursor />}
+  {title: 'Recherche par texte', id: 'text', icon: <Search />}
 ]
 
 export default () => (
   <Page title={title} description={description}>
-    <Head title={title} icon={<FaCompass />}>
+    <Head title={title} icon={<Compass />}>
       {description}
     </Head>
 
