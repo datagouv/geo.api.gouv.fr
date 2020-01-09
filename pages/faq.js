@@ -1,4 +1,4 @@
-import FaQuestion from 'react-icons/lib/fa/question'
+import {HelpCircle} from 'react-feather'
 
 import Page from '../layouts/main'
 
@@ -8,7 +8,7 @@ import Head from '../components/head'
 
 export default () => (
   <Page title='Foire aux questions'>
-    <Head title='Foire aux questions' icon={<FaQuestion />} />
+    <Head title='Foire aux questions' icon={<HelpCircle />} />
 
     <Section>
       <div className='faq-row'>

@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 
-import FaCompass from 'react-icons/lib/fa/compass'
-import FaMapSigns from 'react-icons/lib/fa/map-signs'
+import {MapPin, Compass} from 'react-feather'
 
 import Page from '../layouts/main'
 
@@ -21,13 +20,13 @@ const apis = [
     title: 'API Découpage administratif',
     href: '/decoupage-administratif',
     description: <span>Rechercher et localiser les communes, départements et régions.</span>,
-    icon: <FaMapSigns />
+    icon: <MapPin />
   },
   {
     title: 'API Adresse',
     href: '/adresse',
     description: <span>Rechercher et localiser des adresses et lieux-dits.</span>,
-    icon: <FaCompass />
+    icon: <Compass />
   }
 ]
 
@@ -39,7 +38,7 @@ const Api = ({title, icon, description, href}) => {
           <div className='article__author-name'>{title}</div>
           <div className='article__author-role'>Etalab</div>
         </div>
-        <div className='article__author-img'>{icon}</div>
+        <div className='article__author-img'><span className='feather-icon'>{icon}</span></div>
         <p className='article__author-description'>{description}</p>
         <style jsx>{`
           .article__author:hover {

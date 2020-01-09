@@ -1,4 +1,4 @@
-import FaMapSigns from 'react-icons/lib/fa/map-signs'
+import {MapPin} from 'react-feather'
 
 import Head from '../../components/head'
 import Page from '../../layouts/main'
@@ -10,7 +10,7 @@ const description = 'Tous les départements de France.'
 
 export default () => (
   <Page title={title} description={description}>
-    <Head title={title} icon={<FaMapSigns />}>
+    <Head title={title} icon={<MapPin />}>
       {description}
     </Head>
     <Departements />

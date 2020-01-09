@@ -1,4 +1,4 @@
-import FaMapSigns from 'react-icons/lib/fa/map-signs'
+import {MapPin} from 'react-feather'
 
 import Head from '../../components/head'
 import Page from '../../layouts/main'
@@ -10,7 +10,7 @@ const description = 'Toutes les communes de France, mais aussi les communes anci
 
 export default () => (
   <Page title={title} description={description}>
-    <Head title={title} icon={<FaMapSigns />}>
+    <Head title={title} icon={<MapPin />}>
     Toutes les communes de France, mais aussi les communes anciennes et les arrondissements.
     </Head>
     <Communes />

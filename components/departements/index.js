@@ -1,5 +1,4 @@
-import FaList from 'react-icons/lib/fa/list'
-import FaTag from 'react-icons/lib/fa/tag'
+import {Tag, List} from 'react-feather'
 
 import {getDepartements} from '../../lib/api/geo'
 
@@ -15,8 +14,8 @@ import DepartementsList from './departements-list'
 import doc from './doc'
 
 const examples = [
-  {title: 'Recherche par nom', id: 'name', icon: <FaTag />},
-  {title: 'Liste de départements', id: 'departements-list', icon: <FaList />}
+  {title: 'Recherche par nom', id: 'name', icon: <Tag />},
+  {title: 'Liste de départements', id: 'departements-list', icon: <List />}
 ]
 
 const Departements = () => (

@@ -25,7 +25,7 @@
     "react": "^16.12.0",
     "react-autocomplete": "^1.8.1",
     "react-dom": "^16.12.0",
-    "react-icons": "^2.2.7",
+    "react-feather": "^2.0.3",
     "underscore.string": "^3.3.5",
     "use-debounce": "^2.2.0"
   },

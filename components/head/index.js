@@ -12,7 +12,7 @@ const Head = ({title, icon, beta}) => (
       <Container>
         <div className='flex'>
           <div className='title'>
-            <div className='icon'>{icon}</div>
+            <div className='feather-icon'>{icon}</div>
             <h1>{title}</h1>
           </div>
 
@@ -43,7 +43,7 @@ const Head = ({title, icon, beta}) => (
         padding-bottom: 0.5em;
       }
 
-      .icon {
+      .feather-icon {
         font-size: 56px;
       }
 
