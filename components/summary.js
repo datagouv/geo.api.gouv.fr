@@ -11,7 +11,7 @@ const Summary = ({examples}) => (
       {examples.map(feature => (
         <Link key={feature.title} href={`#${feature.id}`}>
           <a>
-            <div className='icon'><div className='feather-icon'>{feature.icon}</div></div>
+            <div className='feather-icon'>{feature.icon}</div>
             <p>{feature.title}</p>
           </a>
         </Link>
@@ -43,8 +43,8 @@ const Summary = ({examples}) => (
         font-weight: 700;
       }
 
-      .icon {
-        font-size: 72px;
+      .feather-icon {
+        font-size: 4.5em;
         vertical-align: middle;
       }
     `}</style>

@@ -44,10 +44,6 @@ const RegionsList = () => {
             border-radius: 2px;
             padding: 0.1em 0.3em;
           }
-
-          .feather-icon {
-            vertical-align: middle;
-          }
       `}</style>
     </Section>
   )

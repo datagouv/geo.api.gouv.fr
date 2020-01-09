@@ -13,7 +13,7 @@ const types = {
 
 const Notification = ({message, type}) => (
   <div className={`notification ${type}`}>
-    <h4><div className='icon'><div className='feather-icon'>{types[type].icon}</div></div> {types[type].title}</h4>
+    <h4><div className='feather-icon'>{types[type].icon}</div> {types[type].title}</h4>
     {message}
     <style jsx>{`
       h4 {
@@ -50,8 +50,9 @@ const Notification = ({message, type}) => (
         border: 1px solid ${theme.errorBorder};
       }
 
-      .icon {
-        margin-right: 3px;
+      .feather-icon {
+        display: flex;
+        margin-right: 0.18em;
       }
 
       `}</style>
