@@ -51,13 +51,14 @@ const paths = [
     description: 'Point d’entrée pour le géocodage de masse à partir d’un fichier CSV',
     params: [
       {name: 'columns', description: 'Paramètre multiple définissant les colonnes à utiliser ', type: 'string'},
+      {name: 'result_columns', description: 'Paramètre multiple permettant de filtrer les colonnes que doit retourner l’API. Cela permet d’alléger la réponse dans le cadre d’un processus industrialisé.'},
       {name: 'citycode', description: 'Précise le nom d’une colonne contenant le code INSEE', type: 'string'},
       {name: 'postcode', description: 'Précise le nom d’une colonne contenant le code Postal', type: 'string'}
     ],
     method: 'post',
     body: {
       name: 'data',
-      description: 'Fichier csv, encodé en UTF-8 et limité actuellement à 8Mo',
+      description: 'Fichier CSV de moins de 50 Mo',
       type: 'file'
     }
   },
@@ -76,7 +77,7 @@ const paths = [
     method: 'post',
     body: {
       name: 'data',
-      description: 'Fichier csv, encodé en UTF-8 et limité actuellement à 8Mo devant contenir les colonnes latitude (ou lat) et longitude (ou lon ou lng)',
+      description: 'Fichier CSV, encodé en UTF-8 et limité actuellement à 6 Mo devant contenir les colonnes latitude (ou lat) et longitude (ou lon ou lng)',
       type: 'file'
     }
   }

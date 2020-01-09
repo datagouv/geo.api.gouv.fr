@@ -19,7 +19,7 @@ const codeDepartement = {name: 'codeDepartement', description: 'Code du départe
 const codeRegion = {name: 'codeRegion', description: 'Code de la région associée', type: 'string'}
 const fields = {name: 'fields', description: 'Liste des champs souhaités dans la réponse', type: 'array [string]'}
 const format = {name: 'format', description: 'Format de réponse attendu', type: 'string', data: formats}
-const geometry = {name: 'geometry', description: 'Géométrie à utiliser pour la sortie géographique', type: 'string', data: geometries}
+const geometry = {name: 'geometry', description: 'Géométrie à utiliser pour la sortie géographique (format GeoJSON)', type: 'string', data: geometries}
 
 const params = [
   codePostal,

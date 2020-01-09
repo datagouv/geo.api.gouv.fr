@@ -21,7 +21,7 @@ export default () => (
               <ul>
                 <li>10 requêtes par seconde et par IP pour l’API Découpage administratif ;</li>
                 <li>50 requêtes par seconde et par IP pour le géocodage simple via l’API Adresse ;</li>
-                <li>2 requêtes simultanées par IP pour le géocodage de masse (maximum 6 Mo par envoi de fichier).</li>
+                <li>2 requêtes simultanées par IP pour le géocodage de masse (maximum 50 Mo par envoi de fichier pour le géocodage direct, 6 Mo pour le géocodage inversé).</li>
               </ul>
             </>
           </Question>
@@ -36,7 +36,7 @@ export default () => (
           <h3>API Adresse</h3>
 
           <Question question='Quelle est la licence des données proposées par l’API Adresse ?'>
-            <p>Les données utilisées sont les données <strong>Adresses ODbL</strong> disponibles <a href='https://adresse.data.gouv.fr/donnees-nationales'>sur cette page</a>. Ces données sont sous licence <strong>ODbL 1.0</strong>.</p>
+            <p>Les données utilisées sont les données <strong>Adresses</strong> disponibles <a href='https://adresse.data.gouv.fr/donnees-nationales'>sur cette page</a>. Ces données sont sous <a href='https://www.etalab.gouv.fr/licence-ouverte-open-licence'>Licence Ouverte</a>.</p>
           </Question>
         </div>
 
