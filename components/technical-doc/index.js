@@ -37,7 +37,7 @@ const TechnicalDoc = ({paths, defaultModel, defaultAttributs, optionAttributs}) 
 
       .feather-icon {
         font-size: 25px;
-        margin-right: 5px;
+        margin-right: 0.31em;
       }
       `}</style>
   </Section>

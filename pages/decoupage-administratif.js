@@ -40,7 +40,7 @@ export default () => (
       .feather-icon {
         font-size: 22px;
         vertical-align: middle;
-        margin-left: 5px;
+        margin-left: 0.31em;
       }
       `}</style>
   </Page>
