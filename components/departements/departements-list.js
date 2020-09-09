@@ -41,7 +41,7 @@ const DepartementsList = () => {
           loading={loading}
         >
           <p>
-            <span className='field'>/regions/[codeRegion]/departements</span> permet de récuperer <b>la liste des départements</b> associées à une région.
+            <span className='field'>{"/regions/{codeRegion}/departements"}</span> permet de récuperer <b>la liste des départements</b> associées à une région.
           </p>
         </Tuto>
 

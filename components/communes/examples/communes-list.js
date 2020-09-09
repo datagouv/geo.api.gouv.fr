@@ -40,7 +40,7 @@ const CommunesList = () => {
           loading={loading}
         >
           <p>
-            <span className='field'>/departements/[codeDepartement]/communes</span> permet de récuperer <b>la liste des communes</b> associées à un département.
+            <span className='field'>{"/departements/{codeDepartement}/communes"}</span> permet de récuperer <b>la liste des communes</b> associées à un département.
           </p>
         </Tuto>
 
