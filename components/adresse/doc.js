@@ -1,5 +1,5 @@
 // Fields
-const q = {name: 'q', description: 'Code Postal associé', type: 'string'}
+const q = {name: 'q', description: 'Chaîne de caractère recherchée', type: 'string'}
 const limit = {name: 'limit', description: 'Contrôle le nombre d’éléments retournés', type: 'number'}
 const autocomplete = {name: 'autocomplete', description: 'Active/désactive les traitements d’auto-complétion', type: 'number'}
 const _type = {name: 'type', description: 'Type de résultat attendu', type: 'string', data: ['housenumber', 'street', 'locality', 'municipality']}
