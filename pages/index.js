@@ -10,7 +10,7 @@ import theme from '../styles/theme'
 import Hero from '../components/hero'
 import Section from '../components/section'
 
-import Subscribe from '../components/home/subscribe'
+import Infolettre from '../components/home/infolettre'
 
 const title = 'geo.api.gouv.fr'
 const tagline = 'Interrogez les référentiels géographiques plus facilement.'
@@ -80,7 +80,7 @@ export default () => (
         ))}
       </div>
     </Section>
-    <Subscribe />
+    <Infolettre />
 
     <style jsx>{`
       .apis {
