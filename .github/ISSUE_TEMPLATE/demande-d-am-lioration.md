@@ -7,7 +7,8 @@ assignees: ''
 
 ---
 
-## Préalable
+## Préalables
+
 - Mon bug concerne les adresses: envoyer un mail à adresse@data.gouv.fr pour éviter d'attendre une réponse qui ne sera pas gérée sur ce dépôt
 - [ ] J'ai vérifié que le bug n'était pas déjà signalé dans les issues existantes ou ayant existées https://github.com/etalab/geo.api.gouv.fr/issues?q=is%3Aissue
 
