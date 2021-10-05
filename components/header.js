@@ -4,7 +4,7 @@ import HamburgerMenu from './hamburger-menu'
 
 const links = [
   {text: 'API Découpage administratif', href: '/decoupage-administratif'},
-  {text: 'API Adresse', href: '/adresse'},
+  {text: 'API Adresse', href: 'https://adresse.data.gouv.fr/api-doc/adresse'},
   {text: 'FAQ', href: '/faq'}
 ]
 
