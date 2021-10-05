@@ -5269,6 +5269,11 @@ next@^9.1.7:
     webpack-sources "1.4.3"
     whatwg-fetch "3.0.0"
 
+nextjs-redirect@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/nextjs-redirect/-/nextjs-redirect-5.0.2.tgz#4079733dce5b834f5ed68c882619529e68599aa1"
+  integrity sha512-zvWabGehLEOPNrBU/OGeMXDCNbQ7YScPm+HTpLLqgN081wtMz2jHCSiB04kwmJTbSxg+dwUe38cMz1pyT2ZjGw==
+
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
@@ -7635,8 +7640,9 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
 ua-parser-js@^0.7.9:
-  version "0.7.17"
-  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.17.tgz#e9ec5f9498b9ec910e7ae3ac626a805c4d09ecac"
+  version "0.7.28"
+  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.28.tgz#8ba04e653f35ce210239c64661685bf9121dec31"
+  integrity sha512-6Gurc1n//gjp9eQNXjD9O3M/sMwVtN5S8Lv9bvOYBfKfDNiIIhqiyi01vMBO45u4zkDE420w/e0se7Vs+sIg+g==
 
 underscore.string@^3.3.5:
   version "3.3.5"
