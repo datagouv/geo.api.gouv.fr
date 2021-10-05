@@ -4730,14 +4730,10 @@ lodash.zip@^4.2.0:
   resolved "https://registry.yarnpkg.com/lodash.zip/-/lodash.zip-4.2.0.tgz#ec6662e4896408ed4ab6c542a3990b72cc080020"
   integrity sha1-7GZi5IlkCO1KtsVCo5kLcswIACA=
 
-lodash@^4.13.1, lodash@^4.17.4:
-  version "4.17.4"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
-
-lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.5:
-  version "4.17.15"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
-  integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
+lodash@^4.13.1, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.4, lodash@^4.17.5:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 log-symbols@^2.0.0:
   version "2.1.0"
@@ -5268,6 +5264,11 @@ next@^9.1.7:
     webpack-hot-middleware "2.25.0"
     webpack-sources "1.4.3"
     whatwg-fetch "3.0.0"
+
+nextjs-redirect@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/nextjs-redirect/-/nextjs-redirect-5.0.2.tgz#4079733dce5b834f5ed68c882619529e68599aa1"
+  integrity sha512-zvWabGehLEOPNrBU/OGeMXDCNbQ7YScPm+HTpLLqgN081wtMz2jHCSiB04kwmJTbSxg+dwUe38cMz1pyT2ZjGw==
 
 nice-try@^1.0.4:
   version "1.0.5"
