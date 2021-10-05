@@ -24,7 +24,7 @@ const apis = [
   },
   {
     title: 'API Adresse',
-    href: '/adresse',
+    href: 'https://adresse.data.gouv.fr/api-doc/adresse',
     description: <span>Rechercher et localiser des adresses et lieux-dits.</span>,
     icon: <Compass />
   }
