@@ -34,7 +34,7 @@ function communeContour(commune) {
   }
 }
 
-const TryGeo = ({commune, locateUser, fetchError}) => {
+function TryGeo({commune, locateUser, fetchError}) {
   const [position, handleLocation, loading, locationError] = useGeolocation()
   const [bbox, setBbox] = useState(null)
   const [contour, setContour] = useState(null)
@@ -73,8 +73,7 @@ const TryGeo = ({commune, locateUser, fetchError}) => {
               <Notification message='Le temps de chargement n’est pas représentatif des performances de l’API ' type='info' />
               <Loader size='big' text='Chargement…' />
             </div> :
-            <Commune commune={commune} onClick={handleLocation} />
-          }
+            <Commune commune={commune} onClick={handleLocation} />}
         </div>
 
       </div>

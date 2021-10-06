@@ -11,11 +11,12 @@ const types = {
   error: {icon: <X />, title: 'Erreur'}
 }
 
-const Notification = ({message, type}) => (
-  <div className={`notification ${type}`}>
-    <h4><div className='feather-icon'>{types[type].icon}</div> {types[type].title}</h4>
-    {message}
-    <style jsx>{`
+function Notification({message, type}) {
+  return (
+    <div className={`notification ${type}`}>
+      <h4><div className='feather-icon'>{types[type].icon}</div> {types[type].title}</h4>
+      {message}
+      <style jsx>{`
       h4 {
         margin: 0.6em 0;
         display: flex;
@@ -56,8 +57,9 @@ const Notification = ({message, type}) => (
       }
 
       `}</style>
-  </div>
-)
+    </div>
+  )
+}
 
 Notification.propTypes = {
   message: PropTypes.string.isRequired,

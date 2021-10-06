@@ -3,7 +3,7 @@ import {useState} from 'react'
 import Section from '../section'
 import Button from '../button'
 
-const Infolettre = () => {
+function Infolettre() {
   const [isShown, setIsShown] = useState(false)
 
   return (

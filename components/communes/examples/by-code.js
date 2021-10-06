@@ -13,7 +13,7 @@ import {useFetch} from '../../hooks/fetch'
 
 import TryPostalCode from '../demo/try-postal-code'
 
-const ByCode = ({title, id, icon}) => {
+function ByCode({title, id, icon}) {
   const [input, setInput] = useInput('78000')
   const [{url, options}, setQuery] = useState(getCommunes({params: {codePostal: input}}))
   const [response, loading, error] = useFetch(url, options, false)
@@ -40,7 +40,7 @@ const ByCode = ({title, id, icon}) => {
           loading={loading}
         >
           <div>
-              La variable <span className='field'>codePostal</span> permet de récuperer <b>la liste des communes</b> associées à un code postal.
+            La variable <span className='field'>codePostal</span> permet de récuperer <b>la liste des communes</b> associées à un code postal.
           </div>
         </Tuto>
 

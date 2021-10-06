@@ -3,17 +3,19 @@ import PropTypes from 'prop-types'
 import InputForm from '../../input-form'
 import TryContainer from '../../try-container'
 
-const TryPostalCode = ({input, onChange, onSubmit, error, loading}) => (
-  <TryContainer error={error}>
-    <InputForm
-      value={input}
-      placeholder='Code postal'
-      buttonText='Chercher'
-      onChange={onChange}
-      onSubmit={onSubmit}
-      loading={loading} />
-  </TryContainer>
-)
+function TryPostalCode({input, onChange, onSubmit, error, loading}) {
+  return (
+    <TryContainer error={error}>
+      <InputForm
+        value={input}
+        placeholder='Code postal'
+        buttonText='Chercher'
+        onChange={onChange}
+        onSubmit={onSubmit}
+        loading={loading} />
+    </TryContainer>
+  )
+}
 
 TryPostalCode.propTypes = {
   input: PropTypes.string,

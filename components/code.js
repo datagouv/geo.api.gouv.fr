@@ -2,10 +2,11 @@ import PropTypes from 'prop-types'
 
 import theme from '../styles/theme'
 
-const Code = ({code}) => (
-  <>
-    <pre><code>{code}</code></pre>
-    <style jsx>{`
+function Code({code}) {
+  return (
+    <>
+      <pre><code>{code}</code></pre>
+      <style jsx>{`
       pre {
         background: ${theme.colors.white};
         border: 1px solid ${theme.backgroundGrey};
@@ -22,8 +23,9 @@ const Code = ({code}) => (
         background: ${theme.backgroundGrey}
       }
     `}</style>
-  </>
-)
+    </>
+  )
+}
 
 Code.propTypes = {
   code: PropTypes.string.isRequired

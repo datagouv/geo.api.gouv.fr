@@ -11,7 +11,7 @@ import {useFetch} from '../../hooks/fetch'
 import {useQuery} from '../../hooks/query'
 import {getDepartements, getDepartementCommunes} from '../../../lib/api/geo'
 
-const CommunesList = () => {
+function CommunesList() {
   const [code, setCode] = useState('01')
   const [departements, setDepartements] = useState({url: '', option: null})
   const [url, options] = useQuery(code, code => getDepartementCommunes(code))

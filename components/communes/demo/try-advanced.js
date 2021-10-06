@@ -33,6 +33,17 @@ class TryAdvanced extends React.Component {
     this.handleChange = this.handleChange.bind(this)
   }
 
+  static propTypes = {
+    selectField: PropTypes.func.isRequired,
+    selectedFields: PropTypes.array,
+    error: PropTypes.object
+  }
+
+  static defaultProps = {
+    selectedFields: [],
+    error: null
+  }
+
   handleChange(e) {
     const {selectField} = this.props
     selectField(e.target.value)
@@ -95,17 +106,6 @@ class TryAdvanced extends React.Component {
       </TryContainer>
     )
   }
-}
-
-TryAdvanced.propTypes = {
-  selectField: PropTypes.func.isRequired,
-  selectedFields: PropTypes.array,
-  error: PropTypes.object
-}
-
-TryAdvanced.defaultProps = {
-  selectedFields: [],
-  error: null
 }
 
 export default TryAdvanced

@@ -36,7 +36,7 @@ const STYLES = {
   }
 }
 
-const Map = ({switchStyle, bbox, defaultStyle, defaultCenter, defaultZoom, interactive, control, loading, error, children}) => {
+function Map({switchStyle, bbox, defaultStyle, defaultCenter, defaultZoom, interactive, control, loading, error, children}) {
   const [map, setMap] = useState(null)
   const [mapContainer, setMapContainer] = useState(null)
   const [isFirstLoad, setIsFirstLoad] = useState(false)

@@ -2,13 +2,14 @@ import PropTypes from 'prop-types'
 
 import theme from '../styles/theme'
 
-const Hero = ({title, tagline}) => (
-  <div className='hero'>
-    <div className='hero__container'>
-      <h1 className='hero__white-background'>{title}</h1>
-      <p className='hero__white-background'>{tagline}</p>
-    </div>
-    <style jsx>{`
+function Hero({title, tagline}) {
+  return (
+    <div className='hero'>
+      <div className='hero__container'>
+        <h1 className='hero__white-background'>{title}</h1>
+        <p className='hero__white-background'>{tagline}</p>
+      </div>
+      <style jsx>{`
       .hero {
         width: 100%;
         color: ${theme.colors.white};
@@ -47,8 +48,9 @@ const Hero = ({title, tagline}) => (
         font-style: italic;
       }
     `}</style>
-  </div>
-)
+    </div>
+  )
+}
 
 Hero.propTypes = {
   title: PropTypes.string.isRequired,

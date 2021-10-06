@@ -4,7 +4,7 @@ import SelectInput from '../select-input'
 import TryContainer from '../try-container'
 import {useFetch} from '../hooks/fetch'
 
-const TryList = ({value, items, description, label, query, error, handleSelect}) => {
+function TryList({value, items, description, label, query, error, handleSelect}) {
   const [response] = useFetch(query.url, query.options, false)
 
   const renderOption = option => {
