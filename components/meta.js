@@ -4,7 +4,7 @@ import Head from 'next/head'
 
 const SITE_NAME = 'geo.api.gouv.fr'
 
-const Meta = ({title, description}) => {
+function Meta({title, description}) {
   description = prune(description, 160, '…')
   return (
     <Head>

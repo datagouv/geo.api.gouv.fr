@@ -18,6 +18,19 @@ const getMethodColor = method => {
 }
 
 class Path extends React.Component {
+  static defaultProps = {
+    method: 'get',
+    body: null
+  }
+
+  static propTypes = {
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    params: PropTypes.array.isRequired,
+    method: PropTypes.oneOf(['get', 'post', 'put']),
+    body: PropTypes.object
+  }
+
   render() {
     const {name, description, params, method, body} = this.props
     const title = (
@@ -63,19 +76,6 @@ class Path extends React.Component {
       </ExpandableMenu>
     )
   }
-}
-
-Path.defaultProps = {
-  method: 'get',
-  body: null
-}
-
-Path.propTypes = {
-  name: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  params: PropTypes.array.isRequired,
-  method: PropTypes.oneOf(['get', 'post', 'put']),
-  body: PropTypes.object
 }
 
 export default Path

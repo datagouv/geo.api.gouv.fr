@@ -4,32 +4,32 @@ import theme from '../../styles/theme'
 
 import Code from '../code'
 
-const ParamsTable = ({label, params}) => (
-  <div className='params-table-container'>
-    {label && <label>{label}</label>}
-    <table>
-      <tbody>
-        <tr>
-          <th>Nom</th>
-          <th>Description</th>
-          <th>Type</th>
-          {params.find(arg => arg.model) && <th>Modèle</th>}
-        </tr>
-      </tbody>
-      {params.map(param => (
-        <tbody key={`nom-${param.name}`}>
+function ParamsTable({label, params}) {
+  return (
+    <div className='params-table-container'>
+      {label && <label>{label}</label>}
+      <table>
+        <tbody>
           <tr>
-            <td>{param.name}</td>
-            <td>{param.description}</td>
-            <td>{param.type}</td>
-            {param.model &&
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Type</th>
+            {params.find(arg => arg.model) && <th>Modèle</th>}
+          </tr>
+        </tbody>
+        {params.map(param => (
+          <tbody key={`nom-${param.name}`}>
+            <tr>
+              <td>{param.name}</td>
+              <td>{param.description}</td>
+              <td>{param.type}</td>
+              {param.model &&
               <td>
                 <Code code={JSON.stringify(param.model, null, 2)} />
-              </td>
-            }
-          </tr>
+              </td>}
+            </tr>
 
-          {param.data &&
+            {param.data &&
             <tr>
               <td>
                 <table>
@@ -44,17 +44,17 @@ const ParamsTable = ({label, params}) => (
               </td>
             </tr>}
 
-          {param.subs && param.subs.map(sub => (
-            <tr key={`sub-${param.name}-${sub.name}`} className='sub'>
-              <td>{sub.name}</td>
-              <td>{sub.description}</td>
-              <td>{sub.type}</td>
-            </tr>
-          ))}
-        </tbody>
-      ))}
-    </table>
-    <style jsx>{`
+            {param.subs && param.subs.map(sub => (
+              <tr key={`sub-${param.name}-${sub.name}`} className='sub'>
+                <td>{sub.name}</td>
+                <td>{sub.description}</td>
+                <td>{sub.type}</td>
+              </tr>
+            ))}
+          </tbody>
+        ))}
+      </table>
+      <style jsx>{`
       .params-table-container {
         padding: 0.5em;
         background: ${theme.colors.white};
@@ -96,8 +96,9 @@ const ParamsTable = ({label, params}) => (
       }
 
       `}</style>
-  </div>
-)
+    </div>
+  )
+}
 
 ParamsTable.defaultProps = {
   label: null

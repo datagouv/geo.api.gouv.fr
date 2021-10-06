@@ -4,23 +4,25 @@ import SearchInput from '../search-input'
 import SwitchInput from '../switch-input'
 import TryContainer from '../try-container'
 
-const TryName = ({value, placeholder, results, boost, renderItem, loading, error, disabledBoost, handleChange, handleSelect, handleBoost}) => (
-  <TryContainer error={error}>
-    <SearchInput
-      value={value}
-      items={results}
-      loading={loading}
-      placeholder={placeholder}
-      onSelect={handleSelect}
-      onSearch={handleChange}
-      renderItem={renderItem}
-      getItemValue={item => item.nom}
-    />
-    {!disabledBoost && (
-      <SwitchInput handleChange={handleBoost} label='Boost de population' isChecked={boost} />
-    )}
-  </TryContainer>
-)
+function TryName({value, placeholder, results, boost, renderItem, loading, error, disabledBoost, handleChange, handleSelect, handleBoost}) {
+  return (
+    <TryContainer error={error}>
+      <SearchInput
+        value={value}
+        items={results}
+        loading={loading}
+        placeholder={placeholder}
+        onSelect={handleSelect}
+        onSearch={handleChange}
+        renderItem={renderItem}
+        getItemValue={item => item.nom}
+      />
+      {!disabledBoost && (
+        <SwitchInput handleChange={handleBoost} label='Boost de population' isChecked={boost} />
+      )}
+    </TryContainer>
+  )
+}
 
 TryName.propTypes = {
   value: PropTypes.string,

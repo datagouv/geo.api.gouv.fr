@@ -12,7 +12,7 @@ import Tuto from '../tuto'
 import TryList from '../demo/try-list'
 import Section from '../section'
 
-const DepartementsList = () => {
+function DepartementsList() {
   const [code, setCode] = useState('28')
   const [regions, setRegions] = useState({url: '', option: null})
   const [url, options] = useQuery(code, code => getRegionDepartements(code))

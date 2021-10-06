@@ -16,6 +16,20 @@ class Result extends React.Component {
     this.handleDisplay = this.handleDisplay.bind(this)
   }
 
+  static propTypes = {
+    exemple: PropTypes.string.isRequired,
+    results: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.object
+    ]),
+    loading: PropTypes.bool
+  }
+
+  static defaultProps = {
+    loading: true,
+    results: null
+  }
+
   copyToClipboard(value) {
     copy(value)
   }
@@ -38,8 +52,7 @@ class Result extends React.Component {
               <Loader />
             </div>
           </div> :
-          <Code code={JSON.stringify(results, null, 2)} />
-        }
+          <Code code={JSON.stringify(results, null, 2)} />}
         <style jsx>{`
           .result-container {
             display: flex;
@@ -64,20 +77,6 @@ class Result extends React.Component {
       </div>
     )
   }
-}
-
-Result.propTypes = {
-  exemple: PropTypes.string.isRequired,
-  results: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.object
-  ]),
-  loading: PropTypes.bool
-}
-
-Result.defaultProps = {
-  loading: true,
-  results: null
 }
 
 export default Result

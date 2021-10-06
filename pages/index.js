@@ -30,7 +30,7 @@ const apis = [
   }
 ]
 
-const Api = ({title, icon, description, href}) => {
+function Api({title, icon, description, href}) {
   return (
     <Link href={href}>
       <div className='article__author panel'>

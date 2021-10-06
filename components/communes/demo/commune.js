@@ -7,6 +7,15 @@ import theme from '../../../styles/theme'
 import Button from '../../button'
 
 class Commune extends React.Component {
+  static propTypes = {
+    commune: PropTypes.object,
+    onClick: PropTypes.func.isRequired
+  }
+
+  static defaultProps = {
+    commune: null
+  }
+
   render() {
     const {commune, onClick} = this.props
 
@@ -60,15 +69,6 @@ class Commune extends React.Component {
       </div>
     )
   }
-}
-
-Commune.propTypes = {
-  commune: PropTypes.object,
-  onClick: PropTypes.func.isRequired
-}
-
-Commune.defaultProps = {
-  commune: null
 }
 
 export default Commune

@@ -11,6 +11,21 @@ class Input extends React.PureComponent {
     this.handleChange = this.handleChange.bind(this)
   }
 
+  static propTypes = {
+    value: PropTypes.string,
+    placeholder: PropTypes.string,
+    loading: PropTypes.bool,
+    buttonText: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired
+  }
+
+  static defaultProps = {
+    value: null,
+    placeholder: '',
+    loading: false
+  }
+
   handleSubmit(event) {
     const {value, onSubmit} = this.props
     event.preventDefault()
@@ -44,21 +59,6 @@ class Input extends React.PureComponent {
       </div>
     )
   }
-}
-
-Input.propTypes = {
-  value: PropTypes.string,
-  placeholder: PropTypes.string,
-  loading: PropTypes.bool,
-  buttonText: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired
-}
-
-Input.defaultProps = {
-  value: null,
-  placeholder: '',
-  loading: false
 }
 
 export default Input

@@ -12,6 +12,32 @@ class Tuto extends React.Component {
     this.copyToClipboard = this.copyToClipboard.bind(this)
   }
 
+  static propTypes = {
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    icon: PropTypes.element.isRequired,
+    exemple: PropTypes.string.isRequired,
+    side: PropTypes.PropTypes.oneOf([
+      'right', 'left'
+    ]).isRequired,
+    results: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.object
+    ]),
+    tips: PropTypes.string,
+    warning: PropTypes.string,
+    loading: PropTypes.bool,
+    children: PropTypes.node
+  }
+
+  static defaultProps = {
+    tips: '',
+    warning: '',
+    results: null,
+    loading: true,
+    children: null
+  }
+
   copyToClipboard(value) {
     copy(value)
   }
@@ -61,32 +87,6 @@ class Tuto extends React.Component {
       </div>
     )
   }
-}
-
-Tuto.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  icon: PropTypes.element.isRequired,
-  exemple: PropTypes.string.isRequired,
-  side: PropTypes.PropTypes.oneOf([
-    'right', 'left'
-  ]).isRequired,
-  results: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.object
-  ]),
-  tips: PropTypes.string,
-  warning: PropTypes.string,
-  loading: PropTypes.bool,
-  children: PropTypes.node
-}
-
-Tuto.defaultProps = {
-  tips: '',
-  warning: '',
-  results: null,
-  loading: true,
-  children: null
 }
 
 export default Tuto

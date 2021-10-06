@@ -7,7 +7,7 @@ import Section from '../../section'
 import ByName from '../../demo/by-name'
 import {getCommunes} from '../../../lib/api/geo'
 
-const ByCommuneName = ({title, id, icon}) => {
+function ByCommuneName({title, id, icon}) {
   const renderCommune = (item, isHighlighted) => {
     const description = item.departement ? `${item.departement.nom} - ${item.departement.code}` : 'Collectivité d’outre-mer'
 

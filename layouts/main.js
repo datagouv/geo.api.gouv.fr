@@ -12,6 +12,21 @@ import Footer from '../components/footer'
 import theme from '../styles/theme'
 
 class Layout extends React.Component {
+  static propTypes = {
+    router: PropTypes.shape({
+      pathname: PropTypes.string.isRequired
+    }).isRequired,
+    children: PropTypes.node,
+    title: PropTypes.string,
+    description: PropTypes.string
+  }
+
+  static defaultProps = {
+    children: null,
+    title: null,
+    description: null
+  }
+
   componentDidMount() {
     const {router} = this.props
 
@@ -48,21 +63,6 @@ class Layout extends React.Component {
       </div>
     )
   }
-}
-
-Layout.propTypes = {
-  router: PropTypes.shape({
-    pathname: PropTypes.string.isRequired
-  }).isRequired,
-  children: PropTypes.node,
-  title: PropTypes.string,
-  description: PropTypes.string
-}
-
-Layout.defaultProps = {
-  children: null,
-  title: null,
-  description: null
 }
 
 export default withRouter(Layout)

@@ -2,11 +2,12 @@ import PropTypes from 'prop-types'
 
 import theme from '../styles/theme'
 
-const Loader = ({size, text, ...props}) => (
-  <div {...props} className='loader-container'>
-    {text && <div className='text'>{text}</div>}
-    <div className={`loader ${size}`} />
-    <style jsx>{`
+function Loader({size, text, ...props}) {
+  return (
+    <div {...props} className='loader-container'>
+      {text && <div className='text'>{text}</div>}
+      <div className={`loader ${size}`} />
+      <style jsx>{`
       .loader-container {
         display: flex;
         flex-direction: column;
@@ -50,8 +51,9 @@ const Loader = ({size, text, ...props}) => (
         100% { transform: rotate(360deg); }
       }
     `}</style>
-  </div>
-)
+    </div>
+  )
+}
 
 Loader.propTypes = {
   size: PropTypes.string,

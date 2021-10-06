@@ -1,8 +1,9 @@
 import theme from '../../styles/theme'
 
-const BetaRibbon = () => (
-  <div className='ribbon'>
-    <style jsx>{`
+function BetaRibbon() {
+  return (
+    <div className='ribbon'>
+      <style jsx>{`
       .ribbon:after {
         content: "beta";
         display: inline-block;
@@ -38,7 +39,8 @@ const BetaRibbon = () => (
         }
       }
       `}</style>
-  </div>
-)
+    </div>
+  )
+}
 
 export default BetaRibbon
