@@ -31,8 +31,8 @@ class Commune extends React.Component {
             <div className='coords'>
               <div><b>Coordonnées</b></div>
               <div>
-                <div>longitude : <span>{commune.centre.coordinates[1]}</span></div>
-                <div>latitude : <span>{commune.centre.coordinates[0]}</span></div>
+                <div>longitude : <span>{commune.centre.coordinates[0]}</span></div>
+                <div>latitude : <span>{commune.centre.coordinates[1]}</span></div>
               </div>
             </div>
           </div>
