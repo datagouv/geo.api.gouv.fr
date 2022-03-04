@@ -35,7 +35,7 @@ const _score = {
 const paths = [
   {name: '/departements', description: 'Rechercher des départements', params: [code, codeRegion, nom, fields]},
   {name: '/departements/{code}', description: 'Récupérer les informations concernant un département', params: [code, fields]},
-  {name: '/regions/{code}/departements', description: 'Renvoi les départements d’une région', params: [code, fields]}
+  {name: '/regions/{codeRegion}/departements', description: 'Renvoie les départements d’une région', params: [codeRegion, fields]}
 ]
 
 const defaultModel = [
