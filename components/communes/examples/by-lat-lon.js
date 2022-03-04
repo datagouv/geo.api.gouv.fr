@@ -28,7 +28,7 @@ function getInfos(position) {
   }
 }
 
-const ByLatLon = ({title, id, icon}) => {
+function ByLatLon({title, id, icon}) {
   const [position, setPosition] = useState(null)
   const [url, options] = useQuery(position, getInfos)
   const [response, loading, error] = useFetch(url, options, false)

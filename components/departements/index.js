@@ -18,21 +18,23 @@ const examples = [
   {title: 'Liste de départements', id: 'departements-list', icon: <List />}
 ]
 
-const Departements = () => (
-  <div>
-    <Summary examples={examples} />
+function Departements() {
+  return (
+    <div>
+      <Summary examples={examples} />
 
-    <TechnicalDoc {...doc} />
+      <TechnicalDoc {...doc} />
 
-    <Section background='grey'>
-      <ByName
-        defaultInput='Yvelines'
-        placeholder='Rechercher un département…'
-        renderQuery={({input}) => getDepartements({params: {nom: input}, limit: 5})}
-      />
-    </Section>
-    <DepartementsList />
-  </div>
-)
+      <Section background='grey'>
+        <ByName
+          defaultInput='Yvelines'
+          placeholder='Rechercher un département…'
+          renderQuery={({input}) => getDepartements({params: {nom: input}, limit: 5})}
+        />
+      </Section>
+      <DepartementsList />
+    </div>
+  )
+}
 
 export default Departements

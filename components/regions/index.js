@@ -17,21 +17,23 @@ const examples = [
   {title: 'Liste des régions', id: 'regions-list', icon: <List />}
 ]
 
-const Regions = () => (
-  <div>
-    <Summary examples={examples} />
+function Regions() {
+  return (
+    <div>
+      <Summary examples={examples} />
 
-    <TechnicalDoc {...doc} />
+      <TechnicalDoc {...doc} />
 
-    <Section background='grey'>
-      <ByName
-        defaultInput='Hauts-de-France'
-        placeholder='Rechercher une région…'
-        renderQuery={({input}) => getRegions({params: {nom: input}, limit: 5})}
-      />
-    </Section>
-    <RegionsList />
-  </div>
-)
+      <Section background='grey'>
+        <ByName
+          defaultInput='Hauts-de-France'
+          placeholder='Rechercher une région…'
+          renderQuery={({input}) => getRegions({params: {nom: input}, limit: 5})}
+        />
+      </Section>
+      <RegionsList />
+    </div>
+  )
+}
 
 export default Regions

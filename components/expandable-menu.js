@@ -4,11 +4,20 @@ import PropTypes from 'prop-types'
 import theme from '../styles/theme'
 
 class ExpandableMenu extends React.Component {
+  state = {expanded: false}
+
   constructor(props) {
     super(props)
-    this.state = {expanded: false}
 
     this.expand = this.expand.bind(this)
+  }
+
+  static propTypes = {
+    title: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.node
+    ]).isRequired,
+    children: PropTypes.node.isRequired
   }
 
   expand() {
@@ -70,14 +79,6 @@ class ExpandableMenu extends React.Component {
       </div>
     )
   }
-}
-
-ExpandableMenu.propTypes = {
-  title: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.node
-  ]).isRequired,
-  children: PropTypes.node.isRequired
 }
 
 export default ExpandableMenu

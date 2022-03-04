@@ -10,7 +10,7 @@ import theme from '../styles/theme'
 import Hero from '../components/hero'
 import Section from '../components/section'
 
-import Subscribe from '../components/home/subscribe'
+import Infolettre from '../components/home/infolettre'
 
 const title = 'geo.api.gouv.fr'
 const tagline = 'Interrogez les référentiels géographiques plus facilement.'
@@ -24,13 +24,13 @@ const apis = [
   },
   {
     title: 'API Adresse',
-    href: '/adresse',
+    href: 'https://adresse.data.gouv.fr/api-doc/adresse',
     description: <span>Rechercher et localiser des adresses et lieux-dits.</span>,
     icon: <Compass />
   }
 ]
 
-const Api = ({title, icon, description, href}) => {
+function Api({title, icon, description, href}) {
   return (
     <Link href={href}>
       <div className='article__author panel'>
@@ -80,7 +80,7 @@ export default () => (
         ))}
       </div>
     </Section>
-    <Subscribe />
+    <Infolettre />
 
     <style jsx>{`
       .apis {

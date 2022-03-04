@@ -9,6 +9,11 @@ class InputExemple extends React.Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
+  static propTypes = {
+    value: PropTypes.string.isRequired,
+    copy: PropTypes.func.isRequired
+  }
+
   handleClick() {
     const {copy, value} = this.props
     copy(`curl '${value}'`)
@@ -35,11 +40,6 @@ class InputExemple extends React.Component {
       </div>
     )
   }
-}
-
-InputExemple.propTypes = {
-  value: PropTypes.string.isRequired,
-  copy: PropTypes.func.isRequired
 }
 
 export default InputExemple

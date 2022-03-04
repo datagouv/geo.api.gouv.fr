@@ -4,16 +4,16 @@ import theme from '../styles/theme'
 
 import Notification from './notification'
 
-const TryContainer = ({error, children}) => (
-  <div className='try-container'>
-    <h3>Essayez-moi</h3>
-    {children}
-    {error &&
+function TryContainer({error, children}) {
+  return (
+    <div className='try-container'>
+      <h3>Essayez-moi</h3>
+      {children}
+      {error &&
       <div className='error'>
         <Notification message={error.message} type='error' />
-      </div>
-    }
-    <style jsx>{`
+      </div>}
+      <style jsx>{`
       .try-container {
         padding: 2em;
         background: white;
@@ -29,8 +29,9 @@ const TryContainer = ({error, children}) => (
         text-align: center;
       }
       `}</style>
-  </div>
-)
+    </div>
+  )
+}
 
 TryContainer.propTypes = {
   error: PropTypes.object,

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import useSources from './hooks/sources'
 import useLayers from './hooks/layers'
 
-const ContourMap = ({contour, coords, setSources, setLayers, setMarkerCoordinates}) => {
+function ContourMap({contour, coords, setSources, setLayers, setMarkerCoordinates}) {
   const sources = useSources(contour)
   const layers = useLayers(contour)
 

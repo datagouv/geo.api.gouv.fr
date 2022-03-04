@@ -5,19 +5,21 @@ import ExpandableMenu from '../expandable-menu'
 
 import ParamsTable from './params-table'
 
-const Attributs = ({model, defaults, optionals}) => (
-  <ExpandableMenu title='Attributs'>
-    <div>
-      <ParamsTable label='Par défaut' params={defaults} />
-      {optionals && (
-        <ParamsTable label='Optionnels' params={optionals} />
-      )}
-    </div>
+function Attributs({model, defaults, optionals}) {
+  return (
+    <ExpandableMenu title='Attributs'>
+      <div>
+        <ParamsTable label='Par défaut' params={defaults} />
+        {optionals && (
+          <ParamsTable label='Optionnels' params={optionals} />
+        )}
+      </div>
 
-    <b>Modèle de réponse (par défaut)</b>
-    <Code code={JSON.stringify(model, null, 2)} />
-  </ExpandableMenu>
-)
+      <b>Modèle de réponse (par défaut)</b>
+      <Code code={JSON.stringify(model, null, 2)} />
+    </ExpandableMenu>
+  )
+}
 
 Attributs.propTypes = {
   model: PropTypes.oneOfType([

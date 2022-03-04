@@ -10,7 +10,7 @@ import Section from '../../section'
 import Tuto from '../../tuto'
 import TryAdvanced from '../demo/try-advanced'
 
-const AdvancedSearch = ({title, id, icon}) => {
+function AdvancedSearch({title, id, icon}) {
   const [fields, setFields] = useState([])
   const [url, options] = useQuery(fields, fields => getCommunes({params: {nom: 'Versailles'}, fields: ['code', 'nom', ...fields]}))
   const [response, loading, error] = useFetch(url, options, false)

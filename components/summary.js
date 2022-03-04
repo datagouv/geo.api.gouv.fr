@@ -5,20 +5,21 @@ import theme from '../styles/theme'
 
 import Section from './section'
 
-const Summary = ({examples}) => (
-  <Section title='Découvrez l’API' background='white'>
-    <div className='summary'>
-      {examples.map(feature => (
-        <Link key={feature.title} href={`#${feature.id}`}>
-          <a>
-            <div className='feather-icon'>{feature.icon}</div>
-            <p>{feature.title}</p>
-          </a>
-        </Link>
-      ))}
-    </div>
+function Summary({examples}) {
+  return (
+    <Section title='Découvrez l’API' background='white'>
+      <div className='summary'>
+        {examples.map(feature => (
+          <Link key={feature.title} href={`#${feature.id}`}>
+            <a>
+              <div className='feather-icon'>{feature.icon}</div>
+              <p>{feature.title}</p>
+            </a>
+          </Link>
+        ))}
+      </div>
 
-    <style jsx>{`
+      <style jsx>{`
       .summary {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -48,8 +49,9 @@ const Summary = ({examples}) => (
         vertical-align: middle;
       }
     `}</style>
-  </Section>
-)
+    </Section>
+  )
+}
 
 Summary.propTypes = {
   examples: PropTypes.array.isRequired

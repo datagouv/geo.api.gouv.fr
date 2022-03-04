@@ -1,14 +1,15 @@
 import PropTypes from 'prop-types'
 import theme from '../styles/theme'
 
-const SwitchInput = ({handleChange, label, isChecked}) => (
-  <div className='switch-input-container'>
-    <label className='switch'>
-      <input type='checkbox' onChange={handleChange} defaultChecked={isChecked} />
-      <span className='slider round' />
-    </label>
-    <label>{label}</label>
-    <style jsx>{`
+function SwitchInput({handleChange, label, isChecked}) {
+  return (
+    <div className='switch-input-container'>
+      <label className='switch'>
+        <input type='checkbox' onChange={handleChange} defaultChecked={isChecked} />
+        <span className='slider round' />
+      </label>
+      <label>{label}</label>
+      <style jsx>{`
       .switch-input-container {
         display: flex;
         align-items: center;
@@ -75,8 +76,9 @@ const SwitchInput = ({handleChange, label, isChecked}) => (
         border-radius: 50%;
       }
       `}</style>
-  </div>
-)
+    </div>
+  )
+}
 
 SwitchInput.propTypes = {
   label: PropTypes.string.isRequired,

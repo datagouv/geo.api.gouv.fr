@@ -19,18 +19,20 @@ const examples = [
   {title: 'Recherche avancée', id: 'advanced', icon: <Sliders />}
 ]
 
-const Communes = () => (
-  <div>
-    <Summary examples={examples} />
+function Communes() {
+  return (
+    <div>
+      <Summary examples={examples} />
 
-    <TechnicalDoc {...doc} />
+      <TechnicalDoc {...doc} />
 
-    <ByCode {...examples[0]} />
-    <ByCommuneName {...examples[1]} />
-    <CommunesList {...examples[2]} />
-    <ByLatLon {...examples[3]} />
-    <AdvancedSearch {...examples[4]} />
-  </div>
-)
+      <ByCode {...examples[0]} />
+      <ByCommuneName {...examples[1]} />
+      <CommunesList {...examples[2]} />
+      <ByLatLon {...examples[3]} />
+      <AdvancedSearch {...examples[4]} />
+    </div>
+  )
+}
 
 export default Communes

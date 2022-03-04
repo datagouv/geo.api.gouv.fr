@@ -7,6 +7,20 @@ class SelectInput extends React.Component {
     this.handleChange = this.handleChange.bind(this)
   }
 
+  static propTypes = {
+    value: PropTypes.string,
+    label: PropTypes.string,
+    renderOption: PropTypes.func,
+    options: PropTypes.array.isRequired,
+    handleSelect: PropTypes.func.isRequired
+  }
+
+  static defaultProps = {
+    value: '',
+    label: null,
+    renderOption: option => <option key={`option-${option}`}>{option}</option>
+  }
+
   handleChange(e) {
     const {handleSelect} = this.props
     handleSelect(e.target.value)
@@ -26,20 +40,6 @@ class SelectInput extends React.Component {
       </div>
     )
   }
-}
-
-SelectInput.propTypes = {
-  value: PropTypes.string,
-  label: PropTypes.string,
-  renderOption: PropTypes.func,
-  options: PropTypes.array.isRequired,
-  handleSelect: PropTypes.func.isRequired
-}
-
-SelectInput.defaultProps = {
-  value: '',
-  label: null,
-  renderOption: option => <option key={`option-${option}`}>{option}</option>
 }
 
 export default SelectInput

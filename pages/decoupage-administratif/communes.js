@@ -11,7 +11,7 @@ const description = 'Toutes les communes de France, mais aussi les communes anci
 export default () => (
   <Page title={title} description={description}>
     <Head title={title} icon={<MapPin />}>
-    Toutes les communes de France, mais aussi les communes anciennes et les arrondissements.
+      Toutes les communes de France, mais aussi les communes anciennes et les arrondissements.
     </Head>
     <Communes />
   </Page>

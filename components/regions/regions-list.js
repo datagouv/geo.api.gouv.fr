@@ -10,7 +10,7 @@ import Tuto from '../tuto'
 import Section from '../section'
 import Notification from '../notification'
 
-const RegionsList = () => {
+function RegionsList() {
   const [url, options] = useQuery({}, () => getRegions())
   const [response, loading, error] = useFetch(url, options, true)
 
@@ -32,8 +32,7 @@ const RegionsList = () => {
           {error &&
           <div className='error'>
             <Notification message={error.message} type='error' />
-          </div>
-          }
+          </div>}
         </Tuto>
       </div>
 

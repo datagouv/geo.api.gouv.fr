@@ -41,7 +41,7 @@ function renderDefaultItem(item, isHighlighted) {
   )
 }
 
-const ByName = ({defaultInput, placeholder, disabledBoost, renderQuery, renderList, renderItem, children}) => {
+function ByName({defaultInput, placeholder, disabledBoost, renderQuery, renderList, renderItem, children}) {
   const [input, setInput] = useInput(defaultInput || '')
   const [boost, setBoost] = useState(true)
   const [url, options] = useQuery({input, boost}, renderQuery)

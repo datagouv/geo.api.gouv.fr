@@ -109,7 +109,6 @@ const paths = [
   {name: '/communes', description: 'Rechercher des communes', params},
   {name: '/communes/{code}', description: 'Récupérer les informations concernant une commune', params: [code, fields, format, geometry]},
   {name: '/departements/{codeDepartement}/communes', description: 'Renvoie les communes d’un département', params: [codeDepartement, fields, format, geometry]},
-  {name: '/regions/{codeRegion}/communes', description: 'Renvoie les communes d’une région', params: [codeRegion, fields, format, geometry]}
 ]
 
 const defaultModel = [
