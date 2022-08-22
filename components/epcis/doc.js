@@ -1,8 +1,7 @@
 const geometries = [
   'centre',
   'contour',
-  'bbox',
-  'mairie'
+  'bbox'
 ]
 
 const formats = [
@@ -11,73 +10,31 @@ const formats = [
 ]
 
 // Fields
-const codePostal = {name: 'codePostal', description: 'Code postal associé', type: 'string'}
-const lat = {name: 'lat', description: 'Latitude (en degrés)', type: 'number'}
-const lon = {name: 'lon', description: 'Longitude (en degrés)', type: 'number'}
+const code = {name: 'code', description: 'Code (INSEE) de la commune', type: 'string'}
 const nom = {name: 'nom', description: 'Nom de la commune', type: 'string'}
 const boost = {name: 'boost', description: 'Mode de boost de la recherche par nom', type: 'string'}
-const code = {name: 'code', description: 'Code (INSEE) de la commune', type: 'string'}
 const codeEpci = {name: 'codeEpci', description: 'Code de l’EPCI associé', type: 'string'}
 const codeDepartement = {name: 'codeDepartement', description: 'Code du département associé', type: 'string'}
 const codeRegion = {name: 'codeRegion', description: 'Code de la région associée', type: 'string'}
+const type = {name: 'type', description: 'Type de l’EPCI, soit communauté d’agglomération (CA), soit communauté de communes (CC), soit communauté urbaine (CU), soit métropole de Lyon (MET69), soit métropole (METRO)', type: 'string'}
+const financement = {name: 'financement', description: 'Financement de l’EPCI, soit fiscalité additionnelle (FA), soit en fiscalité professionnelle unique (FPU)', type: 'string'}
 const fields = {name: 'fields', description: 'Liste des champs souhaités dans la réponse', type: 'array [string]'}
-const zone = {name: 'zone', description: 'Zone, métropole (metro), DROM (drom) et COM (com)', type: 'array [string]'}
 const format = {name: 'format', description: 'Format de réponse attendu', type: 'string', data: formats}
 const geometry = {name: 'geometry', description: 'Géométrie à utiliser pour la sortie géographique (format GeoJSON)', type: 'string', data: geometries}
 
 const params = [
-  codePostal,
-  lon,
-  lat,
+  code,
   nom,
   boost,
-  code,
+  codeEpci,
   codeDepartement,
   codeRegion,
-  zone,
   fields,
   format,
   geometry
 ]
 
 // Arguments
-const codesPostaux = {
-  name: 'codesPostaux',
-  description: 'Liste des codes postaux de la commune',
-  type: 'array'
-}
-
-const epci = {
-  name: 'epci',
-  description: 'EPCI associé à la commune',
-  type: 'object',
-  model: {
-    code: 'string',
-    nom: 'string'
-  }
-}
-
-const departement = {
-  name: 'departement',
-  description: 'Département associé à la commune',
-  type: 'object',
-  model: {
-    code: 'string',
-    nom: 'string',
-    codeRegion: 'string'
-  }
-}
-
-const region = {
-  name: 'region',
-  description: 'Région associée à la commune',
-  type: 'object',
-  model: {
-    code: 'string',
-    nom: 'string'
-  }
-}
-
 const surface = {
   name: 'surface',
   description: 'Surface de la commune exprimée en mètre carré',
@@ -96,18 +53,6 @@ const centre = {
   }
 }
 
-const mairie = {
-  name: 'mairie',
-  description: 'Géométrie de type point représentant l’emplacement la mairie de la commune sauf pour les communes mortes pour la France et les COM où l’on retourne le centre',
-  type: 'object',
-  model: {
-    type: 'Point',
-    coordinates: [
-      'number'
-    ]
-  }
-}
-
 const population = {
   name: 'population',
   description: 'Nombre d’habitants de la commune',
@@ -116,7 +61,7 @@ const population = {
 
 const contour = {
   name: 'contour',
-  description: 'Géométrie de type polygon représentant le contour de la commune',
+  description: 'Géométrie de type polygon représentant le contour de l’EPCI',
   type: 'object',
   model: {
     type: 'Polygon',
@@ -128,7 +73,7 @@ const contour = {
 
 const bbox = {
   name: 'bbox',
-  description: 'Géométrie de type polygon représentant la bbox de la commune',
+  description: 'Géométrie de type polygon représentant la bbox de l’EPCI',
   type: 'object',
   model: {
     type: 'Polygon',
@@ -145,22 +90,18 @@ const _score = {
 }
 
 const paths = [
-  {name: '/communes', description: 'Rechercher des communes', params},
-  {name: '/communes/{code}', description: 'Récupérer les informations concernant une commune', params: [code, fields, format, geometry]},
-  {name: '/epcis/{code}/communes', description: 'Renvoi les communes d’un EPCI', params: [code, fields, format, geometry]},
-  {name: '/departements/{code}/communes', description: 'Renvoi les communes d’un département', params: [code, fields, format, geometry]}
+  {name: '/epcis', description: 'Rechercher des EPCI', params},
+  {name: '/epcis/{code}', description: 'Récupérer les informations concernant un EPCI', params: [code, fields, format, geometry]},
+  {name: '/epcis/{code}/communes', description: 'Renvoi les communes d’un EPCI', params: [code, fields, format, geometry]}
 ]
 
 const defaultModel = [
   {
     code: 'string',
     nom: 'string',
-    codesPostaux: [
-      'string'
-    ],
     codeEpci: 'string',
-    codeDepartement: 'string',
-    codeRegion: 'string',
+    codesDepartements: ['string'],
+    codesRegions: ['string'],
     population: 0,
     _score: 1
   }
@@ -169,7 +110,6 @@ const defaultModel = [
 const defaultAttributs = [
   code,
   nom,
-  codesPostaux,
   codeEpci,
   codeDepartement,
   codeRegion,
@@ -178,13 +118,11 @@ const defaultAttributs = [
 ]
 
 const optionAttributs = [
-  epci,
-  departement,
-  region,
+  financement,
+  type,
   surface,
   centre,
   contour,
-  mairie,
   bbox
 ]
 

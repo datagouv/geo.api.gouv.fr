@@ -1,7 +1,7 @@
 import {useState, useCallback} from 'react'
 import PropTypes from 'prop-types'
 
-import {getCommunes} from '../../../lib/api/geo'
+import {getEpcis} from '../../../lib/api/geo'
 
 import {useFetch} from '../../hooks/fetch'
 import {useQuery} from '../../hooks/query'
@@ -12,7 +12,7 @@ import TryAdvanced from '../demo/try-advanced'
 
 function AdvancedSearch({title, id, icon}) {
   const [fields, setFields] = useState([])
-  const [url, options] = useQuery(fields, fields => getCommunes({params: {nom: 'Versailles'}, fields: ['code', 'nom', ...fields]}))
+  const [url, options] = useQuery(fields, fields => getEpcis({params: {nom: 'Nan'}, fields: ['code', 'nom', ...fields]}))
   const [response, loading, error] = useFetch(url, options, false)
 
   const handleSelect = useCallback(field => {
@@ -37,7 +37,7 @@ function AdvancedSearch({title, id, icon}) {
           exemple={url}
           results={response}
           tips='Le paramètre format permet de préciser un format de sortie des données (json/geojson).'
-          warning='Le format GeoJSON implique de choisir une géométrie principale. Par défaut il s’agit du centre. Cela peut être changé en ajoutant le paramètre geometry=contour. Il est aussi possible de retourner la mairie avec geometry=mairie et le rectangle de l’étendue de la commune avec geometry=bbox'
+          warning="Le format GeoJSON implique de choisir une géométrie principale. Par défaut il s’agit du centre. Cela peut être changé en ajoutant le paramètre geometry=contour. Il est aussi possible de retourner le rectangle de l'étendue de l'EPCI avec geometry=bbox"
           loading={loading}
           side='right'
         />

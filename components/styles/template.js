@@ -2315,15 +2315,19 @@ export default () => (
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       grid-gap: 1em;
       grid-gap: var(--space-s);
       margin-top: 1em;
       margin-top: var(--space-s);
-      justify-items: center;
       -webkit-box-pack: space-evenly;
           -ms-flex-pack: space-evenly;
               justify-content: space-evenly;
+    }
+
+    @media (min-width: 550px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     .grid .panel + .panel,
