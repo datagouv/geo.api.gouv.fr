@@ -4,25 +4,21 @@ import PropTypes from 'prop-types'
 import TryContainer from '../../try-container'
 
 const codeFields = [
-  'codeEpci',
-  'epci',
-  'codeDepartement',
-  'departement',
-  'codeRegion',
-  'region'
+  'codesRegions',
+  'codesDepartements'
 ]
 
 const geoFields = [
   'centre',
   'contour',
-  'mairie',
   'bbox'
 ]
 
 const infosFields = [
   'surface',
   'population',
-  'codesPostaux',
+  'type',
+  'financement',
   'zone'
 ]
 

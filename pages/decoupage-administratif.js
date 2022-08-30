@@ -14,8 +14,13 @@ export default () => (
       <div className='grid'>
         <div className='col'>
           <h3>Communes</h3>
-          <p>Toutes les communes de France, mais aussi les communes anciennes et les arrondissements.</p>
+          <p>Toutes les communes de France, mais aussi les arrondissements.</p>
           <ButtonLink href='/decoupage-administratif/communes' size='large'>Voir la documentation <span className='feather-icon'><Book /></span></ButtonLink>
+        </div>
+        <div className='col'>
+          <h3>EPCI</h3>
+          <p>Tous les EPCI de France.</p>
+          <ButtonLink href='/decoupage-administratif/epcis' size='large'>Voir la documentation <span className='feather-icon'><Book /></span></ButtonLink>
         </div>
         <div className='col'>
           <h3>Départements</h3>
