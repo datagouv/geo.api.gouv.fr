@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import TryContainer from '../../try-container'
 
 const codeFields = [
+  'siren',
   'codeEpci',
   'epci',
   'codeDepartement',
