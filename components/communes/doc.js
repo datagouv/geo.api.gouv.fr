@@ -17,6 +17,7 @@ const lon = {name: 'lon', description: 'Longitude (en degrés)', type: 'number'}
 const nom = {name: 'nom', description: 'Nom de la commune', type: 'string'}
 const boost = {name: 'boost', description: 'Mode de boost de la recherche par nom', type: 'string'}
 const code = {name: 'code', description: 'Code (INSEE) de la commune', type: 'string'}
+const siren = {name: 'siren', description: 'Code SIREN de la commune', type: 'string'}
 const codeEpci = {name: 'codeEpci', description: 'Code de l’EPCI associé', type: 'string'}
 const codeDepartement = {name: 'codeDepartement', description: 'Code du département associé', type: 'string'}
 const codeRegion = {name: 'codeRegion', description: 'Code de la région associée', type: 'string'}
@@ -32,6 +33,7 @@ const params = [
   nom,
   boost,
   code,
+  siren,
   codeEpci,
   codeDepartement,
   codeRegion,
@@ -170,6 +172,7 @@ const defaultModel = [
 const defaultAttributs = [
   code,
   nom,
+  siren,
   codesPostaux,
   codeEpci,
   codeDepartement,
