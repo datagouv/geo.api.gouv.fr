@@ -10,10 +10,9 @@ const formats = [
 ]
 
 // Fields
-const code = {name: 'code', description: 'Code (INSEE) de la commune', type: 'string'}
-const nom = {name: 'nom', description: 'Nom de la commune', type: 'string'}
+const code = {name: 'code', description: 'Code (SIREN) de l’EPCI', type: 'string'}
+const nom = {name: 'nom', description: 'Nom de l’EPCI', type: 'string'}
 const boost = {name: 'boost', description: 'Mode de boost de la recherche par nom', type: 'string'}
-const codeEpci = {name: 'codeEpci', description: 'Code de l’EPCI associé', type: 'string'}
 const codeDepartement = {name: 'codeDepartement', description: 'Code du département associé', type: 'string'}
 const codeRegion = {name: 'codeRegion', description: 'Code de la région associée', type: 'string'}
 const type = {name: 'type', description: 'Type de l’EPCI, soit communauté d’agglomération (CA), soit communauté de communes (CC), soit communauté urbaine (CU), soit métropole de Lyon (MET69), soit métropole (METRO)', type: 'string'}
@@ -26,7 +25,6 @@ const params = [
   code,
   nom,
   boost,
-  codeEpci,
   codeDepartement,
   codeRegion,
   fields,
@@ -99,7 +97,6 @@ const defaultModel = [
   {
     code: 'string',
     nom: 'string',
-    codeEpci: 'string',
     codesDepartements: ['string'],
     codesRegions: ['string'],
     population: 0,
@@ -110,7 +107,6 @@ const defaultModel = [
 const defaultAttributs = [
   code,
   nom,
-  codeEpci,
   codeDepartement,
   codeRegion,
   population,
