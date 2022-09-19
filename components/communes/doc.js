@@ -23,6 +23,7 @@ const codeDepartement = {name: 'codeDepartement', description: 'Code du départe
 const codeRegion = {name: 'codeRegion', description: 'Code de la région associée', type: 'string'}
 const fields = {name: 'fields', description: 'Liste des champs souhaités dans la réponse', type: 'array [string]'}
 const zone = {name: 'zone', description: 'Zone, métropole (metro), DROM (drom) et COM (com)', type: 'array [string]'}
+const type = {name: 'type', description: 'Type, peut être commune-actuelle et/ou arrondissement-municipal', type: 'array [string]'}
 const format = {name: 'format', description: 'Format de réponse attendu', type: 'string', data: formats}
 const geometry = {name: 'geometry', description: 'Géométrie à utiliser pour la sortie géographique (format GeoJSON)', type: 'string', data: geometries}
 
@@ -38,6 +39,7 @@ const params = [
   codeDepartement,
   codeRegion,
   zone,
+  type,
   fields,
   format,
   geometry
@@ -182,6 +184,7 @@ const defaultAttributs = [
 ]
 
 const optionAttributs = [
+  type,
   epci,
   departement,
   region,
