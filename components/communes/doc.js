@@ -85,7 +85,7 @@ const region = {
 
 const surface = {
   name: 'surface',
-  description: 'Surface de la commune exprimée en mètre carré',
+  description: 'Surface de la commune, en hectares',
   type: 'number'
 }
 

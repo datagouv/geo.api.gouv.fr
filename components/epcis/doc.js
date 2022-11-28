@@ -35,7 +35,7 @@ const params = [
 // Arguments
 const surface = {
   name: 'surface',
-  description: 'Surface de la commune exprimée en mètre carré',
+  description: 'Surface de l\'EPCI, en hectares',
   type: 'number'
 }
 
