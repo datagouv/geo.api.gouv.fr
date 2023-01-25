@@ -5,7 +5,7 @@ import Section from '../components/section'
 import ButtonLink from '../components/button-link'
 
 const title = 'API Découpage administratif'
-const description = 'Rechercher et localiser les communes, départements et régions, et obtenez des informations les concernant'
+const description = 'Rechercher et localiser les communes, communes associées et déléguées, EPCI, départements et régions, et obtenez des informations les concernant'
 
 export default () => (
   <Page title={title} description={description}>
