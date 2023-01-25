@@ -18,6 +18,11 @@ export default () => (
           <ButtonLink href='/decoupage-administratif/communes' size='large'>Voir la documentation <span className='feather-icon'><Book /></span></ButtonLink>
         </div>
         <div className='col'>
+          <h3>Communes associées et déléguées</h3>
+          <p>Toutes les communes associées et déléguées de France.</p>
+          <ButtonLink href='/decoupage-administratif/communes-associees-deleguees' size='large'>Voir la documentation <span className='feather-icon'><Book /></span></ButtonLink>
+        </div>
+        <div className='col'>
           <h3>EPCI</h3>
           <p>Tous les EPCI de France.</p>
           <ButtonLink href='/decoupage-administratif/epcis' size='large'>Voir la documentation <span className='feather-icon'><Book /></span></ButtonLink>
