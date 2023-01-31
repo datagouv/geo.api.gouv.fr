@@ -40,7 +40,7 @@ function CommunesAssocieesDelegueesList() {
           loading={loading}
         >
           <p>
-            <span className='field'>/communes_associees_deleguees?codeDepartement=[codeDepartement]</span> permet de récuperer <b>la liste des communes associées et déléguées</b> d'un un département.
+            <span className='field'>/communes_associees_deleguees?codeDepartement=[codeDepartement]</span> permet de récuperer <b>la liste des communes associées et déléguées</b> d&apos;un département.
           </p>
           <p>
             Vous pouvez ajoutez un paramètre <span className='field'>type=commune-associee</span> ou <span className='field'>type=commune-deleguee</span> pour filtrer sur un seul type de commune.

@@ -1,4 +1,4 @@
-import {Mail, Tag, List, Compass, Sliders} from 'react-feather'
+import {Tag, List, Sliders} from 'react-feather'
 
 import Summary from '../summary'
 import TechnicalDoc from '../technical-doc'

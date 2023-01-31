@@ -59,8 +59,7 @@ function ByCommuneAssocieeDelegueeName({title, id, icon}) {
           icon={icon}
           renderQuery={renderQuery}
           renderItem={renderCommune}
-        >
-        </ByName>
+        />
       </div>
     </Section>
   )
