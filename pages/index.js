@@ -19,7 +19,7 @@ const apis = [
   {
     title: 'API Découpage administratif',
     href: '/decoupage-administratif',
-    description: <span>Rechercher et localiser les communes, départements et régions.</span>,
+    description: <span>Rechercher et localiser les communes, communes associées et déléguées, EPCI, départements et régions.</span>,
     icon: <MapPin />
   },
   {
