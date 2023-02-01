@@ -119,8 +119,8 @@ const _score = {
 }
 
 const paths = [
-  {name: '/communes', description: 'Rechercher des communes', params},
-  {name: '/communes/{code}', description: 'Récupérer les informations concernant une commune', params: [code, fields, format, geometry]}
+  {name: '/communes_associees_deleguees', description: 'Rechercher des communes', params},
+  {name: '/communes_associees_deleguees/{code}', description: 'Récupérer les informations concernant une commune', params: [code, fields, format, geometry]}
 ]
 
 const defaultModel = [
