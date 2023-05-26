@@ -19,7 +19,7 @@ function Footer() {
           <li><Link href='/cgu'><a>Mentions légales</a></Link></li>
           <li><Link href='/faq'><a>FAQ</a></Link></li>
           <li><a href='mailto:adresse@data.gouv.fr'>Contact API adresse</a></li>
-          <li><a href='mailto:geo@data.gouv.fr'>Contact API découpage administratif</a></li>
+          <li><Link href='https://support.data.gouv.fr/autre/geo'><a>Contact API découpage administratif</a></Link></li>
         </ul>
       </div>
       <style jsx>{`
