@@ -18,6 +18,7 @@ function Footer() {
           <li><h2>geo.api.gouv.fr</h2></li>
           <li><Link href='/cgu'><a>Mentions légales</a></Link></li>
           <li><Link href='/faq'><a>FAQ</a></Link></li>
+          <li><a href='mailto:adresse@data.gouv.fr'>Contact API adresse</a></li>
           <li><Link href='https://support.data.gouv.fr/autre/geo#support-tree'><a>Contact API découpage administratif</a></Link></li>
         </ul>
       </div>
