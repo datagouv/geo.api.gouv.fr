@@ -12,6 +12,7 @@ const formats = [
 
 // Fields
 const codePostal = {name: 'codePostal', description: 'Code postal associé', type: 'string'}
+const ancienCode = {name: 'ancienCode', description: 'Ancien code INSEE', type: 'string'}
 const lat = {name: 'lat', description: 'Latitude (en degrés)', type: 'number'}
 const lon = {name: 'lon', description: 'Longitude (en degrés)', type: 'number'}
 const nom = {name: 'nom', description: 'Nom de la commune', type: 'string'}
@@ -39,6 +40,7 @@ const params = [
   codeDepartement,
   codeRegion,
   zone,
+  ancienCode,
   type,
   fields,
   format,
@@ -119,6 +121,12 @@ const population = {
   type: 'number'
 }
 
+const anciensCodes = {
+  name: 'anciensCodes',
+  description: 'Liste des anciens codes INSEE',
+  type: 'array'
+}
+
 const contour = {
   name: 'contour',
   description: 'Géométrie de type polygon représentant le contour de la commune',
@@ -184,6 +192,7 @@ const defaultAttributs = [
 ]
 
 const optionAttributs = [
+  anciensCodes,
   type,
   epci,
   departement,
