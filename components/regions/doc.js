@@ -1,6 +1,7 @@
 // Fields
 const nom = {name: 'nom', description: 'Nom de la région', type: 'string'}
 const code = {name: 'code', description: 'Code (INSEE) de la région', type: 'string'}
+const zone = {name: 'zone', description: 'Zone, métropole (metro), DROM (drom) et COM (com)', type: 'array [string]'}
 const fields = {name: 'fields', description: 'Liste des champs souhaités dans la réponse', type: 'array [string]'}
 
 const _score = {
@@ -27,6 +28,8 @@ const defaultAttributs = [
   _score
 ]
 
-const optionAttributs = []
+const optionAttributs = [
+  zone
+]
 
 export default {paths, defaultModel, defaultAttributs, optionAttributs}
