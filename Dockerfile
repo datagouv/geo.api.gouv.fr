@@ -13,9 +13,11 @@ COPY yarn.lock /usr/src/app
 
 ENV NODE_OPTIONS "--openssl-legacy-provider"
 
-RUN yarn install --production
+RUN yarn install
 
 COPY . /usr/src/app
+
+ENV NODE_ENV production
 
 RUN yarn build
 
