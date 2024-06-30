@@ -28,7 +28,8 @@
     "react-dom": "^16.12.0",
     "react-feather": "^2.0.3",
     "underscore.string": "^3.3.5",
-    "use-debounce": "^2.2.0"
+    "use-debounce": "^2.2.0",
+    "webpack-bundle-analyzer": "^3.6.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
@@ -36,7 +37,6 @@
     "eslint-config-xo-nextjs": "^1.4.0",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^2.1.1",
-    "webpack-bundle-analyzer": "^3.6.0",
     "xo": "^0.24.0"
   },
   "xo": {
