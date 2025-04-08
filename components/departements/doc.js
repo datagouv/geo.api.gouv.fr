@@ -3,6 +3,7 @@ const nom = {name: 'nom', description: 'Nom du département', type: 'string'}
 const code = {name: 'code', description: 'Code (INSEE) du département', type: 'string'}
 const codeRegion = {name: 'codeRegion', description: 'Code de la région associée', type: 'string'}
 const zone = {name: 'zone', description: 'Zone, métropole (metro), DROM (drom) et COM (com)', type: 'array [string]'}
+const chefLieu = {name: 'chefLieu', description: 'Code (INSEE) du chef-lieu associé au département', type: 'string'}
 const fields = {name: 'fields', description: 'Liste des champs souhaités dans la réponse', type: 'array [string]'}
 
 const region = {
@@ -44,7 +45,8 @@ const defaultAttributs = [
 const optionAttributs = [
   codeRegion,
   region,
-  zone
+  zone,
+  chefLieu
 ]
 
 export default {paths, defaultModel, defaultAttributs, optionAttributs}
